@@ -9,6 +9,7 @@ const routes: Routes = [
         component: PagesComponent,
         children: [
             { path: 'restaurant', loadChildren: './restaurant/restaurant.module#RestaurantModule' },
+            { path: 'platillo', loadChildren: './platillo/platillo.module#PlatilloModule' },
         ]
     },
 ];
