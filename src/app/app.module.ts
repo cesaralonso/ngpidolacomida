@@ -1,3 +1,4 @@
+import { PagesModule } from './pages/pages.module';
 import { HomeModule } from './home/home.module';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,13 +16,14 @@ import { MainmenuComponent } from './mainmenu/mainmenu.component';
     AppComponent,
     AboutComponent,
     MegamenuComponent,
-    MainmenuComponent,
+    MainmenuComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ngpidolacomida'}),
     AppRoutingModule,
     HomeModule,
     BootstrapModalModule,
+    PagesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

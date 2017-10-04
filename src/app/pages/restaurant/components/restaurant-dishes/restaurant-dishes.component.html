@@ -1,0 +1,74 @@
+<section class="section" style="background-color: white;">
+  <div class="container">
+    <hr>
+    <h1> Platillos </h1>
+    <accordion [closeOthers]="true">
+        <accordion-group  #group1>
+          <div accordion-heading>
+            COMIDA MEXICANA
+            <i class="pull-right float-xs-right glyphicon"
+               [ngClass]="{'glyphicon-chevron-down': group1?.isOpen, 'glyphicon-chevron-right': !group1?.isOpen}"></i>
+          </div>
+          <div class="container dish" style="max-width: 100%">
+            <div class="row">
+              <div class="col-md-3">
+                <img src="http://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2016/08/pozolerojo.jpg" alt="">
+              </div>
+              <div class="col-md-7">
+                <div class="col-md-12">
+                  <h4>Pozole</h4>
+                  <hr>
+                </div>
+                <div class="col-md-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.....</div>
+              </div>
+              <div class="col-md-2">
+                <div class="col-md-12 dish-price-container">
+                  $
+                  <span class="dish-price">30</span>
+                </div>
+                <div class="col-md-12">
+                  <button class="btn btn-primary">Pedir</button>
+                </div>
+              </div>
+              <div class="col-md-12 sexy-line-cont">
+                <span class="sexy-line"></span>
+              </div>
+            </div>
+          </div>
+        </accordion-group>
+        <accordion-group  #group2>
+          <div accordion-heading>
+            OTROS
+            <i class="pull-right float-xs-right glyphicon"
+               [ngClass]="{'glyphicon-chevron-down': group2?.isOpen, 'glyphicon-chevron-right': !group2?.isOpen}"></i>
+          </div>
+          <div class="container dish" style="max-width: 100%">
+            <div class="row">
+              <div class="col-md-3">
+                <img src="http://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2016/08/pozolerojo.jpg" alt="">
+              </div>
+              <div class="col-md-7">
+                <div class="col-md-12">
+                  <h4>Pozole</h4>
+                  <hr>
+                </div>
+                <div class="col-md-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.....</div>
+              </div>
+              <div class="col-md-2">
+                <div class="col-md-12 dish-price-container">
+                  $
+                  <span class="dish-price">30</span>
+                </div>
+                <div class="col-md-12">
+                  <button class="btn btn-primary">Pedir</button>
+                </div>
+              </div>
+              <div class="col-md-12 sexy-line-cont">
+                <span class="sexy-line"></span>
+              </div>
+            </div>
+          </div>
+        </accordion-group>
+    </accordion>
+  </div>
+</section>

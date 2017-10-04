@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-restaurant-info',
@@ -10,6 +10,6 @@ export class RestaurantInfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
 
+  }
 }

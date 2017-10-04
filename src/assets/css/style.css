@@ -1608,3 +1608,19 @@ cursor: pointer;
 .title-content {
 	padding: 95px 0px;
 }
+/* Bootstrap Accordion */
+.panel-default>.panel-heading {
+    background: #F2F2F2 !important;
+    color: #444;
+}
+.sexy-line-cont {
+	padding: 1em 0;
+}
+.sexy-line{ 
+    display:block;
+    border:none;
+    color:white;
+    height:1px;
+    background:black;
+    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 550, from(#f58220), to(#fff));
+}

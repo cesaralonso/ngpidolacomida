@@ -1,0 +1,9 @@
+.social-container-profile {
+    display: flex;
+    justify-content: space-around;
+}
+.form-content-restaurant-contact {
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 1em
+}

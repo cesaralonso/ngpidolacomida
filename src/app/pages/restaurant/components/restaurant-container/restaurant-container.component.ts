@@ -7,9 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantContainerComponent implements OnInit {
 
-  constructor() {
-    console.log('restaurant-container');
-  }
+  constructor() { }
 
   ngOnInit() {
   }
