@@ -11,7 +11,8 @@ const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent
-  }
+  },
+  { path: 'pages', loadChildren: './pages/pages.module#PagesModule' },
 ]
 ;
 

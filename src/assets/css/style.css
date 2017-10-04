@@ -1604,3 +1604,7 @@ cursor: pointer;
   left: -100%;
   margin-left: 10px;
 }
+
+.title-content {
+	padding: 95px 0px;
+}
