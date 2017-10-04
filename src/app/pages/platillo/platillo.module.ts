@@ -1,4 +1,8 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { PlatilloRoutingModule } from './platillo.routing';
+import { RatingModule } from 'ngx-bootstrap/rating';
+import { FormsModule } from '@angular/forms';
 
 import { PlatilloComponent } from './platillo.component';
 import { PlatilloSimilarComponent } from './components/platillo-similar/platillo-similar.component';
@@ -7,7 +11,12 @@ import { PlatilloContainerComponent } from './components/platillo-container/plat
 import { PlatilloTitleComponent } from './components/platillo-title/platillo-title.component';
 
 @NgModule({
-    imports: [],
+    imports: [
+        CommonModule,
+        PlatilloRoutingModule,
+        RatingModule.forRoot(),
+        FormsModule
+    ],
     exports: [],
     declarations: [
         PlatilloComponent,
