@@ -1626,3 +1626,7 @@ cursor: pointer;
     background:black;
     background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 550, from(#f58220), to(#fff));
 }
+ /* NxCarousel */
+.ngxcarouselPoint {
+    display: none !important;
+}

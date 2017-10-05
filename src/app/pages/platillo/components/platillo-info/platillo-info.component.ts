@@ -1,3 +1,5 @@
+import { PedirModalComponent } from './../../../../shared/pedir-modal/pedir-modal.component';
+import { DialogService } from 'ng2-bootstrap-modal';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -15,7 +17,9 @@ export class PlatilloInfoComponent implements OnInit {
 
   public horario: any;
 
-  constructor() {
+  constructor(
+    private dialogService: DialogService
+  ) {
     this.horario = {
       lunesInicia: '9:00',
       lunesTermina: '14:00',
@@ -35,6 +39,15 @@ export class PlatilloInfoComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  pedirModal() {
+    this.dialogService.addDialog( PedirModalComponent, {
+      titulo: 'Pozole',
+      descripcion: 'Descripion...'
+    }).subscribe( res => {
+      console.log( res );
+    });
   }
 
 }
