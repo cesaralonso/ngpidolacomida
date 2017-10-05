@@ -1,3 +1,4 @@
+import { HorarioModule } from './../../shared/horario/horario.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PlatilloRoutingModule } from './platillo.routing';
@@ -18,7 +19,8 @@ import { PlatilloTitleComponent } from './components/platillo-title/platillo-tit
         PlatilloRoutingModule,
         RatingModule.forRoot(),
         FormsModule,
-        NgxCarouselModule
+        NgxCarouselModule,
+        HorarioModule
     ],
     exports: [],
     declarations: [

@@ -1,3 +1,4 @@
+import { FooterComponent } from './shared/footer/footer.component';
 import { PagesModule } from './pages/pages.module';
 import { HomeModule } from './home/home.module';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
@@ -16,7 +17,8 @@ import { MainmenuComponent } from './mainmenu/mainmenu.component';
     AppComponent,
     AboutComponent,
     MegamenuComponent,
-    MainmenuComponent
+    MainmenuComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ngpidolacomida'}),
