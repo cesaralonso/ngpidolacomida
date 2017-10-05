@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./platillo-info.component.css']
 })
 export class PlatilloInfoComponent implements OnInit {
-  public max = 10;
-  public rate = 7;
+  public max = 5;
+  public rate = 3;
   public isReadonly = true;
 
   public overStar: number;
@@ -16,15 +16,6 @@ export class PlatilloInfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
-
-  public hoveringOver( value: number ): void {
-    this.overStar = value;
-    this.percent = 100 * (value / this.max);
-  }
-
-  public resetStar(): void {
-    this.overStar = void 0;
   }
 
 }

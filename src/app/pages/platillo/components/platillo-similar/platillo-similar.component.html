@@ -1,3 +1,30 @@
-<p>
-  platillo-similar works!
-</p>
+<section class="section" style="background-color: white;">
+  <div class="container">
+    <hr>
+    <div class="row">
+      <h2 class="text-center">Platillos similares</h2>
+      <div class="col-md-12">
+          <ngx-carousel 
+          [inputs]="carouselOne"
+          [inputsLength]="4"
+          (carouselLoad)="myfunc($event)">
+            <ngx-item style="padding: 0 1em;">
+              <img style="width: 100%;" src="http://2.bp.blogspot.com/-0Pu2sF93qow/UjK1wFbM75I/AAAAAAAAEKw/4aeqk5xicc0/s1600/POZOLE_VIAJA_BONITO.jpg" alt="">
+            </ngx-item>
+            <ngx-item style="padding: 0 1em;">
+              <img style="width: 100%;" src="http://2.bp.blogspot.com/-0Pu2sF93qow/UjK1wFbM75I/AAAAAAAAEKw/4aeqk5xicc0/s1600/POZOLE_VIAJA_BONITO.jpg" alt="">
+            </ngx-item>
+            <ngx-item style="padding: 0 1em;">
+              <img style="width: 100%;" src="http://foodandtravel.mx/home/wp-content/uploads/2016/09/Enchiladasvegetarianas.jpg" alt="">
+            </ngx-item>
+            <ngx-item>
+              <img src="https://tvpacifico.mx/admin/images/noticias/178221-68350.jpg" alt="">
+            </ngx-item>
+        <button class='leftRs'><</button>
+        <button class='rightRs'>></button>
+      </ngx-carousel>
+      </div>
+    </div>
+  </div>
+
+</section>

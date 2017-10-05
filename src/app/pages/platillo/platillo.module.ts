@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { PlatilloRoutingModule } from './platillo.routing';
 import { RatingModule } from 'ngx-bootstrap/rating';
 import { FormsModule } from '@angular/forms';
+import { NgxCarouselModule } from 'ngx-carousel';
+import 'hammerjs';
 
 import { PlatilloComponent } from './platillo.component';
 import { PlatilloSimilarComponent } from './components/platillo-similar/platillo-similar.component';
@@ -15,7 +17,8 @@ import { PlatilloTitleComponent } from './components/platillo-title/platillo-tit
         CommonModule,
         PlatilloRoutingModule,
         RatingModule.forRoot(),
-        FormsModule
+        FormsModule,
+        NgxCarouselModule
     ],
     exports: [],
     declarations: [
