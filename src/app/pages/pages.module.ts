@@ -1,3 +1,4 @@
+import { PagarModule } from './pagar/pagar.module';
 import { PlatilloModule } from './platillo/platillo.module';
 import { RestaurantModule } from './restaurant/restaurant.module';
 import { NgModule } from '@angular/core';
@@ -13,7 +14,8 @@ import { PagesComponent } from './pages.component';
         PagesRoutingModule,
         CommonModule,
         RestaurantModule,
-        PlatilloModule
+        PlatilloModule,
+        PagarModule
     ],
     exports: [],
     declarations: [
