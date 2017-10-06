@@ -1630,3 +1630,12 @@ cursor: pointer;
 .ngxcarouselPoint {
     display: none !important;
 }
+/* Dish price */
+.dish-price-container {
+	display: flex;
+	align-items: center;
+}
+.dish-price {
+	font-family: "Helvetica Neue",sans-serif;
+	font-size: 2.5em;
+}

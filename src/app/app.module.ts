@@ -1,3 +1,4 @@
+import { ConfirmModalComponent } from './shared/confim-modal/confirm-modal.component';
 import { PagesModule } from './pages/pages.module';
 import { HomeModule } from './home/home.module';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
@@ -20,7 +21,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     MegamenuComponent,
     MainmenuComponent,
     FooterComponent,
-    PedirModalComponent
+    PedirModalComponent,
+    ConfirmModalComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ngpidolacomida'}),
@@ -31,7 +33,8 @@ import { FooterComponent } from './shared/footer/footer.component';
   ],
   providers: [],
   entryComponents: [
-    PedirModalComponent
+    PedirModalComponent,
+    ConfirmModalComponent
   ],
   bootstrap: [AppComponent]
 })

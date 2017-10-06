@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pagar-title.component.css']
 })
 export class PagarTitleComponent implements OnInit {
-
-  constructor() { }
+  public title: string;
+  constructor() {
+    this.title = 'MI PEDIDO';
+   }
 
   ngOnInit() {
   }
