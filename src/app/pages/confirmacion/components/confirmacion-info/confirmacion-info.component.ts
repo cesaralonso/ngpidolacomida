@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { PlatilloInterface } from './../../../../shared/models/platillo.model';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-confirmacion-info',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./confirmacion-info.component.css']
 })
 export class ConfirmacionInfoComponent implements OnInit {
-
+  @Input() platillos: PlatilloInterface[];
   constructor() { }
 
   ngOnInit() {
