@@ -1639,3 +1639,6 @@ cursor: pointer;
 	font-family: "Helvetica Neue",sans-serif;
 	font-size: 2.5em;
 }
+.agm-map {
+	height: 300px;
+}

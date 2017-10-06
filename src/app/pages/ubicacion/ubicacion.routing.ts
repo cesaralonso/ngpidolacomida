@@ -1,3 +1,4 @@
+import { UbicacionContainerComponent } from './components/ubicacion-container/ubicacion-container.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -8,7 +9,7 @@ const routes: Routes = [
         path: '',
         component: UbicacionComponent,
         children: [
-
+            { path: ':id', component: UbicacionContainerComponent },
         ]
     },
 ];

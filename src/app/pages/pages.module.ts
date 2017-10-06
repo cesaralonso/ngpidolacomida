@@ -1,3 +1,4 @@
+import { UbicacionModule } from './ubicacion/ubicacion.module';
 import { PagarModule } from './pagar/pagar.module';
 import { PlatilloModule } from './platillo/platillo.module';
 import { RestaurantModule } from './restaurant/restaurant.module';
@@ -15,7 +16,8 @@ import { PagesComponent } from './pages.component';
         CommonModule,
         RestaurantModule,
         PlatilloModule,
-        PagarModule
+        PagarModule,
+        UbicacionModule
     ],
     exports: [],
     declarations: [

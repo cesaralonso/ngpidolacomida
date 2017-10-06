@@ -30,12 +30,14 @@ import { FooterComponent } from './shared/footer/footer.component';
     HomeModule,
     BootstrapModalModule.forRoot({ container: document.body }),
     PagesModule,
+
   ],
   providers: [],
   entryComponents: [
     PedirModalComponent,
     ConfirmModalComponent
   ],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,8 +6,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ubicacion-container.component.css']
 })
 export class UbicacionContainerComponent implements OnInit {
-
-  constructor() { }
+  public direcciones: any[] = [];
+  constructor() {
+    this.direcciones.push(
+      {
+        calle: 'Federico del Toro #339',
+        colonia: 'Centro',
+        CP: '49900',
+        entreCalle1: 'Hidalgo',
+        entreCalle2: 'Moctezuma',
+      },
+      {
+        calle: 'Primero de Mayo #786',
+        colonia: 'Centro',
+        CP: '49900',
+        entreCalle1: 'Hidalgo',
+        entreCalle2: 'Moctezuma',
+      }
+  );
+  }
 
   ngOnInit() {
   }
