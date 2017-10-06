@@ -1,0 +1,15 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-confirmacion-info',
+  templateUrl: './confirmacion-info.component.html',
+  styleUrls: ['./confirmacion-info.component.css']
+})
+export class ConfirmacionInfoComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}

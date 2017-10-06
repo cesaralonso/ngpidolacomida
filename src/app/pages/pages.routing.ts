@@ -12,6 +12,7 @@ const routes: Routes = [
             { path: 'platillo', loadChildren: './platillo/platillo.module#PlatilloModule' },
             { path: 'pagar', loadChildren: './pagar/pagar.module#PagarModule' },
             { path: 'ubicacion', loadChildren: './ubicacion/ubicacion.module#UbicacionModule' },
+            { path: 'confirmacion', loadChildren: './confirmacion/confirmacion.module#ConfirmacionModule' },
         ]
     },
 ];

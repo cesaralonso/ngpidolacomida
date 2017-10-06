@@ -1,3 +1,4 @@
+import { ConfirmacionModule } from './confirmacion/confirmacion.module';
 import { UbicacionModule } from './ubicacion/ubicacion.module';
 import { PagarModule } from './pagar/pagar.module';
 import { PlatilloModule } from './platillo/platillo.module';
@@ -17,7 +18,8 @@ import { PagesComponent } from './pages.component';
         RestaurantModule,
         PlatilloModule,
         PagarModule,
-        UbicacionModule
+        UbicacionModule,
+        ConfirmacionModule
     ],
     exports: [],
     declarations: [
