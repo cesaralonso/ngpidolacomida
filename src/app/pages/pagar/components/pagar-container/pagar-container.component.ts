@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pagar-container.component.css']
 })
 export class PagarContainerComponent implements OnInit {
-
+  public titulo = 'Mi Pedido';
+  public background = 'url(http://www.homedine.co.in/images/banner4.jpg)';
   constructor() { }
 
   ngOnInit() {

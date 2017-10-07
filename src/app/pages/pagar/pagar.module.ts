@@ -1,3 +1,4 @@
+import { TituloPrincipalModule } from './../../shared/titulo-principal/titulo-principal.module';
 import { PagarRoutingModule } from './pagar.routing';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -11,7 +12,8 @@ import { PagarPlatillosComponent } from './components/pagar-platillos/pagar-plat
 @NgModule({
     imports: [
         CommonModule,
-        PagarRoutingModule
+        PagarRoutingModule,
+        TituloPrincipalModule
     ],
     exports: [],
     declarations: [
