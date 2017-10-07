@@ -1,3 +1,4 @@
+import { StatusPedidoModule } from './status-pedido/status-pedido.module';
 import { ConfirmacionModule } from './confirmacion/confirmacion.module';
 import { UbicacionModule } from './ubicacion/ubicacion.module';
 import { PagarModule } from './pagar/pagar.module';
@@ -19,7 +20,8 @@ import { PagesComponent } from './pages.component';
         PlatilloModule,
         PagarModule,
         UbicacionModule,
-        ConfirmacionModule
+        ConfirmacionModule,
+        StatusPedidoModule
     ],
     exports: [],
     declarations: [

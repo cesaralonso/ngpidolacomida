@@ -13,6 +13,7 @@ const routes: Routes = [
             { path: 'pagar', loadChildren: './pagar/pagar.module#PagarModule' },
             { path: 'ubicacion', loadChildren: './ubicacion/ubicacion.module#UbicacionModule' },
             { path: 'confirmacion', loadChildren: './confirmacion/confirmacion.module#ConfirmacionModule' },
+            { path: 'status', loadChildren: './status-pedido/status-pedido.module#StatusPedidoModule' },
         ]
     },
 ];

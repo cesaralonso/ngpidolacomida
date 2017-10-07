@@ -1642,3 +1642,6 @@ cursor: pointer;
 .agm-map {
 	height: 300px;
 }
+.progress-bar-pido-comida {
+	background-color: #f58220 !important;
+}

@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center">Status del pedido</h1>
+    </div>
+  </div>
+  <ng-container *ngIf="platillos">
+    <div class="row" *ngFor="let platillo of platillos">
+        <div class="col-md-12">
+            <div class="col-md-12 sexy-line-cont">
+                <span class="sexy-line"></span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <img src="http://1.bp.blogspot.com/-7bMLeqvrBRQ/WGGXb7cCSuI/AAAAAAAAKOY/7jFn4ZYkH4cZle96PwAE39Z8zoRezh2DwCK4B/s1600/P1010813.JPG" alt="">
+        </div>
+        <div class="col-md-3">
+            <h3> {{ platillo.titulo }} </h3>
+            <p>
+                {{ platillo.descripcion }}
+            </p>
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-12">
+                <ul>
+                    <li *ngFor="let ingrediente of platillo.ingredientes">
+                        <span> {{ ingrediente }} </span>
+                        
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-12">
+              <h3> Status de mi platillo</h3>
+              <div class="progress">
+                <div class="progress-bar progress-bar-pido-comida" role="progressbar" [attr.aria-valuenow]="progress"  aria-valuemin="0" aria-valuemax="100" [style.width]="progress + '%'">
+                  {{ progress + '%' }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+  </ng-container>
+
+</div>
