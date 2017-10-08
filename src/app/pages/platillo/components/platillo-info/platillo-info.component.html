@@ -3,31 +3,26 @@
     <div class="row">
       <div class="col-md-12">
         <div class="col-md-6">
-          <h2>POZOLE</h2>
+          <span class="dish-title">POZOLE</span>
           <rating [(ngModel)]="rate" [max]="max" [readonly]="isReadonly"></rating>
-          <div class="card">
-              <pre class="card-block card-header" style="margin:15px 0;">Rate: <b>{{rate}}</b> </pre>
-          </div>
         </div>
         <div class="col-md-6 text-right">
-          <a href="#" class="btn btn-primary">PEDIR</a>
+          <button (click)="pedirModal()" type="button" class="btn btn-primary">PEDIR</button>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="row">
-          <div class="col-md-6">
-            <p>
-              Image
-            </p>
-          </div>
-          <div class="col-md-6">
-            <h3> Descripción </h3>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, iusto modi excepturi eos repudiandae ex illum veniam facere neque corporis exercitationem quod sint nulla in? Temporibus, dolor mollitia. Asperiores, mollitia.
-            </p>
-          </div>
-        </div>
-        <div class="row">
+      <div class="col-md-12 sexy-line-cont">
+        <span class="sexy-line"></span>
+      </div>
+      <div class="col-md-4">
+        <img src="http://1.bp.blogspot.com/-7bMLeqvrBRQ/WGGXb7cCSuI/AAAAAAAAKOY/7jFn4ZYkH4cZle96PwAE39Z8zoRezh2DwCK4B/s1600/P1010813.JPG" alt="">
+      </div>
+      <div class="col-md-4">
+        <h3> Descripción </h3>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, iusto modi excepturi eos repudiandae ex illum veniam facere neque corporis exercitationem quod sint nulla in? Temporibus, dolor mollitia. Asperiores, mollitia.
+        </p>
+      </div>
+      <div class="col-md-4">
           <h3>Ingredientes</h3>
           <div class="col-md-10">
             <ul>
@@ -35,63 +30,22 @@
               <li>Item</li>
               <li>Item</li>
               <li>Item</li>
+              <li>Item</li>
+              <li>Item</li>
             </ul>
           </div>
-        </div>
+      </div>
+    </div>
+    <div class="row" style="padding-top: 1em;">
+      <div class="col-md-6">
+          <h3>Preparado por: </h3>
+          <ul>
+            <li>LA PARRILLA</li>
+          </ul>
       </div>
       <div class="col-md-6">
-        <h3>Preparado por: </h3>
-        <ul>
-          <li>LA PARRILLA</li>
-        </ul>
-        <hr>
-        <div class="row">
-          <h3 class="text-center">Horarios de preparación</h3>
-          <table class="table">
-            <thead>
-              <th></th>
-              <th>Inicia</th>
-              <th>Termina</th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Lunes</td>
-                <td>9:00</td>
-                <td>12:00</td>
-              </tr>
-              <tr>
-                <td>Martes</td>
-                <td>9:00</td>
-                <td>12:00</td>
-              </tr>
-              <tr>
-                <td>Miércoles</td>
-                <td>9:00</td>
-                <td>12:00</td>
-              </tr>
-              <tr>
-                <td>Jueves</td>
-                <td>9:00</td>
-                <td>12:00</td>
-              </tr>
-              <tr>
-                <td>Viernes</td>
-                <td>9:00</td>
-                <td>12:00</td>
-              </tr>
-              <tr>
-                <td>Sábado</td>
-                <td>9:00</td>
-                <td>12:00</td>
-              </tr>
-              <tr>
-                <td>Domingo</td>
-                <td>9:00</td>
-                <td>12:00</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <h3>Horarios de preparación</h3>
+        <app-horario [horario]="horario"></app-horario>
       </div>
     </div>
   </div>

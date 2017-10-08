@@ -1,0 +1,44 @@
+<table class="table" *ngIf="horario">
+    <thead>
+      <th></th>
+      <th>Inicia</th>
+      <th>Termina</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Lunes</td>
+        <td>{{ horario.lunesInicia }}</td>
+        <td>{{ horario.lunesTermina }}</td>
+      </tr>
+      <tr>
+        <td>Martes</td>
+        <td>{{ horario.martesInicia }}</td>  
+        <td>{{ horario.martesTermina }}</td>  
+      </tr>
+      <tr>
+        <td>Miércoles</td>
+        <td>{{ horario.miercolesInicia }}</td>  
+        <td>{{ horario.miercolesTermina }}</td>  
+      </tr>
+      <tr>
+        <td>Jueves</td>
+        <td>{{ horario.juevesInicia }}</td>  
+        <td>{{ horario.juevesTermina }}</td>  
+      </tr>
+      <tr>
+        <td>Viernes</td>
+        <td>{{ horario.viernesInicia }}</td>  
+        <td>{{ horario.viernesTermina }}</td>  
+      </tr>
+      <tr>
+        <td>Sábado</td>
+        <td>{{ horario.sabadoInicia }}</td>  
+        <td>{{ horario.sabadoTermina }}</td>  
+      </tr>
+      <tr>
+        <td>Domingo</td>
+        <td>{{ horario.domingoInicia }}</td>  
+        <td>{{ horario.domingoTermina }}</td>  
+      </tr>
+    </tbody>
+  </table>

@@ -1,0 +1,44 @@
+<div class="container" *ngIf="platillos">
+    <div class="row" *ngFor="let platillo of platillos">
+        <div class="col-md-12">
+            <div class="col-md-12 sexy-line-cont">
+                <span class="sexy-line"></span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <img src="http://1.bp.blogspot.com/-7bMLeqvrBRQ/WGGXb7cCSuI/AAAAAAAAKOY/7jFn4ZYkH4cZle96PwAE39Z8zoRezh2DwCK4B/s1600/P1010813.JPG" alt="">
+        </div>
+        <div class="col-md-3">
+            <h3> {{ platillo.titulo }} </h3>
+            <p>
+                {{ platillo.descripcion }}
+            </p>
+        </div>
+        <div class="col-md-4">
+            <ul>
+                <li *ngFor="let ingrediente of platillo.ingredientes">
+                    <input type="checkbox" name="{{ingrediente}}" id="">
+                    <span> {{ ingrediente }} </span>
+                    
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-2 pull-right">
+                <div class="col-md-12 dish-price-container" style="width: 100%;">
+                    <span>$</span>
+                    <span class="dish-price"> {{ platillo.precio }} </span>
+                </div>
+                <div class="col-md-12">
+                    <button (click)="deletePlatillo()" type="button" class="btn btn-primary">Descartar</button>
+                </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row" style="margin-top: 1em;">
+        <div class="col-md-12">
+            <div class="text-right lol">
+                <button [routerLink]="['/pages/ubicacion/1']" class="btn btn-primary" style="font-size: 1.5em;"> Pedir > </button>
+            </div>
+        </div>
+    </div>
+</div>

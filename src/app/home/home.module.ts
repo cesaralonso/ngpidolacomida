@@ -11,7 +11,6 @@ import { MaincarruselComponent } from './../maincarrusel/maincarrusel.component'
 import { MaprestaurantesComponent } from './../maprestaurantes/maprestaurantes.component';
 import { FaqsComponent } from './../faqs/faqs.component';
 import { ContactComponent } from './../contact/contact.component';
-import { FooterComponent } from './../footer/footer.component';
 
 
 @NgModule({
@@ -24,7 +23,6 @@ import { FooterComponent } from './../footer/footer.component';
     MaprestaurantesComponent,
     FaqsComponent,
     ContactComponent,
-    FooterComponent,
     ListcocinandoseComponent,
     ListcocAddModalComponent,
   ],

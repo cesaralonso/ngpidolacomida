@@ -1613,6 +1613,8 @@ cursor: pointer;
     background: #F2F2F2 !important;
     color: #444;
 }
+
+/* Line */
 .sexy-line-cont {
 	padding: 1em 0;
 }
@@ -1623,4 +1625,23 @@ cursor: pointer;
     height:1px;
     background:black;
     background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 550, from(#f58220), to(#fff));
+}
+ /* NxCarousel */
+.ngxcarouselPoint {
+    display: none !important;
+}
+/* Dish price */
+.dish-price-container {
+	display: flex;
+	align-items: center;
+}
+.dish-price {
+	font-family: "Helvetica Neue",sans-serif;
+	font-size: 2.5em;
+}
+.agm-map {
+	height: 300px;
+}
+.progress-bar-pido-comida {
+	background-color: #f58220 !important;
 }

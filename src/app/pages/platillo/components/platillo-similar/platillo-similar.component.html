@@ -1,3 +1,94 @@
-<p>
-  platillo-similar works!
-</p>
+<section class="section" style="background-color: white;">
+  <div class="container">
+    <hr>
+    <div class="row">
+      <h2 class="text-center">Platillos similares</h2>
+      <div class="col-md-12">
+          <ngx-carousel 
+          [inputs]="carouselOne"
+          [inputsLength]="4"
+          (carouselLoad)="myfunc($event)">
+
+            <ngx-item style="padding: 0 1em;">
+              
+              <div class="row platillo-similar-content">
+                <div class="col-md-6">
+                  <img style="width: 100%;" src="http://2.bp.blogspot.com/-0Pu2sF93qow/UjK1wFbM75I/AAAAAAAAEKw/4aeqk5xicc0/s1600/POZOLE_VIAJA_BONITO.jpg" alt="">
+                </div>
+                <div class="col-md-6">
+                  <h4> Title </h4>
+                  <p>
+                    Short description
+                  </p>
+                </div>
+                <div class="col-md-12" style="padding-top: 1em;">
+                  <a class="btn btn-block btn-primary">VER MÁS</a>                  
+                </div>
+              </div>
+            </ngx-item>
+           
+            <ngx-item style="padding: 0 1em;">
+              
+              <div class="row platillo-similar-content">
+                <div class="col-md-6">
+                  <img style="width: 100%;" src="http://2.bp.blogspot.com/-0Pu2sF93qow/UjK1wFbM75I/AAAAAAAAEKw/4aeqk5xicc0/s1600/POZOLE_VIAJA_BONITO.jpg" alt="">
+                </div>
+                <div class="col-md-6">
+                  <h4> Title </h4>
+                  <p>
+                    Short description
+                  </p>
+                </div>
+                <div class="col-md-12" style="padding-top: 1em;">
+                  <a class="btn btn-block btn-primary">VER MÁS</a>                  
+                </div>
+              </div>
+            </ngx-item>
+           
+            <ngx-item style="padding: 0 1em;">
+              
+              <div class="row platillo-similar-content">
+                <div class="col-md-6">
+                  <img style="width: 100%;" src="http://2.bp.blogspot.com/-0Pu2sF93qow/UjK1wFbM75I/AAAAAAAAEKw/4aeqk5xicc0/s1600/POZOLE_VIAJA_BONITO.jpg" alt="">
+                </div>
+                <div class="col-md-6">
+                  <h4> Title </h4>
+                  <p>
+                    Short description
+                  </p>
+                </div>
+                <div class="col-md-12" style="padding-top: 1em;">
+                  <a class="btn btn-block btn-primary">VER MÁS</a>                  
+                </div>
+              </div>
+            </ngx-item>
+           
+            <ngx-item style="padding: 0 1em;">
+              
+              <div class="row platillo-similar-content">
+                <div class="col-md-6">
+                  <img style="width: 100%;" src="http://2.bp.blogspot.com/-0Pu2sF93qow/UjK1wFbM75I/AAAAAAAAEKw/4aeqk5xicc0/s1600/POZOLE_VIAJA_BONITO.jpg" alt="">
+                </div>
+                <div class="col-md-6">
+                  <h4> Title </h4>
+                  <p>
+                    Short description
+                  </p>
+                </div>
+                <div class="col-md-12" style="padding-top: 1em;">
+                  <a class="btn btn-block btn-primary">VER MÁS</a>                  
+                </div>
+              </div>
+            </ngx-item>
+           
+            
+
+        <button class='leftRs'><</button>
+        <button class='rightRs'>></button>
+      </ngx-carousel>
+      </div>
+    </div>
+    <hr>
+  </div>
+
+</section>

@@ -1,0 +1,82 @@
+<div class="container" *ngIf="direcciones">
+  <!-- Elegir -->
+  <h2> Direcciones de envío</h2>
+  <div class="row">
+    <div class="col-md-4" style="margin-top: 1em;" *ngFor="let direccion of direcciones">
+      <div class="direccion">
+        <div class="col-md-12">
+          <strong>Calle: </strong> {{ direccion.calle }} <br>
+          <strong>Colonia: </strong> {{ direccion.colonia }} <br>
+          <strong>CP: </strong> {{ direccion.CP }} <br>
+          <strong>Entre calle: </strong> {{ direccion.entreCalle1 }} <br>
+          <strong>Y calle: </strong> {{ direccion.entreCalle2 }} <br>
+        </div>
+        <div class="text-right">
+          <button (click)="direccionSelected(direccion)" type="button" class="btn btn-primary"> Elegir </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4" style="margin-top: 1em;">
+      <div class="direccion">
+        <div class="add-direccion">
+          <img style="color: black; height: 100%; width:auto; cursor:pointer;" src="https://icon-icons.com/icons2/841/PNG/512/flat-style-circle-add_icon-icons.com_66944.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div><!-- /Elegir -->
+
+  <!-- Seleccionada -->
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+        <h2> Elegida / Nueva </h2>
+        <div class="col-md-12">
+          <form>
+            <div class="row form-group">
+              <div class="col-md-4"><label>Calle</label></div>
+              <div class="col-md-8"><input [(ngModel)]="formDireccion.calle" type="text" name="calle" style="width: 100%"></div>
+            </div>
+            <div class="row form-group">
+              <div class="col-md-4"><label>Colonia</label></div>
+              <div class="col-md-8"><input [(ngModel)]="formDireccion.colonia" type="text" name="colonia" style="width: 100%"></div>
+            </div>
+            <div class="row form-group">
+              <div class="col-md-4"><label>CP</label></div>
+              <div class="col-md-8"><input [(ngModel)]="formDireccion.CP" type="text" name="CP" style="width: 100%"></div>
+            </div>
+            <div class="row form-group">
+              <div class="col-md-4"><label>Entre calle Nº 1</label></div>
+              <div class="col-md-8"><input [(ngModel)]="formDireccion.entreCalle1" type="text" name="entreCalle1" style="width: 100%"></div>
+            </div>
+            <div class="row form-group">
+              <div class="col-md-4"><label>Entre calle Nº 2</label></div>
+              <div class="col-md-8"><input [(ngModel)]="formDireccion.entreCalle2" type="text" name="entreCalle2" style="width: 100%"></div>
+            </div>
+            <div class="row form-group">
+              <div class="col-md-4"><label>Lat</label></div>
+              <div class="col-md-8"><input [(ngModel)]="lat" type="text" name="lat" style="width: 100%"></div>
+            </div>
+            <div class="row form-group">
+              <div class="col-md-4"><label>Long</label></div>
+              <div class="col-md-8"><input [(ngModel)]="lng" type="text" name="lng" style="width: 100%"></div>
+            </div>
+          </form>
+        </div>
+    </div>
+
+    <div class="col-md-6" >
+      <!-- this creates a google map on the page with the given lat/lng from -->
+      <!-- the component as the initial center of the map: -->
+      <agm-map class="agm-map" [latitude]="lat" [longitude]="lng">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+      </agm-map>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 1em;">
+    <div class="col-md-12">
+      <div class="text-right lol">
+        <button [routerLink]="['/pages/confirmacion/1']" class="btn btn-primary" style="font-size: 1.5em;"> Confirmar </button>
+      </div>
+    </div>
+  </div>
+</div>
