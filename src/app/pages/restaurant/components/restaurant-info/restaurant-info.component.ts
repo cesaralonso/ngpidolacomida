@@ -1,4 +1,6 @@
+import { HorariosComponent } from './../../../../shared/horarios/horarios.component';
 import { Component, OnInit, Input } from '@angular/core';
+
 
 @Component({
   selector: 'app-restaurant-info',
@@ -7,9 +9,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RestaurantInfoComponent implements OnInit {
   public restaurantTitle = 'LA PARRILLA';
-  constructor() { }
+  constructor(private horariosComponent: HorariosComponent) { }
 
   ngOnInit() {
+
+    this.horariosComponent.setHorarios('parámetro!');
 
   }
 }

@@ -9,7 +9,7 @@ const routes: Routes = [
         path: '',
         component: PlatilloComponent,
         children: [
-            { path: 'detalle', component: PlatilloContainerComponent },
+            { path: '', component: PlatilloContainerComponent },
         ]
     },
 ];

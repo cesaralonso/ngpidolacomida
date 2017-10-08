@@ -1,3 +1,4 @@
+import { HorariosComponent } from './../../shared/horarios/horarios.component';
 import { CommonModule } from '@angular/common';
 import { RestaurantRoutingModule } from './restaurant.routing';
 import { NgModule } from '@angular/core';
@@ -21,7 +22,8 @@ import { RestaurantDishesComponent } from './components/restaurant-dishes/restau
         RestaurantContainerComponent,
         RestaurantTitleComponent,
         RestaurantInfoComponent,
-        RestaurantDishesComponent
+        RestaurantDishesComponent,
+        HorariosComponent
     ],
     providers: [
         AccordionConfig
