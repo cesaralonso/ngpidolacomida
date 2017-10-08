@@ -25,7 +25,6 @@ import { RestaurantDishesComponent } from './components/restaurant-dishes/restau
         RestaurantTitleComponent,
         RestaurantInfoComponent,
         RestaurantDishesComponent,
-        HorariosComponent
     ],
     providers: [
         AccordionConfig

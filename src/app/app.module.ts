@@ -9,8 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
-import { MegamenuComponent } from './megamenu/megamenu.component';
-import { MainmenuComponent } from './mainmenu/mainmenu.component';
+import { MegamenuComponent } from './shared/megamenu/megamenu.component';
+import { MainmenuComponent } from './shared/mainmenu/mainmenu.component';
 import { PedirModalComponent } from './shared/pedir-modal/pedir-modal.component';
 import { FooterComponent } from './shared/footer/footer.component';
 @NgModule({
