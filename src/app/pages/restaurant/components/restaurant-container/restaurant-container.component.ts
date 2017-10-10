@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./restaurant-container.component.css']
 })
 export class RestaurantContainerComponent implements OnInit {
-
+  public title = 'LA PARRILLA';
   constructor() { }
 
   ngOnInit() {

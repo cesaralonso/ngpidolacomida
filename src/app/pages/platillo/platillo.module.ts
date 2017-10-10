@@ -1,3 +1,4 @@
+import { TituloPrincipalModule } from './../../shared/titulo-principal/titulo-principal.module';
 import { HorarioModule } from './../../shared/horario/horario.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -11,7 +12,6 @@ import { PlatilloComponent } from './platillo.component';
 import { PlatilloSimilarComponent } from './components/platillo-similar/platillo-similar.component';
 import { PlatilloInfoComponent } from './components/platillo-info/platillo-info.component';
 import { PlatilloContainerComponent } from './components/platillo-container/platillo-container.component';
-import { PlatilloTitleComponent } from './components/platillo-title/platillo-title.component';
 
 @NgModule({
     imports: [
@@ -20,12 +20,12 @@ import { PlatilloTitleComponent } from './components/platillo-title/platillo-tit
         RatingModule.forRoot(),
         FormsModule,
         NgxCarouselModule,
-        HorarioModule
+        HorarioModule,
+        TituloPrincipalModule
     ],
     exports: [],
     declarations: [
         PlatilloComponent,
-        PlatilloTitleComponent,
         PlatilloContainerComponent,
         PlatilloInfoComponent,
         PlatilloSimilarComponent

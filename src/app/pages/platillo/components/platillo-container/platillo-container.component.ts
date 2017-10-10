@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./platillo-container.component.css']
 })
 export class PlatilloContainerComponent implements OnInit {
-
+  public title = 'POZOLE';
   constructor() { }
 
   ngOnInit() {

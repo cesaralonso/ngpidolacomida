@@ -1,3 +1,4 @@
+import { TituloPrincipalModule } from './../../shared/titulo-principal/titulo-principal.module';
 
 import { HorarioModule } from './../../shared/horario/horario.module';
 import { CommonModule } from '@angular/common';
@@ -7,7 +8,6 @@ import { AccordionModule, AccordionConfig } from 'ngx-bootstrap/accordion';
 
 import { RestaurantComponent } from './restaurant.component';
 import { RestaurantContainerComponent } from './components/restaurant-container/restaurant-container.component';
-import { RestaurantTitleComponent } from './components/restaurant-title/restaurant-title.component';
 import { RestaurantInfoComponent } from './components/restaurant-info/restaurant-info.component';
 import { RestaurantDishesComponent } from './components/restaurant-dishes/restaurant-dishes.component';
 
@@ -16,13 +16,13 @@ import { RestaurantDishesComponent } from './components/restaurant-dishes/restau
         RestaurantRoutingModule,
         CommonModule,
         AccordionModule,
-        HorarioModule
+        HorarioModule,
+        TituloPrincipalModule
     ],
     exports: [],
     declarations: [
         RestaurantComponent,
         RestaurantContainerComponent,
-        RestaurantTitleComponent,
         RestaurantInfoComponent,
         RestaurantDishesComponent,
     ],
