@@ -1,3 +1,4 @@
+import { CardComidaComponent } from './shared/card-comida/card-comida.component';
 import { ConfirmModalComponent } from './shared/confim-modal/confirm-modal.component';
 import { PagesModule } from './pages/pages.module';
 import { HomeModule } from './home/home.module';
@@ -28,8 +29,7 @@ import { FooterComponent } from './shared/footer/footer.component';
     AppRoutingModule,
     HomeModule,
     BootstrapModalModule.forRoot({ container: document.body }),
-    PagesModule,
-
+    PagesModule
   ],
   providers: [],
   entryComponents: [

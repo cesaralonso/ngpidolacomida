@@ -1,7 +1,7 @@
 import { DialogService } from 'ng2-bootstrap-modal';
 import { PlatilloInterface } from './../models/platillo.model';
 import { DialogComponent } from 'ng2-bootstrap-modal';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
     selector: 'app-pedir-modal',

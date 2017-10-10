@@ -1608,6 +1608,9 @@ cursor: pointer;
 .title-content {
 	padding: 95px 0px;
 }
+.title-content-secondary {
+	padding: 86px 0px;
+}
 /* Bootstrap Accordion */
 .panel-default>.panel-heading {
     background: #F2F2F2 !important;
