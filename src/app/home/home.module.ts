@@ -1,3 +1,4 @@
+import { AgmCoreModule } from '@agm/core';
 import { ListcocAddModalComponent } from './components/listcocinandose/components/listcocinandose-add-modal/listcocinandose-add-modal.component';
 import { ListcocinandoseComponent } from './components/listcocinandose/listcocinandose.component';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
@@ -13,6 +14,9 @@ import { ContactComponent } from './components/contact/contact.component';
 @NgModule({
   imports: [
     CommonModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDN4SEq8sbzsAcMCA8jsph4Pv4OyPPq12Y'
+    }),
   ],
   declarations: [
     HomeComponent,

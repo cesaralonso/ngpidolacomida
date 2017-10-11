@@ -496,15 +496,6 @@ label {
 	width:100%;
 	max-width:100%;
 }
-#gallery .description {
-	background-color:#fff;
-	display:block;
-	padding:20px 15px;
-	color:#333;
-	text-transform:uppercase;
-	clear:both;
-	position: relative;
-}
 #gallery .text {
 	margin-top: 20px;
 	clear:both;
@@ -522,9 +513,9 @@ label {
 	margin-bottom:30px;
 }
 #gallery .caption {
-	float:left;
-	color:#a33;
+	color:#a61;
 	font-weight: bold;
+	clear: both;
 }
 #gallery .camera {
 	float:right;
@@ -532,10 +523,10 @@ label {
 #gallery .price {
 	float:right;
 	position: relative;
-	top: -60px;
+	top: -67px;
 	color:#fff;
 	font-weight: bold;
-	font-size: 26px;
+	font-size: 30px;
 	text-shadow: 1px 1px 1px #333 ;
 }
 #gallery .price b{

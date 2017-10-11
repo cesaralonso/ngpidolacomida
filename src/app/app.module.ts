@@ -22,7 +22,6 @@ import { LocalStorageModule } from 'angular-2-local-storage';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
-
 @NgModule({
   declarations: [
     AppComponent,
