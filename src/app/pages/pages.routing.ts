@@ -2,8 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { PagesComponent } from './pages.component';
+import { AuthGuard } from '../shared/auth-guard.service';
 
 const routes: Routes = [
+
     {
         path: '',
         component: PagesComponent,

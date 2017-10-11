@@ -1,4 +1,7 @@
 import { CardComidaComponent } from './shared/card-comida/card-comida.component';
+import { AuthLocalstorage } from './shared/auth-localstorage.service';
+import { AuthService } from './shared/auth.service';
+import { AuthGuard } from './shared/auth-guard.service';
 import { ConfirmModalComponent } from './shared/confim-modal/confirm-modal.component';
 import { PagesModule } from './pages/pages.module';
 import { HomeModule } from './home/home.module';
@@ -14,6 +17,12 @@ import { MegamenuComponent } from './shared/megamenu/megamenu.component';
 import { MainmenuComponent } from './shared/mainmenu/mainmenu.component';
 import { PedirModalComponent } from './shared/pedir-modal/pedir-modal.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { HttpModule } from '@angular/http';
+import { Configuration } from './app.constants';
+import { LocalStorageModule } from 'angular-2-local-storage';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,9 +38,21 @@ import { FooterComponent } from './shared/footer/footer.component';
     AppRoutingModule,
     HomeModule,
     BootstrapModalModule.forRoot({ container: document.body }),
-    PagesModule
+    PagesModule,
+    HttpModule,
+    LocalStorageModule.withConfig({
+        prefix: 'architectools',
+        storageType: 'localStorage'
+    }),
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added,
   ],
-  providers: [],
+  providers: [
+    Configuration,
+    AuthGuard,
+    AuthService,
+    AuthLocalstorage,
+  ],
   entryComponents: [
     PedirModalComponent,
     ConfirmModalComponent

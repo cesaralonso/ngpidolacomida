@@ -1,0 +1,33 @@
+<div id="parallax">
+</div>
+
+<div class="auth-main">
+  <div class="auth-block">
+    <h1 >Accesa</h1>
+    <a routerLink="/register" class="auth-link" >Regístrate</a>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal">
+      <div class="form-group row" [ngClass]="{'has-error': (!email.valid && email.touched), 'has-success': (email.valid && email.touched)}">
+        <label for="inputusuario" class="col-sm-3 control-label" >Email</label>
+
+        <div class="col-sm-9">
+          <input [formControl]="email" type="email" class="form-control" id="inputusuario" placeholder="Usuario">
+        </div>
+      </div>
+      <div class="form-group row" [ngClass]="{'has-error': (!password.valid && password.touched), 'has-success': (password.valid && password.touched)}">
+        <label for="inputClave" class="col-sm-3 control-label" >Password</label>
+
+        <div class="col-sm-9">
+          <input [formControl]="password" type="password" class="form-control" id="inputClave" placeholder="Password">
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="offset-sm-3 col-sm-9">
+          <button [disabled]="!form.valid" type="submit" class="btn btn-default" >Accesa</button>
+          <a routerLink="/forgot" class="forgot-pass" >Recordar password</a>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
