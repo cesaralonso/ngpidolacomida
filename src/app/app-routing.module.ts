@@ -12,6 +12,18 @@ const routes: Routes = [
     path: 'about',
     component: AboutComponent
   },
+  {
+      path: 'login',
+      loadChildren: './pages/login/login.module#LoginModule'
+  },
+  {
+      path: 'register',
+      loadChildren: './pages/register/register.module#RegisterModule'
+  },
+  {
+      path: 'forgot',
+      loadChildren: './pages/forgot/forgot.module#ForgotModule'
+  },
   { path: 'pages', loadChildren: './pages/pages.module#PagesModule' },
 ]
 ;
