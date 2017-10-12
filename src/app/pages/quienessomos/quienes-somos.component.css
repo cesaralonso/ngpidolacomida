@@ -1,0 +1,14 @@
+.section-quienes {
+    background-color: #E5E5E5   ;
+}
+.quienes-icon-wrapper {
+    padding: 1em 0;
+}
+.quienes-title {
+    padding-top: 1em;
+}
+.quienes-icon {
+    font-size: 3em;
+    background-color: #f58220;
+    color: white
+}
