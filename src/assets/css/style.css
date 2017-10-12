@@ -1159,7 +1159,11 @@ img.mfp-img {
 	padding-bottom:140px;
     position: relative;
   }
-
+.wrapsection-pages {
+    padding-top:50px;
+	padding-bottom:50px;
+    position: relative;
+}
 .parallax.section .container{
 	position: relative;
 	z-index: 4;
