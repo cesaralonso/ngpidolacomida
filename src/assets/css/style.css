@@ -1165,6 +1165,13 @@ img.mfp-img {
     position: relative;
 }
 
+.wrapsection-pages-quienes {
+	padding-top:5px;
+	padding-bottom:60px;
+    position: relative;
+
+}
+
 .wrapsection-login {
 	padding-top:200px;
 	padding-bottom:200px;
@@ -1686,4 +1693,11 @@ cursor: pointer;
 
 .card-comida-img {
 	position: relative;
+}
+.i
+{
+  display: inline-block;
+  border-radius: 150px;
+  box-shadow: 0px 0px 5px #888;
+  padding: 30px;
 }
