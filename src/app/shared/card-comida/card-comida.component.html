@@ -1,16 +1,18 @@
 <div class="card-comida">
-    <!-- https://unsplash.imgix.net/uploads/14115408840644deb16b0/2dc933e3?fit=crop&amp;fm=jpg&amp;h=700&amp;q=75&amp;w=1050 -->
-    <a [attr.href]="link" title="This is the description">
-        <!-- assets/img/galeria02.jpg -->
-        <img [src]="imgLink" alt="" class="image-responsive">
-        <div class="description">
-            <span class="caption">{{ descripcion || 'PROL.5 DE MAYO NO.786'}} <b>{{ number || '87753'}}</b></span>
-            <br>
-            <p class="text-center">
-                <span class=""><i class="glyphicon glyphicon-earphone ico-circle"></i></span>
-                <span class=""><i class="glyphicon glyphicon-share ico-circle"></i></span>
-            </p>
-            <div class="clearfix"></div>
-        </div>
+    <a [attr.href]="link" title="descripcion">
+        <img [src]="imgLink" alt="POZOLE DE GRANO" class="card-comida-img image-responsive">
+        <span class="price">{{ precio || '$ 55.99'}} <b>{{ moneda || 'MX'}}</b></span>
     </a>
+    <div class="description">
+        <div>
+            <span class="caption" > {{ titulo || 'POZOLE DE GRANO'}} </span>
+        </div>
+        <p class="text text-left">
+            {{ descripcion || 'PROL.5 DE MAYO NO.786'}}
+        </p>
+        <p class="text-right">
+            <button (click)="pedirModal()" type="button" class="btn btn-primary">PEDIR</button>
+        </p>
+        <div class="clearfix"></div>
+    </div>
 </div>

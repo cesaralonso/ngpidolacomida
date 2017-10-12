@@ -1,3 +1,4 @@
+import { CardComidaModule } from './../shared/card-comida/card-comida.module';
 import { AgmCoreModule } from '@agm/core';
 import { ListcocAddModalComponent } from './components/listcocinandose/components/listcocinandose-add-modal/listcocinandose-add-modal.component';
 import { ListcocinandoseComponent } from './components/listcocinandose/listcocinandose.component';
@@ -17,6 +18,7 @@ import { ContactComponent } from './components/contact/contact.component';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDN4SEq8sbzsAcMCA8jsph4Pv4OyPPq12Y'
     }),
+    CardComidaModule
   ],
   declarations: [
     HomeComponent,

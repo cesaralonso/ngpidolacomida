@@ -521,13 +521,18 @@ label {
 	float:right;
 }
 #gallery .price {
-	float:right;
-	position: relative;
-	top: -67px;
+	/* float:right; */
+	position:absolute; 
+	z-index: 1;
+	position: absolute;
 	color:#fff;
 	font-weight: bold;
 	font-size: 30px;
 	text-shadow: 1px 1px 1px #333 ;
+	left: 0;
+	right: 20px;
+	top: 0;
+	text-align: end;
 }
 #gallery .price b{
 	font-size: 9px;
@@ -1666,4 +1671,8 @@ cursor: pointer;
 }
 .progress-bar-pido-comida {
 	background-color: #f58220 !important;
+}
+
+.card-comida-img {
+	position: relative;
 }
