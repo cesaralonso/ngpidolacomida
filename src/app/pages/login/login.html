@@ -1,33 +1,196 @@
 <div id="parallax">
 </div>
 
-<div class="auth-main">
-  <div class="auth-block">
-    <h1 >Accesa</h1>
-    <a routerLink="/register" class="auth-link" >Regístrate</a>
+<section class="section title-content">
+    <div class="wrapsection">
+      <div class="container">
+      <!-- <div class="auth-main"> -->
+        <div class="col-md-2"></div>
+        <div class="col-md-7">
+          <div class="auth-block">
+              <h1 >Accesa</h1>
+              <a routerLink="/register" class="auth-link" >Regístrate</a>
+          
+              <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal">
+                <div class="form-group row" [ngClass]="{'has-error': (!email.valid && email.touched), 'has-success': (email.valid && email.touched)}">
+                  <label for="inputusuario" class="col-sm-3 control-label" >Email</label>
+          
+                  <div class="col-sm-9">
+                    <input [formControl]="email" type="email" class="form-control" id="inputusuario" placeholder="Usuario">
+                  </div>
+                </div>
+                <div class="form-group row" [ngClass]="{'has-error': (!password.valid && password.touched), 'has-success': (password.valid && password.touched)}">
+                  <label for="inputClave" class="col-sm-3 control-label" >Password</label>
+          
+                  <div class="col-sm-9">
+                    <input [formControl]="password" type="password" class="form-control" id="inputClave" placeholder="Password">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="offset-sm-3 col-sm-9">
+                    <button [disabled]="!form.valid" type="submit" class="btn btn-default" >Accesa</button>
+                    <a routerLink="/forgot" class="forgot-pass" >Recordar password</a>
+                  </div>
+                </div>
+              </form>
+          </div>
 
-    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal">
-      <div class="form-group row" [ngClass]="{'has-error': (!email.valid && email.touched), 'has-success': (email.valid && email.touched)}">
-        <label for="inputusuario" class="col-sm-3 control-label" >Email</label>
-
-        <div class="col-sm-9">
-          <input [formControl]="email" type="email" class="form-control" id="inputusuario" placeholder="Usuario">
+        </div>
+            <!-- </div> -->
+      </div>
+    </div>
+</section>
+<section id="faq" class="section">
+    <div class="wrapsection">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 sol-sm-12">
+            <div class="maintitle">
+              <h3 class="section-title">¿Quienes <span class="wow bounceInRight">Somos?</span></h3>
+              <p class="lead">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam consequuntur error similique alias. Quasi, amet eum quisquam! Alias quos, eos.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-12">
+            <div class="faq-block wow bounceInDown" data-wow-duration="1.5s" data-wow-delay="0s">
+              <div class="panel-group">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                    Lorem ipsum dolor sit. </a>
+                    </h4>
+                  </div>
+                  <div id="collapseOne" class="panel-collapse collapse">
+                    <div class="panel-body">
+                       Nullam mollis ornare lacus non condimentum. Praesent metus ipsum, semper et mi a, consequat finibus felis. Aliquam egestas faucibus ante ac placerat.
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                    Maecenas convallis ipsum </a>
+                    </h4>
+                  </div>
+                  <div id="collapseTwo" class="panel-collapse collapse">
+                    <div class="panel-body">
+                       Duis non luctus libero. Nulla laoreet nisl in velit imperdiet dignissim. Pellentesque a nibh ornare, tempor quam scelerisque, viverra leo.
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                    Vestibulum tortor orci </a>
+                    </h4>
+                  </div>
+                  <div id="collapseThree" class="panel-collapse collapse">
+                    <div class="panel-body">
+                       feugiat quis justo placerat, facilisis auctor magna. Aliquam vulputate eget erat eu suscipit.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12">
+            <div class="faq-block wow bounceInDown" data-wow-duration="1.5s" data-wow-delay="0.1s">
+              <div class="panel-group">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                    Vestibulum facilisis fringilla sapien </a>
+                    </h4>
+                  </div>
+                  <div id="collapseFour" class="panel-collapse collapse">
+                    <div class="panel-body">
+                       sit amet dictum mauris luctus condimentum. Suspendisse aliquet nec elit sit amet ullamcorper. Integer hendrerit porta congue. Vestibulum efficitur fermentum tincidunt. Morbi aliquet rutrum tempor.
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+                    Curabitur tortor eros </a>
+                    </h4>
+                  </div>
+                  <div id="collapseFive" class="panel-collapse collapse">
+                    <div class="panel-body">
+                       fringilla ac eros et, mattis luctus augue. Vivamus tristique in tortor ut efficitur. In facilisis ligula quis justo semper commodo. Morbi commodo vel eros et egestas. Ut fringilla pellentesque magna sit amet viverra. Fusce quis est dolor.
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+                    Proin et tempus erat, vitae tempor leo </a>
+                    </h4>
+                  </div>
+                  <div id="collapseSix" class="panel-collapse collapse">
+                    <div class="panel-body">
+                       Ut varius mauris vel est condimentum maximus. Quisque maximus arcu eu lacus vestibulum luctus. Morbi interdum mollis enim, et hendrerit quam. Integer dignissim consequat euismod.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12">
+            <div class="faq-block wow bounceInDown" data-wow-duration="1.5s" data-wow-delay="0.2s">
+              <div class="panel-group">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">
+                    Mauris tempus mi rhoncus</a>
+                    </h4>
+                  </div>
+                  <div id="collapseSeven" class="panel-collapse collapse">
+                    <div class="panel-body">
+                       odio pharetra sollicitudin. Suspendisse quis nunc at est interdum vehicula. Nullam varius non diam ut luctus. Phasellus condimentum est non leo consectetur, eu viverra orci efficitur.
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseEight">
+                    Cras nulla nisl, varius ut turpis ut</a>
+                    </h4>
+                  </div>
+                  <div id="collapseEight" class="panel-collapse collapse">
+                    <div class="panel-body">
+                       sollicitudin tristique ipsum. Nunc volutpat in nibh in rhoncus. Fusce sodales magna vitae cursus pretium. Aliquam porta sapien a turpis maximus, vitae bibendum orci consectetur. Nulla rhoncus ut tortor eu consectetur.
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseNine">
+                    Suspendisse ut fermentum ipsum</a>
+                    </h4>
+                  </div>
+                  <div id="collapseNine" class="panel-collapse collapse">
+                    <div class="panel-body">
+                       Fusce et augue ut felis semper tempus. Cras a ligula lorem. Donec lacus augue, vestibulum imperdiet euismod eget, aliquam eu dui.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="form-group row" [ngClass]="{'has-error': (!password.valid && password.touched), 'has-success': (password.valid && password.touched)}">
-        <label for="inputClave" class="col-sm-3 control-label" >Password</label>
+    </div>
+    </section>
 
-        <div class="col-sm-9">
-          <input [formControl]="password" type="password" class="form-control" id="inputClave" placeholder="Password">
-        </div>
-      </div>
-      <div class="form-group row">
-        <div class="offset-sm-3 col-sm-9">
-          <button [disabled]="!form.valid" type="submit" class="btn btn-default" >Accesa</button>
-          <a routerLink="/forgot" class="forgot-pass" >Recordar password</a>
-        </div>
-      </div>
-    </form>
-
-  </div>
-</div>
