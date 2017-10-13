@@ -1,3 +1,119 @@
-<p>
-  platillo-create works!
-</p>
+<app-titulo-principal [titulo]="titulo" [textColor]="textColor" ></app-titulo-principal>
+
+<section>
+  <div class="wrapsection-pages">
+    <div class="container">
+      <form>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="col-md-12 form-group">
+              <label> Nombre del platillo </label>
+              <input name="nombre" class="form-control" type="text" placeholder="Nombre del platillo">
+            </div>
+            <div class="col-md-12 form-group">
+              <label> Descripción </label>
+              <input name="descripcion" class="form-control" type="text" placeholder="Descripción">
+            </div>
+            <div class="col-md-12 form-group">
+              <label> Tiempo de preparación </label>
+              <timepicker name="timpoPreparacionPicker" [(ngModel)]="tiempoPreparacionPicker" [showMeridian]="isMeridian"></timepicker>
+              <pre class="alert alert-info">Tiempo: {{ tiempoPreparacionPicker.getHours() }} hora(s) y {{ tiempoPreparacionPicker.getMinutes() }} minuto(s)</pre>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h4> Horario </h4>
+            <div class="row horario">
+              <div class="col-md-12">
+                <select name="dia" class="form-control">
+                  <option value="Lunes">Lunes</option>
+                  <option value="Martes">Martes</option>
+                  <option value="Miercoles">Miércoles</option>
+                  <option value="Jueves">Jueves</option>
+                  <option value="Viernes">Viernes</option>
+                  <option value="Sábado">Sábado</option>
+                  <option value="Domingo">Domingo</option>
+                </select>
+              </div>
+              <div class="col-md-4" style="padding-top: .5em;">
+                <span> Hora de Inicio </span>
+                <timepicker name="timpoPreparacionPicker" [(ngModel)]="horarioInicial" [showMeridian]="isMeridian"></timepicker>
+              </div>
+              <div class="col-md-4" style="padding-top: .5em;">
+                <span> Hora de cierre </span>
+                <timepicker name="timpoPreparacionPicker" [(ngModel)]="horarioFinal" [showMeridian]="isMeridian"></timepicker>
+              </div>
+              <div class="col-md-12 text-right">
+                <button type="button" class="btn btn-primary"> Agregar </button>
+              </div>
+              <div class="col-md-12">
+                <table class="table">
+                  <thead>
+                    <th> Dia </th>
+                    <th> Hora de inicio </th>
+                    <th> Hora de cierre </th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td> Lunes </td>
+                      <td> Lunes </td>
+                      <td> Lunes </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="row ingredientes">
+              <hr>
+              <div class="col-md-12">
+                <h4> Ingredientes </h4>
+                <select name="ingredientes" class="form-control">
+                  <option value="Cebolla">Cebolla</option>
+                  <option value="Jitomate">Jitomate</option>
+                  <option value="Picante">Picante</option>
+                  <option value="Habanero">Habanero</option>
+                </select>
+              </div>
+              <div class="col-md-12 text-right" style="padding: 1em;">
+                <button type="button" class="btn btn-primary"> Agregar </button>
+              </div>
+              <div class="col-md-12">
+                <select class="form-control" name="ingredientes_seleccionados" multiple>
+                  <option value="Manzana">Manzána</option>
+                  <option value="Melon">Melón</option>
+                </select>
+              </div>
+            </div>
+            <div class="row oferta">
+              <hr>
+              <div class="col-md-12 form-group">
+                <h4> Oferta </h4>
+                <select name="oferta" class="form-control">
+                  <option value="2x1"> 2x1 </option>
+                  <option value="3x1"> 3x1 </option>
+                  <option value="50%"> 50% </option>
+                </select>
+              </div>
+              <div class="col-md-12 form-group">
+                <label> Precio </label>
+                <div class="input-group">
+                    <span class="input-group-addon">$</span>
+                    <input type="number" name="precio_oferta" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-12 form-group">
+                <label> Descripción </label>
+                <textarea type="number" name="descripcion_oferta" class="form-control"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <hr>
+          <div class="col-md-12 text-right">
+            <button class="btn btn-primary btn-lg" type="submit"> Registrar platillo </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

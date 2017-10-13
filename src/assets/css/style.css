@@ -1733,3 +1733,15 @@ hr.fancy-line {
 	color: #444 !important;
     background-color: white;
 }
+
+.btn-link {
+    color: #f58220;
+}
+
+.btn-link:hover {
+    color: #ce6b1a;
+}
+.input-group-addon {
+	color: white;
+	background-color: #f58220;
+}
