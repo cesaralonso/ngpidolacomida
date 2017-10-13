@@ -1,4 +1,4 @@
-import { RestaurantModule } from './restaurant/restaurant.module';
+import { RestaurantCuentaModule } from './restaurant-cuenta/restaurant-cuenta.module';
 import { CuentaRoutingModule } from './cuenta.routing';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -9,7 +9,7 @@ import { CuentaComponent } from './cuenta.component';
     imports: [
         CommonModule,
         CuentaRoutingModule,
-        RestaurantModule
+        RestaurantCuentaModule
     ],
     exports: [],
     declarations: [

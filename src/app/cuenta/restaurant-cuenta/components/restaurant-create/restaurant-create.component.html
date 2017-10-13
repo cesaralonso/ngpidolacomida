@@ -1,0 +1,42 @@
+<app-titulo-principal [titulo]="titulo" [textColor]="textColor"></app-titulo-principal>
+
+<section>
+  <div class="wrapsection-pages">
+    <div class="container">
+      <form [formGroup]="formGroup" (ngSubmit)="onSubmitRestaurant(formGroup.value)" >
+        <div class="row">
+          <div class="col-md-6 form-group" [ngClass]="{'has-error': (!nombre.valid && nombre.touched), 'has-success': (nombre.valid && nombre.touched)}">
+            <label> Nombre</label>
+            <input [formControl]="nombre" name="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre">
+          </div>
+          <div class="col-md-6 form-group" [ngClass]="{'has-error': (!razonSocial.valid && razonSocial.touched), 'has-success': (razonSocial.valid && razonSocial.touched)}">
+            <label> Razón Social </label>
+            <input [formControl]="razonSocial" name="razonSocial" type="text" class="form-control" placeholder="Razon social">
+          </div>
+        </div>
+        <div class="row ">
+          <div class="col-md-6 form-group" [ngClass]="{'has-error': (!rfc.valid && rfc.touched), 'has-success': (rfc.valid && rfc.touched)}">
+            <label> RFC </label>
+            <input [formControl]="rfc" name="rfc" type="text" class="form-control" placeholder="RFC">
+          </div>
+          <div class="col-md-6 form-group" [ngClass]="{'has-error': (!direccion.valid && direccion.touched), 'has-success': (direccion.valid && direccion.touched)}">
+            <label> Dirección </label>
+            <input [formControl]="direccion" name="direccion" type="text" class="form-control" placeholder="Dirección">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 form-group" [ngClass]="{'has-error': (!descripcion.valid && descripcion.touched), 'has-success': (descripcion.valid && descripcion.touched)}">
+              <label> Descripción </label>              
+            <textarea [formControl]="descripcion" name="descripcion" type="text" class="form-control" placeholder="Descripción"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 form-group text-right">
+            <button [disabled]="formGroup.invalid" class="btn btn-primary btn-lg" type="submit" > Registrar </button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</section>

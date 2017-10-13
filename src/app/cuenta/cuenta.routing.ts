@@ -8,7 +8,7 @@ const routes: Routes = [
         path: '',
         component: CuentaComponent,
         children: [
-            { path: 'restaurante', loadChildren: './restaurant/restaurant.module#RestaurantModule' },
+            { path: 'restaurante', loadChildren: './restaurant-cuenta/restaurant-cuenta.module#RestaurantCuentaModule' },
         ]
     },
 ];
