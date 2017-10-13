@@ -25,6 +25,7 @@ const routes: Routes = [
       loadChildren: './pages/forgot/forgot.module#ForgotModule'
   },
   { path: 'pages', loadChildren: './pages/pages.module#PagesModule' },
+  { path: 'mi-cuenta', loadChildren: './cuenta/cuenta.module#CuentaModule' }
 ]
 ;
 

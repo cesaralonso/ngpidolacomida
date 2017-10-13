@@ -17,19 +17,18 @@
 		  <a href="#hero">INICIO</a>
 		</li>
 		<li>
-		  <a href="#about">QUIENES SOMOS</a>
-		</li>
-		<li>
-		  <a href="#faq">SERVICIOS</a>
-		</li>
-		<li>
-		  <a href="#contactarea">CONTACTO</a>
-		</li>
-		<li>
 			<a href="login">LogIn</a>
 		</li>
 		<li>
 			<a href="register">Regístrate</a>
+		</li>
+		<li dropdown (onShown)="onShown()" (onHidden)="onHidden()" (isOpenChange)="isOpenChange()">
+				<a href dropdownToggle (click)="false">Mi cuenta</a>
+				<ul *dropdownMenu class="dropdown-menu">
+					<li *ngFor="let choice of items">
+						<a class="dropdown-item" href="#">{{choice}}</a>
+					</li>
+				</ul>
 		</li>
 	</ul>
 	</nav>

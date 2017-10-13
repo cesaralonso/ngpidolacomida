@@ -1,3 +1,4 @@
+import { CuentaModule } from './cuenta/cuenta.module';
 import { CardComidaComponent } from './shared/card-comida/card-comida.component';
 import { AuthLocalstorage } from './shared/auth-localstorage.service';
 import { AuthService } from './shared/auth.service';
@@ -22,6 +23,7 @@ import { Configuration } from './app.constants';
 import { LocalStorageModule } from 'angular-2-local-storage';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { ToastrModule } from 'ngx-toastr';
     }),
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added,
+    BsDropdownModule.forRoot(),
+    CuentaModule
   ],
   providers: [
     Configuration,
