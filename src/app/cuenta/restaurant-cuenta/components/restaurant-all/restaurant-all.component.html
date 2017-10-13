@@ -1,0 +1,38 @@
+<app-titulo-principal [titulo]="titulo" [textColor]="textColor" ></app-titulo-principal>
+
+<section>
+  <div class="wrapsection-pages">
+    <div class="container">
+      <div class="row">
+          <table class="table table-responsive">
+            <thead>
+              <th> Nombre </th>
+              <th> Razon Social </th>
+              <th> RFC </th>
+              <th> Dirección </th>
+              <th> Descripcion </th>
+              <th></th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let restaurant of restaurantes">
+                <td> {{ restaurant.nombre }} </td>
+                <td> {{ restaurant.razonSocial }} </td>
+                <td> {{ restaurant.rfc }} </td>
+                <td> {{ restaurant.direccion }} </td>
+                <td> {{ restaurant.descripcion }} </td>
+                <th>
+                  <button [routerLink]="['/mi-cuenta/restaurante/editar', restaurant.id ]" class="btn btn-primary" type="button"> Editar </button>
+                </th>
+              </tr>
+
+            </tbody>
+          </table>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-right">
+          <button [routerLink]="['/mi-cuenta/restaurante/crear']" class="btn btn-lg btn-primary"> Crear un nuevo restaurante </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

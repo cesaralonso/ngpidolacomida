@@ -7,6 +7,7 @@ import { RestaurantEditComponent } from './components/restaurant-edit/restaurant
 import { RestaurantCreateComponent } from './components/restaurant-create/restaurant-create.component';
 import { RestaurantCuentaComponent } from './restaurant-cuenta.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RestaurantAllComponent } from './components/restaurant-all/restaurant-all.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     declarations: [
         RestaurantCuentaComponent,
         RestaurantCreateComponent,
-        RestaurantEditComponent
+        RestaurantEditComponent,
+        RestaurantAllComponent
     ],
     providers: [],
 })

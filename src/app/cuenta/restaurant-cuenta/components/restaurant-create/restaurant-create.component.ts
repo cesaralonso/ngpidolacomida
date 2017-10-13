@@ -8,7 +8,7 @@ import { FormGroup, AbstractControl, FormBuilder, Validators, NgForm } from '@an
 })
 export class RestaurantCreateComponent implements OnInit {
   public titulo = 'Registrar restaurante';
-  public textColor = '#3D3D3D';
+  public textColor = '#444';
   public formGroup: FormGroup;
 
   public nombre: AbstractControl;

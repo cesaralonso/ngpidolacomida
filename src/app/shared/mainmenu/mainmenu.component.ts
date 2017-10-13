@@ -6,9 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mainmenu.component.css']
 })
 export class MainmenuComponent implements OnInit {
-  public items: string[];
+  public items: any[];
   constructor() {
-    this.items = ['Mis platillos', 'Mis combos', 'Mis restaurantes'];
+    this.items = [
+      { titulo: 'Mis platillos', link: '/mi-cuenta/mis-platillos' },
+      { titulo: 'Mis combos', link: '/mi-cuenta/mis-combos' },
+      { titulo: 'Mis restaurantes', link: '/mi-cuenta/mis-restaurantes' }
+    ];
   }
 
   ngOnInit() {

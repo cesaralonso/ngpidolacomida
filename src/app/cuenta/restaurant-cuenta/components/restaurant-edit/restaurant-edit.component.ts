@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class RestaurantEditComponent implements OnInit {
   public restaurante: RestauranteInterface;
   public titulo = 'Editar datos de restaurante';
-  public textColor = '#3D3D3D';
+  public textColor = '#444';
   public formGroup: FormGroup;
 
   public nombre: AbstractControl;
