@@ -6,9 +6,10 @@ import { NgModule } from '@angular/core';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 
 import { PlatilloCuentaComponent } from './platillo-cuenta.component';
-import { PlatilloAllComponent } from './components/platillo-all/platillo-all.component';
-import { PlatilloCreateComponent } from './components/platillo-create/platillo-create.component';
+
 import { PlatilloEditComponent } from './components/platillo-edit/platillo-edit.component';
+import { PlatilloCreateComponent } from './components/platillo-create/platillo-create.component';
+import { PlatilloAllComponent } from './components/platillo-all/platillo-all.component';
 
 @NgModule({
     imports: [

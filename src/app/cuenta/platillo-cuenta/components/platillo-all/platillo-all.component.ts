@@ -1,3 +1,4 @@
+import { PlatilloInterface } from './../../../../shared/models/platillo.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./platillo-all.component.css']
 })
 export class PlatilloAllComponent implements OnInit {
-
-  constructor() { }
+  public titulo = 'Mis platillos';
+  public textColor = '#444';
+  public platillos: PlatilloInterface[];
+  constructor() {
+    this.platillos = [
+      {
+        titulo: 'Pozole',
+        descripcion: 'Rico pozole de grano',
+        precio: 86.00
+      }
+    ];
+  }
 
   ngOnInit() {
   }
