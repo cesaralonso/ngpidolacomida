@@ -1,3 +1,4 @@
+import { TituloPrincipalModule } from './../../shared/titulo-principal/titulo-principal.module';
 import { ComboCuentaRoutingModule } from './combo-cuenta.routing';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -12,7 +13,8 @@ import { ComboCreateComponent } from './components/combo-create/combo-create.com
     imports: [
         CommonModule,
         FormsModule,
-        ComboCuentaRoutingModule
+        ComboCuentaRoutingModule,
+        TituloPrincipalModule
     ],
     exports: [],
     declarations: [

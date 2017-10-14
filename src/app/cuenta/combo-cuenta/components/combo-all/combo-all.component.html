@@ -1,3 +1,36 @@
-<p>
-  combo-all works!
-</p>
+<app-titulo-principal [titulo]="titulo" [textColor]="textColor" ></app-titulo-principal>
+
+<section>
+  <div class="wrapsection-pages">
+    <div class="container">
+      <div class="row">
+          <table class="table table-responsive">
+            <thead>
+              <th> Título del combo </th>
+              <th> Descripción </th>
+              <th> Preio </th>
+              <th></th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let combo of combos">
+                <td> {{ combo.titulo }} </td>
+                <td> {{ combo.descripcion }} </td>
+                <td> {{ combo.precio }} </td>
+                <td>
+                  <div class="text-right">
+                    <button [routerLink]="['/mi-cuenta/combo/editar', combo.id ]" class="btn btn-primary" type="button"> Editar </button>
+                  </div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-right">
+          <button [routerLink]="['/mi-cuenta/combo/crear']" class="btn btn-lg btn-primary"> Crear un nuevo combo </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

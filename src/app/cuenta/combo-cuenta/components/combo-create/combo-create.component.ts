@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./combo-create.component.css']
 })
 export class ComboCreateComponent implements OnInit {
-
+  public titulo = 'Crear un nuevo combo';
+  public textColor = '#444'
   constructor() { }
 
   ngOnInit() {
