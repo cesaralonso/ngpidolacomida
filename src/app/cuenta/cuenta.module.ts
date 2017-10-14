@@ -1,3 +1,4 @@
+import { ComboCuentaModule } from './combo-cuenta/combo-cuenta.module';
 import { PlatilloCuentaModule } from './platillo-cuenta/platillo-cuenta.module';
 import { RestaurantCuentaModule } from './restaurant-cuenta/restaurant-cuenta.module';
 import { CuentaRoutingModule } from './cuenta.routing';
@@ -11,7 +12,8 @@ import { CuentaComponent } from './cuenta.component';
         CommonModule,
         CuentaRoutingModule,
         RestaurantCuentaModule,
-        PlatilloCuentaModule
+        PlatilloCuentaModule,
+        ComboCuentaModule
     ],
     exports: [],
     declarations: [
