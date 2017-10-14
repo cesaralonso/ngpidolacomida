@@ -15,7 +15,7 @@ export class PlatilloCreateComponent implements OnInit {
   constructor(
 
   ) {
-    // Set hours to cero
+    // Set hours to zero
     this.tiempoPreparacionPicker.setHours(0);
     this.tiempoPreparacionPicker.setMinutes(0);
     this.horarioInicial.setHours(0);

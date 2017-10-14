@@ -4,4 +4,5 @@ export interface PlatilloInterface {
     precio?: number;
     img?: string;
     ingredientes?: string[];
+    id?: number;
 }

@@ -13,6 +13,7 @@ export class PlatilloAllComponent implements OnInit {
   constructor() {
     this.platillos = [
       {
+        id: 1,
         titulo: 'Pozole',
         descripcion: 'Rico pozole de grano',
         precio: 86.00
