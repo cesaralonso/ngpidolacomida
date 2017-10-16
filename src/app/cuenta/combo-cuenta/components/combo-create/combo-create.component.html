@@ -1,49 +1,69 @@
-<app-titulo-principal [titulo]="titulo" [textColor]="textColor" ></app-titulo-principal>
+<app-titulo-principal [titulo]="tituloHeader" [textColor]="textColor" ></app-titulo-principal>
 <section>
   <div class="wrapsection-pages">
     <div class="container">
-        <form>
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmitCombo( formGroup.value )">
           <div class="row">
             <div class="col-md-6 datos-combo">
-              <div class="col-md-12 form-group">
+              <div class="col-md-12 form-group" [ngClass]="{'has-error': (!titulo.valid && titulo.touched), 'has-success': (titulo.valid && titulo.touched)}">
                 <h4> Información sobre el combo </h4>
                 <label> Título del combo </label>
-                <input type="text" class="form-control" placeholder="Titulo del combo...">
+                <input [formControl]="titulo" name="titulo" type="text" class="form-control" placeholder="Titulo del combo...">
               </div>
-              <div class="col-md-12 form-group">
+              <div class="col-md-12 form-group" [ngClass]="{'has-error': (!precio.valid && precio.touched), 'has-success': (precio.valid && precio.touched)}">
                 <label> Precio </label>
                 <div class="input-group">
                   <span class="input-group-addon">$</span>
-                  <input type="number" class="form-control" placeholder="0.00">
+                  <input [formControl]="precio" name="precio" type="number" class="form-control" placeholder="0.00">
                 </div>
               </div>
               <div class="col-md-12 form-group">
                 <label> Descripción </label>
-                <textarea  class="form-control" placeholder="Descripción..."></textarea>
+                <textarea [formControl]="descripcion" name="descripcion" class="form-control" placeholder="Descripción..."></textarea>
               </div>
             </div>
             <div class="col-md-6 agregar-combo">
-              <div class="col-md-12 form-group">
-                <h4> Agregar platillos </h4>
-                <select class="form-control" name="platillos">
-                  <option> Platillo 1 </option>
-                  <option> Platillo 2 </option>
-                  <option> Platillo 3 </option>
-                  <option> Platillo 4 </option>
-                </select>
+              <div class="col-md-12 col-xs-12">
+                <div class="col-md-12">
+                  <h4> Agregar platillos </h4>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+                  <select (change)="onChangePlatillo($event.target.value)" class="form-control" name="platillos">
+                    <option selected disabled hidden value="">Seleccionar platillo</option>
+                    <option value="Platillo 1">Platillo 1</option>
+                    <option value="Platillo 2">Platillo 2</option>
+                    <option value="Platillo 3">Platillo 3</option>
+                  </select>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                  <button class="btn btn-primary btn-block" (click)="addPlatillo()">Agregar</button>
+                </div>
               </div>
-              <div class="col-md-12 form-group">
-                <select class="form-control" name="platillos_combo" multiple>
-                    <option value="">Platillo 1</option>
-                    <option value="">Platillo 2</option>
-                </select>
+              <div class="col-md-12 col-xs-12" style="padding-top: 1em;">
+                <div class="col-md-12 form-group">
+                  <h4 class="text-left">Platillos seleccionados</h4>
+                  <table class="table table-stripped">
+                    <thead>
+                      <th></th>
+                      <th></th>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let platillo of platillos">
+                        <td>
+                          <a (click)="removeFromPlatillos(platillo)" style="cursor:pointer;"><i class="fa fa-times" aria-hidden="true"></i></a>
+                        </td>
+                        <td>{{platillo}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
           <div class="row">
             <hr>
             <div class="col-md-12 text-right">
-              <button class="btn btn-lg btn-primary" type="submit"> Crear nuevo combo </button>
+              <button [disabled]="formGroup.invalid" class="btn btn-lg btn-primary" type="submit"> Crear nuevo combo </button>
             </div>
           </div>
         </form>

@@ -12,6 +12,9 @@ export class PlatilloCreateComponent implements OnInit {
   public tiempoPreparacionPicker: Date = new Date(); // Tiempo de preparacion
   public horarioInicial: Date = new Date(); // Hora de abrir
   public horarioFinal: Date = new Date(); // Hora de cerrar
+
+  public selectedIngrediente: any;
+  public ingredientes = [];
   constructor(
 
   ) {
@@ -25,6 +28,20 @@ export class PlatilloCreateComponent implements OnInit {
    }
 
   ngOnInit() {
+  }
+  onChangeIngrediente( ingrediente ) {
+    this.selectedIngrediente = ingrediente;
+
+  }
+  addIngrediente() {
+    if ( this.selectedIngrediente !== undefined && this.selectedIngrediente !== '') {
+      this.ingredientes.push(this.selectedIngrediente);
+    }
+  }
+
+  removeFromIngredientes( ingrediente ) {
+    const index = this.ingredientes.indexOf(ingrediente);
+    this.ingredientes.splice(index, 1);
   }
 
 }

@@ -74,7 +74,8 @@
               <hr>
               <div class="col-md-12">
                 <h4> Ingredientes </h4>
-                <select name="ingredientes" class="form-control">
+                <select (change)="onChangeIngrediente($event.target.value)" name="ingredientes" class="form-control">
+                  <option selected disabled hidden value="">Elegir ingrediente</option>
                   <option value="Cebolla">Cebolla</option>
                   <option value="Jitomate">Jitomate</option>
                   <option value="Picante">Picante</option>
@@ -82,13 +83,40 @@
                 </select>
               </div>
               <div class="col-md-12 text-right" style="padding: 1em;">
-                <button type="button" class="btn btn-primary"> Agregar </button>
+                <button type="button" class="btn btn-primary" (click)="addIngrediente()"> Agregar </button>
               </div>
               <div class="col-md-12">
-                <select class="form-control" name="ingredientes_seleccionados" multiple>
-                  <option value="Manzana">Manzána</option>
-                  <option value="Melon">Melón</option>
-                </select>
+                <h4>Ingredientes seleecionados</h4>
+                <table class="table table-stripped">
+                  <thead>
+                    <th></th>
+                    <th></th>
+                    <th>Ingrediente defualt</th>
+                    <th class="text-center">Precio</th>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let ingrediente of ingredientes">
+                      <td>
+                        <a (click)="removeFromIngredientes(ingrediente)" style="cursor:pointer;"><i class="fa fa-times" aria-hidden="true"></i></a>
+                      </td>
+                      <td>
+                        {{ ingrediente }}
+                      </td>
+                      <td>
+                        <div style="margin:auto;width:50%;">
+                          <input class="text-center" type="checkbox" class="form-control">
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group">
+                          <span class="input-group-addon">$</span>                            
+                          <input type="number" class="form-control" value="0" min="0">
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
               </div>
             </div>
             <div class="row oferta">

@@ -23,12 +23,12 @@
 			<a href="register">Regístrate</a>
 		</li>
 		<li dropdown (onShown)="onShown()" (onHidden)="onHidden()" (isOpenChange)="isOpenChange()">
-				<a href dropdownToggle (click)="false">Mi cuenta</a>
-				<ul *dropdownMenu class="dropdown-menu">
-					<li *ngFor="let choice of items">
-						<a class="dropdown-item" [href]="choice.link">{{ choice.titulo }}</a>
-					</li>
-				</ul>
+			<a href dropdownToggle (click)="false">Mi cuenta</a>
+			<ul *dropdownMenu class="dropdown-menu">
+				<li *ngFor="let choice of items">
+					<a class="dropdown-item" [href]="choice.link">{{ choice.titulo }}</a>
+				</li>
+			</ul>
 		</li>
 	</ul>
 	</nav>

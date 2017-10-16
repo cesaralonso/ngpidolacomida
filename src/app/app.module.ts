@@ -1,3 +1,6 @@
+import { RestaurantService } from './services/restaurant.service';
+import { PlatilloService } from './services/platillo.service';
+import { ComboService } from './services/combo.service';
 import { CuentaModule } from './cuenta/cuenta.module';
 import { CardComidaComponent } from './shared/card-comida/card-comida.component';
 import { AuthLocalstorage } from './shared/auth-localstorage.service';
@@ -56,6 +59,9 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     AuthGuard,
     AuthService,
     AuthLocalstorage,
+    ComboService,
+    PlatilloService,
+    RestaurantService
   ],
   entryComponents: [
     PedirModalComponent,

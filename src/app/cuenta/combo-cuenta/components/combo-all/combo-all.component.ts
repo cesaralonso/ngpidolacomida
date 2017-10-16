@@ -1,3 +1,4 @@
+import { ComboService } from './../../../../services/combo.service';
 import { ComboInterface } from './../../../../shared/models/combo.model';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,24 +12,11 @@ export class ComboAllComponent implements OnInit {
   public textColor = '#444';
 
   public combos: ComboInterface[];
-  constructor() {
-    this.combos = [
-      {
-        titulo: 'Paquete 1',
-        descripcion: 'Llevate un pozole con unas papas y un refresco',
-        precio: 100.00,
-        id: 1,
-      },
-      {
-        titulo: 'Paquete 2',
-        descripcion: 'Llevate 4 echiladas y un refresco',
-        precio: 80.00,
-        id: 2,
-      }
-    ];
-   }
+  constructor( private comboService: ComboService ) {
+  }
 
   ngOnInit() {
+    this.combos = this.comboService.getCombos();
   }
 
 }

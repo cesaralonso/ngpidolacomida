@@ -1,3 +1,52 @@
-<p>
-  combo-edit works!
-</p>
+<app-titulo-principal [titulo]="tituloHeader" [textColor]="textColor" ></app-titulo-principal>
+<section>
+  <div class="wrapsection-pages">
+    <div class="container">
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmitCombo( formGroup.value )">
+          <div class="row">
+            <div class="col-md-6 datos-combo">
+              <div class="col-md-12 form-group">
+                <h4> Información sobre el combo </h4>
+                <label> Título del combo </label>
+                <input [formControl]="titulo" [(ngModel)]="combo.titulo" type="text" class="form-control" placeholder="Titulo del combo...">
+              </div>
+              <div class="col-md-12 form-group">
+                <label> Precio </label>
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input [formControl]="precio" [(ngModel)]="combo.precio" type="number" class="form-control" placeholder="0.00">
+                </div>
+              </div>
+              <div class="col-md-12 form-group">
+                <label> Descripción </label>
+                <textarea [formControl]="descripcion" [(ngModel)]="combo.descripcion" class="form-control" placeholder="Descripción..."></textarea>
+              </div>
+            </div>
+            <div class="col-md-6 agregar-combo">
+              <div class="col-md-12 form-group">
+                <h4> Agregar platillos </h4>
+                <select class="form-control" name="platillos">
+                  <option> Platillo 1 </option>
+                  <option> Platillo 2 </option>
+                  <option> Platillo 3 </option>
+                  <option> Platillo 4 </option>
+                </select>
+              </div>
+              <div class="col-md-12 form-group">
+                <select class="form-control" name="platillos_combo" multiple>
+                    <option value="">Platillo 1</option>
+                    <option value="">Platillo 2</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <hr>
+            <div class="col-md-12 text-right">
+              <button class="btn btn-lg btn-primary" type="submit"> Guardar cambios </button>
+            </div>
+          </div>
+        </form>
+    </div>
+  </div>
+</section>
