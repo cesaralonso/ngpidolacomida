@@ -1,6 +1,6 @@
-import { RestaurantService } from './services/restaurant.service';
-import { PlatilloService } from './services/platillo.service';
-import { ComboService } from './services/combo.service';
+import { RestaurantService } from './shared/services/restaurant.service';
+import { PlatilloService } from './shared/services/platillo.service';
+import { ComboService } from './shared/services/combo.service';
 import { CuentaModule } from './cuenta/cuenta.module';
 import { CardComidaComponent } from './shared/card-comida/card-comida.component';
 import { AuthLocalstorage } from './shared/auth-localstorage.service';

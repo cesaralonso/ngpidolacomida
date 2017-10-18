@@ -1,4 +1,4 @@
-import { ComboInterface } from './../shared/models/combo.model';
+import { ComboInterface } from '../models/combo.model';
 import { Injectable } from '@angular/core';
 
 @Injectable()

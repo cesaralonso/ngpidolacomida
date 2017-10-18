@@ -1,4 +1,4 @@
-import { ComboService } from './../../../../services/combo.service';
+import { ComboService } from './../../../../shared/services/combo.service';
 import { ComboInterface } from './../../../../shared/models/combo.model';
 import { Component, OnInit } from '@angular/core';
 
