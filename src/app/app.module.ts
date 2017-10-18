@@ -1,3 +1,5 @@
+import { TelefonoService } from './shared/services/telefono.service';
+import { BasicRequestsService } from './shared/services/basic-requests.service';
 import { RestaurantService } from './shared/services/restaurant.service';
 import { PlatilloService } from './shared/services/platillo.service';
 import { ComboService } from './shared/services/combo.service';
@@ -61,7 +63,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     AuthLocalstorage,
     ComboService,
     PlatilloService,
-    RestaurantService
+    RestaurantService,
+    TelefonoService
   ],
   entryComponents: [
     PedirModalComponent,

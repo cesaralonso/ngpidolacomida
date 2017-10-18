@@ -43,6 +43,7 @@ export class RegisterComponent {
     this.passwords = <FormGroup> this.form.controls['passwords'];
     this.password = this.passwords.controls['password'];
     this.repeatPassword = this.passwords.controls['repeatPassword'];
+
   }
 
   public onSubmit(values: any): void {

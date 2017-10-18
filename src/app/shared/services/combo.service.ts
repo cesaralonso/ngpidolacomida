@@ -1,8 +1,10 @@
+import { Http } from '@angular/http';
+import { BasicRequestsService } from './basic-requests.service';
 import { ComboInterface } from '../models/combo.model';
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class ComboService {
+export class ComboService extends BasicRequestsService {
   public dataExample: ComboInterface[] = [
     {
       titulo: 'Combo 1',
@@ -17,8 +19,9 @@ export class ComboService {
       id: 1,
     }
   ];
-  constructor() { }
-
+  constructor ( protected http: Http ) {
+    super(http, '/combo');
+  }
   public getCombos() {
     return this.dataExample;
   }
