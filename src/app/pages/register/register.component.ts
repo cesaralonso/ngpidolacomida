@@ -25,6 +25,7 @@ export class RegisterComponent {
   public name: AbstractControl;
   public apellidos: AbstractControl;
   public email: AbstractControl;
+  public rol: AbstractControl;
   public telefono: AbstractControl;
   public lada: AbstractControl;
   public compania: AbstractControl;
@@ -45,11 +46,12 @@ export class RegisterComponent {
 
     this.form = fb.group({
       'name': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
-      'apellidos': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
+      'apellidos': ['', Validators.compose([Validators.required, Validators.minLength(2)])],
       'email': ['', Validators.compose([Validators.required, EmailValidator.validate])],
+      'rol': ['', Validators.compose([Validators.required])],
       'telefono': ['', Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(15)])],
-      'lada': ['', Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(15)])],
-      'compania': ['', Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(15)])],
+      'lada': ['', Validators.compose([Validators.required])],
+      'compania': ['', Validators.compose([Validators.required])],
       'passwords': fb.group({
         'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
         'repeatPassword': ['', Validators.compose([Validators.required, Validators.minLength(4)])]
@@ -59,6 +61,7 @@ export class RegisterComponent {
     this.name = this.form.controls['name'];
     this.apellidos = this.form.controls['apellidos'];
     this.email = this.form.controls['email'];
+    this.rol = this.form.controls['rol'];
     this.telefono = this.form.controls['telefono'];
     this.lada = this.form.controls['lada'];
     this.compania = this.form.controls['compania'];
@@ -77,29 +80,22 @@ export class RegisterComponent {
       compania: values.compania
     };
     const user: UserInterface = {
-      nombres: '',
-      apellidos: '',
-      email: '',
-      password: '',
+      nombres: values.name,
+      apellidos: values.apellidos,
+      email: values.email,
+      password: values.passwords.password,
       telefono_idtelefono: '',
-      rol_idrol: ''
+      rol_idrol: values.rol
     };
     if ( this.form.valid ) {
       this.telefonoService.create( telefono )
-        .flatMap( res => this.userService.create( user ))
-        .subscribe( res => console.log(res));
-
+        .flatMap( res => {
+            user.telefono_idtelefono = res.result.insertId;
+            return this.userService.register( user );
+        })
+        .subscribe( res => this.router.navigate(['/login']));
     }
 
-  }
-
-  private showModal(response: PersonResponseInterface) {
-    if (response.id) {
-      console.log('registrado');
-      this.router.navigate(['login']);
-    } else {
-      console.log('error de registro');
-    }
   }
 
 }
