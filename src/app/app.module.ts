@@ -1,3 +1,5 @@
+import { RolService } from './shared/services/rol.service';
+import { UserService } from './shared/services/user.service';
 import { TelefonoService } from './shared/services/telefono.service';
 import { BasicRequestsService } from './shared/services/basic-requests.service';
 import { RestaurantService } from './shared/services/restaurant.service';
@@ -64,7 +66,9 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     ComboService,
     PlatilloService,
     RestaurantService,
-    TelefonoService
+    TelefonoService,
+    UserService,
+    RolService
   ],
   entryComponents: [
     PedirModalComponent,

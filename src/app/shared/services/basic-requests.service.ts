@@ -11,7 +11,7 @@ export class BasicRequestsService {
     this.endPoint = Configuration.HOST + endPoint;
   }
 
-  public all(): Observable<any[]> {
+  public all(): Observable<any> {
     return this.http.get(`${this.endPoint}`)
       .map(res => res.json() || { } )
       .catch(err =>  JSON.stringify(err));
