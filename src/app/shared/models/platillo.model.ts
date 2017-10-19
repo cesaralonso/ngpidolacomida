@@ -1,8 +1,10 @@
 export interface PlatilloInterface {
-    titulo: string;
+    titulo?: string;
     descripcion: string;
     precio?: number;
     img?: string;
     ingredientes?: string[];
     idplatillo?: number;
+    nombre?: string;
+    tipoComida_idtipoComida?: string;
 }
