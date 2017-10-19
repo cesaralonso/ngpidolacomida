@@ -1,0 +1,59 @@
+<app-titulo-principal [titulo]="titulo" [textColor]="textColor" ></app-titulo-principal>
+
+<section>
+    <div class="wrapsection-pages">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <h3>
+                Mis platillos
+              </h3>
+              <table class="table">
+                <thead>
+                  <th>Platillo</th>
+                  <th></th>
+                  <th></th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let platillo of misPlatillos">
+                    <td> {{ platillo.descripcion }} </td>
+                    <td>
+                      <a [routerLink]="['/mi-cuenta/platillo/editar', platillo.platillo_idplatillo]" tooltip="Editar información del platillo." class="pidolacomida-icon"><i class="fa fa-2x fa-pencil" aria-hidden="true"></i>
+                      </a>
+                    </td>
+                    <td>
+                      <a tooltip="Agregar un horario de preparación." class="pidolacomida-icon"><i class="fa fa-2x fa-calendar-plus-o" aria-hidden="true"></i>
+                      </a>
+                    </td>
+                    <td>
+                      <a tooltip="Agregar ingredientes al platillo." class="pidolacomida-icon"><i class="fa fa-2x fa-lemon-o" aria-hidden="true"></i>
+                      </a>
+                    </td>
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-md-6">
+              <h3>
+                Mis combos
+              </h3>
+              <table class="table">
+                <thead>
+                  <th>Platillo</th>
+                  <th></th>
+                  <th></th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Pozole</td>
+                    <td>Button</td>
+                    <td>Button</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+    </div>
+</section>

@@ -1754,3 +1754,11 @@ hr.fancy-line {
     padding: 7px 20px;
     /* border-radius: 50px; */
 }
+.pidolacomida-icon {
+	color: #ff8c2d;
+	cursor: pointer;
+}
+.pidolacomida-icon:hover {
+color: #c46c24;
+	cursor: pointer;
+}
