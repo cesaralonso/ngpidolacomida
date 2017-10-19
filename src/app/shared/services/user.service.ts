@@ -17,4 +17,11 @@ export class UserService extends BasicRequestsService {
       .map( res => res.json() || {})
       .catch( error => JSON.stringify(error));
   }
+
+  public login( email: string, password: string ): Observable<any> {
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    return this.http.post(`${this.endPoint}/login`, {email: email, password: password}, { headers: headers })
+      .map( res => res.json() || {})
+      .catch( error => JSON.stringify(error));
+  }
 }

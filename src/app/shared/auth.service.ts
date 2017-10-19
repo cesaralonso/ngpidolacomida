@@ -10,19 +10,14 @@ import { LoginInterface } from './../pages/login/login.interface';
 import { LoginResponseInterface } from './../pages/login/login-response.interface';
 
 
-
 @Injectable()
 export class AuthService {
-    
+
     isLoggedIn: boolean = (
         this.toBoolean(
             this.localStorageService.get('isLoggedIn') ? this.localStorageService.get('isLoggedIn') : false,
         )
     );
-
-    toBoolean(object: any): boolean {
-        return (object.toString() === 'true') ? true : false;
-    }
 
     // store the URL so we can redirect after logging in
     redirectUrl: string;
@@ -31,7 +26,7 @@ export class AuthService {
     private headers: Headers;
 
     constructor(
-        private _http: Http, 
+        private _http: Http,
         private _configuration: Configuration,
         private localStorageService: LocalStorageService) {
 
@@ -39,10 +34,13 @@ export class AuthService {
         this.headers.append('Content-Type', 'application/json; charset=UTF-8');
     }
 
+    toBoolean(object: any): boolean {
+        return (object.toString() === 'true') ? true : false;
+    }
+
     login(values: LoginInterface): Observable<LoginResponseInterface> {
-        this.actionUrl = `${this._configuration.ServerWithApiUrl}People/login`;
-        const toAdd = JSON.stringify(values);
-        return this._http.post(this.actionUrl, toAdd, { headers: this.headers })
+        this.actionUrl = `${Configuration.HOST}/user/login`;
+        return this._http.post(this.actionUrl, values, { headers: this.headers })
             .map((response: Response) => <LoginResponseInterface>response.json())
             .catch(this.handleError)
             .do(val => {
@@ -61,9 +59,4 @@ export class AuthService {
     }
 
 
-
-
 }
-
-
-

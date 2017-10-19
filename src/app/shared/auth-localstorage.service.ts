@@ -24,6 +24,7 @@ export class AuthLocalstorage {
       this.localStorageService.clearAll();
       this.localStorageService.set('isLoggedIn', true);
       this.localStorageService.set('email', credentials.email);
+      this.localStorageService.set('token', loginResponseInterface.token);
 
   }
 
