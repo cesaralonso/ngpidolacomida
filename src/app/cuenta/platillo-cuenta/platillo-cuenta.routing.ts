@@ -13,7 +13,7 @@ const routes: Routes = [
         component: PlatilloCuentaComponent,
         children: [
             { path: 'mis-platillos', component: PlatilloAllComponent },
-            { path: 'crear', component: PlatilloCreateComponent },
+            { path: 'crear/:restauranteId', component: PlatilloCreateComponent },
             { path: 'editar/:id', component: PlatilloEditComponent },
         ]
     },
