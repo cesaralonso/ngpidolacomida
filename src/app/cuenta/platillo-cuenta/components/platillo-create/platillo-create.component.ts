@@ -1,3 +1,7 @@
+import { PlatilloService } from './../../../../shared/services/platillo.service';
+import { PlatilloInterface } from './../../../../shared/models/platillo.model';
+import { TipoComidaInterface } from './../../../../shared/models/tipo-comida.model';
+import { TipoComidaService } from './../../../../shared/services/tipo-comida.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -15,8 +19,26 @@ export class PlatilloCreateComponent implements OnInit {
 
   public selectedIngrediente: any;
   public ingredientes = [];
-  constructor(
+  // Nuevo platillo
+  public newPlatillo: PlatilloInterface = {
+    nombre: '',
+    descripcion: '',
+    precio: 0,
+    img: '',
+    idplatillo: 0,
+    tipoComida_idtipoComida: ''
+  };
 
+  // Tipos de comidass
+  public tipoComidas: TipoComidaInterface;
+  // Platillos existentes
+  public platillosExistentes: PlatilloInterface[];
+  // Verificar si seleccionó un platillo existente
+  public platilloSeleccionado = false;
+
+  constructor(
+    private tipoComidaService: TipoComidaService,
+    private platilloService: PlatilloService
   ) {
     // Set hours to zero
     this.tiempoPreparacionPicker.setHours(0);
@@ -28,7 +50,10 @@ export class PlatilloCreateComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.getTipoComida();
+    this.getPlatillos();
   }
+
   onChangeIngrediente( ingrediente ) {
     this.selectedIngrediente = ingrediente;
 
@@ -43,5 +68,21 @@ export class PlatilloCreateComponent implements OnInit {
     const index = this.ingredientes.indexOf(ingrediente);
     this.ingredientes.splice(index, 1);
   }
+
+  getTipoComida() {
+    this.tipoComidaService.all()
+      .subscribe( res => res.success ? this.tipoComidas = res.result : null );
+  }
+  getPlatillos() {
+    this.platilloService.all()
+      .subscribe( res => res.success ? this.platillosExistentes = res.result : null);
+  }
+  seleccionarPlatillo() {
+    this.setPlatilloSeleccionado(true);
+  }
+  setPlatilloSeleccionado( isSelected ) {
+    this.platilloSeleccionado = isSelected;
+  }
+
 
 }

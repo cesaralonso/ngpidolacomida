@@ -1745,3 +1745,12 @@ hr.fancy-line {
 	color: white;
 	background-color: #f58220;
 }
+
+.btn-default, .label-default {
+    border-color: #FFF;
+    color: #f58220;
+    /* background-color: #fff; */
+    border-width: 2px;
+    padding: 7px 20px;
+    /* border-radius: 50px; */
+}

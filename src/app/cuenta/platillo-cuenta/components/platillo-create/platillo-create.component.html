@@ -3,17 +3,40 @@
 <section>
   <div class="wrapsection-pages">
     <div class="container">
+      <div class="row select-platillo" style="margin-bottom: 3em;">
+        <div class="col-md-12">
+          <div class="col-md-5">
+            <h4>
+              Seleecionar un platillo existente
+            </h4>
+            <select (change)="seleccionarPlatillo($event.target.value)" class="form-control" name="select_platillo">
+              <option selected disabled hidden>Selecciona una opcion</option>  
+              <option *ngFor="let platillo of platillosExistentes" [value]="platillo.idplatillo">
+                {{ platillo.descripcion }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <hr>
       <form>
         <div class="row">
           <div class="col-md-6">
             <div class="col-md-12 form-group">
               <h4> Datos generales </h4>
               <label> Título del platillo </label>
-              <input name="titulo" class="form-control" type="text" placeholder="Nombre del platillo">
+              <input [(ngModel)]="newPlatillo.nombre" name="nombre" class="form-control" type="text" placeholder="Nombre del platillo" [disabled]="platilloSeleccionado">
             </div>
             <div class="col-md-12 form-group">
               <label> Descripción </label>
-              <input name="descripcion" class="form-control" type="text" placeholder="Descripción">
+              <input [(ngModel)]="newPlatillo.descricion" name="descripcion" class="form-control" type="text" placeholder="Descripción">
+            </div>
+            <div class="col-md-12 form-group">
+              <label> Tipo de comida </label>
+              <select class="form-control" name="tipo_comida">
+                <option selected disabled hidden>Selecciona una opcion</option>                
+                <option *ngFor="let tipo of tipoComidas" [value]="tipo.idtipoComida"> {{ tipo.nombre }} </option>
+              </select>
             </div>
             <div class="col-md-12 form-group">
               <label> Precio </label>
@@ -87,7 +110,7 @@
               </div>
               <div class="col-md-12">
                 <h4>Ingredientes seleecionados</h4>
-                <table class="table table-stripped">
+                <table  class="table table-stripped">
                   <thead>
                     <th></th>
                     <th></th>

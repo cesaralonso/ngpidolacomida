@@ -1,3 +1,4 @@
+import { TipoComidaService } from './shared/services/tipo-comida.service';
 import { IngredientesCuentaComponent } from './cuenta/ingredientes-cuenta/ingredientes-cuenta.component';
 import { RolService } from './shared/services/rol.service';
 import { UserService } from './shared/services/user.service';
@@ -33,7 +34,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +59,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added,
     BsDropdownModule.forRoot(),
-    CuentaModule
+    CuentaModule,
   ],
   providers: [
     Configuration,
@@ -71,7 +71,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     RestaurantService,
     TelefonoService,
     UserService,
-    RolService
+    RolService,
+    TipoComidaService
   ],
   entryComponents: [
     PedirModalComponent,

@@ -4,6 +4,7 @@ import { PlatilloCuentaRoutingModule } from './platillo-cuenta.routing';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { SelectModule } from 'ng2-select';
 
 import { PlatilloCuentaComponent } from './platillo-cuenta.component';
 
@@ -17,7 +18,8 @@ import { PlatilloAllComponent } from './components/platillo-all/platillo-all.com
         FormsModule,
         PlatilloCuentaRoutingModule,
         TituloPrincipalModule,
-        TimepickerModule.forRoot()
+        TimepickerModule.forRoot(),
+        SelectModule
     ],
     exports: [],
     declarations: [
