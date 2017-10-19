@@ -31,7 +31,7 @@ export class AuthLocalstorage {
   getCredentials(): CredentialsInterface {
       const credentials: CredentialsInterface = {
         'email': this.localStorageService.get('email').toString(),
-      }
+      };
       return credentials;
   }
 
