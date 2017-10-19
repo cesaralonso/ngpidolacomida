@@ -20,14 +20,14 @@ export class LoginComponent {
   form: FormGroup;
   email: AbstractControl;
   password: AbstractControl;
-  submitted: boolean = false;
+  submitted = false;
 
   constructor(fb: FormBuilder,
-              protected service: AuthService, 
+              protected service: AuthService,
               private authLocalstorage: AuthLocalstorage,
               private router: Router,
               private toastrService: ToastrService) {
-    this.form = fb.group({      
+    this.form = fb.group({
       'email': ['', Validators.compose([Validators.required, EmailValidator.validate])],
       'password': ['', Validators.compose([Validators.required, Validators.minLength(2)])],
     });
@@ -37,20 +37,20 @@ export class LoginComponent {
   }
 
   onSubmit(values: LoginInterface): void {
+    console.log(values);
     this.submitted = true;
     if (this.form.valid) {
-      this.service
-        .login(values)
-        .subscribe(
-            (response: LoginResponseInterface) => this.showModal(response, values));
+      this.service.login(values)
+        .subscribe( (response: LoginResponseInterface) => this.showModal(response, values));
     }
   }
 
   private showModal(response: LoginResponseInterface, credentials: LoginInterface) {
-    if (response.id) {
-      this.toastrService.success('Has accesado correctamente');
+    console.log(response);
+    if (response.success) {
+      this.toastrService.success(response.message);
       this.authLocalstorage.setCredentials(credentials, response);
-      this.router.navigate(['home']);
+      this.router.navigate(['/mi-cuenta/mis-platillos']);
     } else {
       this.toastrService.error('Hubo algún error al tratar de accesar');
       this.authLocalstorage.clearAll();

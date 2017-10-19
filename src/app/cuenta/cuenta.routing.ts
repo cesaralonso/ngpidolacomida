@@ -10,6 +10,7 @@ const routes: Routes = [
         children: [
             { path: 'restaurante', loadChildren: './restaurant-cuenta/restaurant-cuenta.module#RestaurantCuentaModule' },
             { path: 'platillo', loadChildren: './platillo-cuenta/platillo-cuenta.module#PlatilloCuentaModule' },
+            { path: 'combo', loadChildren: './combo-cuenta/combo-cuenta.module#ComboCuentaModule' },
         ]
     },
 ];

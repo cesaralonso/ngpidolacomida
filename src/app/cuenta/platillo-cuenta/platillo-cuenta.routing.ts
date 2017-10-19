@@ -14,7 +14,7 @@ const routes: Routes = [
         children: [
             { path: 'mis-platillos', component: PlatilloAllComponent },
             { path: 'crear', component: PlatilloCreateComponent },
-            { path: 'editat/:id', component: PlatilloEditComponent },
+            { path: 'editar/:id', component: PlatilloEditComponent },
         ]
     },
 ];

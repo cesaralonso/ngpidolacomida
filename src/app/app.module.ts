@@ -1,3 +1,10 @@
+import { RolService } from './shared/services/rol.service';
+import { UserService } from './shared/services/user.service';
+import { TelefonoService } from './shared/services/telefono.service';
+import { BasicRequestsService } from './shared/services/basic-requests.service';
+import { RestaurantService } from './shared/services/restaurant.service';
+import { PlatilloService } from './shared/services/platillo.service';
+import { ComboService } from './shared/services/combo.service';
 import { CuentaModule } from './cuenta/cuenta.module';
 import { CardComidaComponent } from './shared/card-comida/card-comida.component';
 import { AuthLocalstorage } from './shared/auth-localstorage.service';
@@ -56,6 +63,12 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     AuthGuard,
     AuthService,
     AuthLocalstorage,
+    ComboService,
+    PlatilloService,
+    RestaurantService,
+    TelefonoService,
+    UserService,
+    RolService
   ],
   entryComponents: [
     PedirModalComponent,

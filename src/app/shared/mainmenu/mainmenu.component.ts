@@ -11,7 +11,8 @@ export class MainmenuComponent implements OnInit {
     this.items = [
       { titulo: 'Mis platillos', link: '/mi-cuenta/mis-platillos' },
       { titulo: 'Mis combos', link: '/mi-cuenta/mis-combos' },
-      { titulo: 'Mis restaurantes', link: '/mi-cuenta/mis-restaurantes' }
+      { titulo: 'Mis restaurantes', link: '/mi-cuenta/mis-restaurantes' },
+      { titulo: 'Agregar ingredientes', link: '/mi-cuenta/mis-ingredientes' }
     ];
   }
 

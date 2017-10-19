@@ -19,7 +19,7 @@ export class RestaurantAllComponent implements OnInit {
   getAllRestaurantes() {
     this.restaurantes = [
       {
-        id: '1',
+        idrestaurante: '1',
         nombre: 'LA PARRILLA',
         razonSocial: 'RAZÓN',
         rfc: 'JDAJKN282',
@@ -27,7 +27,7 @@ export class RestaurantAllComponent implements OnInit {
         descripcion: 'EL MEJOR RESTAURANTE DE COMIDA RAPIDA'
       },
       {
-        id: '2',
+        idrestaurante: '2',
         nombre: 'LA GOURMET',
         razonSocial: 'RAZÓN 2',
         rfc: 'GFVBHG072',
