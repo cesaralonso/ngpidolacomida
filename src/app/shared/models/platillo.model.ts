@@ -4,7 +4,7 @@ export interface PlatilloInterface {
     precio?: number;
     img?: string;
     ingredientes?: string[];
-    idplatillo?: number;
+    idplatillo?: string;
     nombre?: string;
     tipoComida_idtipoComida?: string;
 }
