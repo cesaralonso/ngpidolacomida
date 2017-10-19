@@ -1,3 +1,4 @@
+import { IngredientesCuentaComponent } from './cuenta/ingredientes-cuenta/ingredientes-cuenta.component';
 import { RolService } from './shared/services/rol.service';
 import { UserService } from './shared/services/user.service';
 import { TelefonoService } from './shared/services/telefono.service';
@@ -32,6 +33,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +42,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     MainmenuComponent,
     FooterComponent,
     PedirModalComponent,
-    ConfirmModalComponent
+    ConfirmModalComponent,
+    IngredientesCuentaComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ngpidolacomida'}),
