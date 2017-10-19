@@ -23,6 +23,12 @@ export class BasicRequestsService {
       .catch( error => JSON.stringify(error) );
   }
 
+  public getByParam( column, value ): Observable<any> {
+    return this.http.get(`${this.endPoint}/getByParam/${column}/${value}`)
+      .map( res => res.json() || {} )
+      .catch( error => JSON.stringify(error) );
+  }
+
   public count(): Observable<any> {
     return this.http.get(`${this.endPoint}/count`)
       .map( res => res.json() || {} )
@@ -32,6 +38,13 @@ export class BasicRequestsService {
   public create( model ): Observable<any> {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     return this.http.post(`${this.endPoint}`, model, { headers: headers })
+      .map( res => res.json() || {})
+      .catch( error => JSON.stringify(error));
+  }
+
+  public update( model ): Observable<any> {
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    return this.http.patch(`${this.endPoint}`, model, { headers: headers })
       .map( res => res.json() || {})
       .catch( error => JSON.stringify(error));
   }
