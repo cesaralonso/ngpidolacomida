@@ -1,3 +1,4 @@
+import { AuthLocalstorage } from './../auth-localstorage.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainmenuComponent implements OnInit {
   public items: any[];
-  constructor() {
+  constructor(
+    private authLocalStorage: AuthLocalstorage
+  ) {
     this.items = [
       { titulo: 'Mis combos', link: '/mi-cuenta/mis-combos' },
       { titulo: 'Mis restaurantes', link: '/mi-cuenta/mis-restaurantes' },
@@ -16,6 +19,9 @@ export class MainmenuComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+  logout() {
+    this.authLocalStorage.clearAll();
   }
   public onHidden(): void {
     console.log('Dropdown is hidden');
