@@ -7,3 +7,12 @@
   :host >>> .tooltip .tooltip-arrow {
     border-bottom-color: #009688;
   }
+  .pidolacomida-restaurante-table {
+    margin-top: 1.3em;
+  }
+  .pidolacomida-restaurante-button {
+    display: inline;
+  }
+  .pidolacomida-restaurante-header {
+    display: inline !important;
+  }

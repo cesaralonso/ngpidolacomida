@@ -15,7 +15,8 @@ export class RestaurantShowComponent implements OnInit {
 
   // Platillos del restaurante
   public misPlatillos: RestaurantePlatilloInterface[];
-
+  // Obtiene el id del restaurante
+  public restauranteId: string;
   constructor(
     private restaurantService: RestaurantService,
     private restaurantePlatilloService: RestaurantePlatilloService,
@@ -23,8 +24,8 @@ export class RestaurantShowComponent implements OnInit {
   ) {
     activatedRoute.params
     .flatMap( parameters => {
-      const restauranteId = parameters['id'];
-      return this.restaurantService.findById( restauranteId );
+      this.restauranteId = parameters['id'];
+      return this.restaurantService.findById( this.restauranteId );
     })
     .flatMap( restauranteInfo => {
       if ( restauranteInfo.success ) {
