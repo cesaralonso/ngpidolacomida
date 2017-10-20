@@ -13,8 +13,9 @@ export class RestaurantePlatilloService extends BasicRequestsService {
 
   public create( restaurantePlatillo: RestaurantePlatilloInterface ): Observable<any> {
     restaurantePlatillo.tiempopreparacion =
-      `00:${restaurantePlatillo.tiempopreparacion.getHours()}:${restaurantePlatillo.tiempopreparacion.getMinutes()}`;
+      `${restaurantePlatillo.tiempopreparacion.getHours()}:${restaurantePlatillo.tiempopreparacion.getMinutes()}:00`;
     const headers = new Headers({ 'Content-Type': 'application/json' });
+    headers.append('Authorization', JSON.parse(localStorage.getItem('pidelacomida.token')));
     return this.http.post(`${this.endPoint}`, restaurantePlatillo, { headers: headers })
       .map( res => res.json() || {})
       .catch( error => JSON.stringify(error));
@@ -24,6 +25,7 @@ export class RestaurantePlatilloService extends BasicRequestsService {
     restaurantePlatillo.tiempopreparacion =
     `00:${restaurantePlatillo.tiempopreparacion.getHours()}:${restaurantePlatillo.tiempopreparacion.getMinutes()}`;
     const headers = new Headers({ 'Content-Type': 'application/json' });
+    headers.append('Authorization', JSON.parse(localStorage.getItem('pidelacomida.token')));
     return this.http.patch(`${this.endPoint}`, restaurantePlatillo, { headers: headers })
       .map( res => res.json() || {})
       .catch( error => JSON.stringify(error));
