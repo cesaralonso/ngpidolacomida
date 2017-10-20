@@ -1,3 +1,4 @@
+import { PlatilloOfertasComponent } from './components/platillo-ofertas/platillo-ofertas.component';
 import { PlatilloIngredienteComponent } from './components/platillo-ingrediente/platillo-ingrediente.component';
 import { PlatilloHorarioComponent } from './components/platillo-horario/platillo-horario.component';
 import { NgModule } from '@angular/core';
@@ -19,6 +20,7 @@ const routes: Routes = [
             { path: 'editar/:id', component: PlatilloEditComponent },
             { path: 'horarios/:id', component: PlatilloHorarioComponent },
             { path: 'ingredientes/:id', component: PlatilloIngredienteComponent },
+            { path: 'ofertas/:id', component: PlatilloOfertasComponent },
         ]
     },
 ];
