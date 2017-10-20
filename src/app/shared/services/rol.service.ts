@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class RolService extends BasicRequestsService {
 
   constructor ( protected http: Http ) {
-    super(http, '/rol');
+    super(http, '/rol', true);
   }
 
 }

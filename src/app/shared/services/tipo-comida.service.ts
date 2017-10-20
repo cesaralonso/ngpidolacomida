@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class TipoComidaService extends BasicRequestsService {
 
   constructor ( protected http: Http ) {
-    super(http, '/tipoComida');
+    super(http, '/tipoComida', true);
   }
 
 }

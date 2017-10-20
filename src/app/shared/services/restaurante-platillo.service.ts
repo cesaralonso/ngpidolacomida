@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class RestaurantePlatilloService extends BasicRequestsService {
 
   constructor ( protected http: Http ) {
-    super(http, '/restaurantePlatillo');
+    super(http, '/restaurantePlatillo', true);
   }
 
   public create( restaurantePlatillo: RestaurantePlatilloInterface ): Observable<any> {

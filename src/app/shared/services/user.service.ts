@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class UserService extends BasicRequestsService {
 
   constructor( protected htttp: Http ) {
-    super( htttp, '/user');
+    super( htttp, '/user', false);
   }
 
   public register( user: UserInterface ): Observable<any> {

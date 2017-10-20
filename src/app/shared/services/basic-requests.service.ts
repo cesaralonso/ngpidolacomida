@@ -7,8 +7,11 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class BasicRequestsService {
   protected endPoint: string;
-  constructor( protected http: Http, endPoint: string ) {
+  protected authorization: string;
+  protected requireAuthentication: boolean;
+  constructor( protected http: Http, endPoint: string, requireAuthentication: boolean ) {
     this.endPoint = Configuration.HOST + endPoint;
+    this.requireAuthentication = requireAuthentication;
   }
 
   public all(): Observable<any> {
@@ -36,7 +39,10 @@ export class BasicRequestsService {
   }
 
   public create( model ): Observable<any> {
-    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const headers = new Headers({ 'Content-Type': 'application/json'})
+    if ( this.requireAuthentication ) {
+      headers.append('Authorization', JSON.parse(localStorage.getItem('pidelacomida.token')));
+    }
     return this.http.post(`${this.endPoint}`, model, { headers: headers })
       .map( res => res.json() || {})
       .catch( error => JSON.stringify(error));
@@ -44,6 +50,9 @@ export class BasicRequestsService {
 
   public update( model ): Observable<any> {
     const headers = new Headers({ 'Content-Type': 'application/json' });
+    if ( this.requireAuthentication ) {
+      headers.append('Authorization', JSON.parse(localStorage.getItem('pidelacomida.token')));
+    }
     return this.http.patch(`${this.endPoint}`, model, { headers: headers })
       .map( res => res.json() || {})
       .catch( error => JSON.stringify(error));
