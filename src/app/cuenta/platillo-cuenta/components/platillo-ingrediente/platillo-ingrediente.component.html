@@ -1,3 +1,55 @@
-<p>
-  platillo-ingrediente works!
-</p>
+<app-titulo-principal [titulo]="titulo" [textColor]="textColor" ></app-titulo-principal>
+
+<section>
+  <div class="wrapsection-pages">
+    <div class="container">
+        <div class="row ingredientes">
+            <div class="col-md-6">
+              <h4> Ingredientes </h4>
+              <select (change)="onChangeIngrediente($event.target.value)" name="ingredientes" class="form-control">
+                <option selected disabled hidden value="">Elegir ingrediente</option>
+                <option value="Cebolla">Cebolla</option>
+                <option value="Jitomate">Jitomate</option>
+                <option value="Picante">Picante</option>
+                <option value="Habanero">Habanero</option>
+              </select>
+              <div class="text-right" style="margin: 1em 0;">
+                <button type="button" class="btn btn-primary" (click)="addIngrediente()"> Agregar </button>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h4>Ingredientes seleecionados</h4>
+              <table  class="table table-stripped">
+                <thead>
+                  <th>Ingrediente </th>
+                  <th>Defualt</th>
+                  <th class="text-center">Precio</th>
+                  <th></th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let ingrediente of ingredientes">
+                    <td>
+                      <a (click)="removeFromIngredientes(ingrediente)" style="cursor:pointer;"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    </td>
+                    <td>
+                      {{ ingrediente }}
+                    </td>
+                    <td>
+                      <div style="margin:auto;width:50%;">
+                        <input class="text-center" type="checkbox" class="form-control">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="input-group">
+                        <span class="input-group-addon">$</span>                            
+                        <input type="number" class="form-control" value="0" min="0">
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+    </div>
+  </div>
+</section>

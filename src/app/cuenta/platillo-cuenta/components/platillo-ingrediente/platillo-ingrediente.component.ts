@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./platillo-ingrediente.component.css']
 })
 export class PlatilloIngredienteComponent implements OnInit {
-
+  public titulo = 'Agrega ingredientes a tu platillo';
+  public textColor = '#444';
   constructor() { }
 
   ngOnInit() {
