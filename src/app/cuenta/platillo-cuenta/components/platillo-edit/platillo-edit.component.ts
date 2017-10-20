@@ -1,4 +1,5 @@
-import { PlatilloInterface } from './../../../../shared/models/platillo.model';
+import { RestaurantePlatilloService } from './../../../../shared/services/restaurante-platillo.service';
+import { RestaurantePlatilloInterface } from './../../../../shared/models/restaurante-platillo.model';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -15,8 +16,12 @@ export class PlatilloEditComponent implements OnInit {
   public horarioInicial: Date = new Date(); // Hora de abrir
   public horarioFinal: Date = new Date(); // Hora de cerrar
 
-  public platillo: PlatilloInterface;
-  constructor( activatedRoute: ActivatedRoute ) {
+  public platillo: RestaurantePlatilloInterface;
+
+  constructor(
+    activatedRoute: ActivatedRoute,
+    private restaurantePlatilloService: RestaurantePlatilloService
+  ) {
     // Set hours to zero
     this.tiempoPreparacionPicker.setHours(0);
     this.tiempoPreparacionPicker.setMinutes(0);
@@ -25,26 +30,19 @@ export class PlatilloEditComponent implements OnInit {
     this.horarioFinal.setHours(0);
     this.horarioFinal.setMinutes(0);
 
-    activatedRoute.params.subscribe( parameters => {
-      const id = parameters['id'];
-      this.getPlatillo( id );
-    });
+    activatedRoute.params
+      .flatMap( parameters => {
+        const id = parameters['id'];
+        return this.restaurantePlatilloService.getByParam( 'platillo_idplatillo ', id);
+      }).subscribe( platilloInfo => {
+        if ( platilloInfo.success ) {
+          this.platillo = platilloInfo.result;
+          console.log(this.platillo);
+        }
+      });
    }
 
   ngOnInit() {
-  }
-
-  getPlatillo( id: number ) {
-    this.platillo = {
-      titulo: 'Pozole de grano',
-      descripcion: 'Rico pozole de grano',
-      precio: 86.00,
-      ingredientes: [
-        'Cebolla',
-        'Lechuga',
-        'Limon'
-      ]
-    };
   }
 
 }

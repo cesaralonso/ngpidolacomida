@@ -6,12 +6,12 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class BasicRequestsService {
-  protected endPoint: string;
+  // protected endPoint: string;
   protected authorization: string;
-  protected requireAuthentication: boolean;
-  constructor( protected http: Http, endPoint: string, requireAuthentication: boolean ) {
+  // protected requireAuthentication: boolean;
+  constructor( protected http: Http, protected endPoint: string, protected requireAuthentication: boolean ) {
     this.endPoint = Configuration.HOST + endPoint;
-    this.requireAuthentication = requireAuthentication;
+    // this.requireAuthentication = requireAuthentication;
   }
 
   public all(): Observable<any> {
