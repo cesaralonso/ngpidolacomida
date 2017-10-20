@@ -12,7 +12,7 @@
             <select (change)="seleccionarPlatillo($event.target.value)" class="form-control" name="select_platillo">
               <option selected disabled hidden>Selecciona una opcion</option>  
               <option *ngFor="let platillo of platillosExistentes" [value]="platillo.idplatillo">
-                {{ platillo.descripcion }}
+                {{ platillo.nombre }}
               </option>
             </select>
           </div>
@@ -54,8 +54,8 @@
             </div>
             <div class="col-md-12 form-group">
               <label> Tiempo de preparación </label>
-              <timepicker name="tiempopreparacion" [(ngModel)]="newRestaurantePlatillo.tiempopreparacion" [showMeridian]="isMeridian"></timepicker>
-              <p class="alert alert-info">Tiempo: {{ newRestaurantePlatillo.tiempopreparacion.getHours() }} hora(s) y {{ newRestaurantePlatillo.tiempopreparacion.getMinutes() }} minuto(s) de preparación</p>
+              <timepicker name="tiempopreparacion" [(ngModel)]="newRestaurantePlatillo.tiempoPreparacionForView" [showMeridian]="isMeridian"></timepicker>
+              <p class="alert alert-info">Tiempo: {{ newRestaurantePlatillo.tiempoPreparacionForView.getHours() }} hora(s) y {{ newRestaurantePlatillo.tiempoPreparacionForView.getMinutes() }} minuto(s) de preparación</p>
             </div>
           </div>
           <div class="col-md-6">

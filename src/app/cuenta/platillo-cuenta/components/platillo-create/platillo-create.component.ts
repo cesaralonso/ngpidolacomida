@@ -1,5 +1,7 @@
+import { AlertModalComponent } from './../../../../shared/alert-modal/alert-modal.component';
+import { DialogService } from 'ng2-bootstrap-modal';
 import { RestaurantePlatilloService } from './../../../../shared/services/restaurante-platillo.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RestaurantePlatilloInterface } from './../../../../shared/models/restaurante-platillo.model';
 import { PlatilloService } from './../../../../shared/services/platillo.service';
 import { PlatilloInterface } from './../../../../shared/models/platillo.model';
@@ -50,7 +52,9 @@ export class PlatilloCreateComponent implements OnInit {
     private tipoComidaService: TipoComidaService,
     private platilloService: PlatilloService,
     activatedRoute: ActivatedRoute,
-    private restaurantePlatilloService: RestaurantePlatilloService
+    private restaurantePlatilloService: RestaurantePlatilloService,
+    private dialogService: DialogService,
+    private router: Router
   ) {
     // Get idrestaurant from URI param
     activatedRoute.params
@@ -84,7 +88,12 @@ export class PlatilloCreateComponent implements OnInit {
           }
         })
         .subscribe( res => {
-          console.log( res );
+          if ( res.success ) {
+            this.dialogService.addDialog( AlertModalComponent, {
+              title: '¡Platillo agregado!',
+              message: 'Su nuevo platillo ha sido agregado a la lista'
+            });
+          }
         });
 
     } else { // Es un nuevo platillo creado por el restaurante
@@ -100,7 +109,10 @@ export class PlatilloCreateComponent implements OnInit {
         })
         .subscribe( res => {
           if ( res.success ) {
-            console.log('Nailed it: ', res);
+            this.dialogService.addDialog( AlertModalComponent, {
+              title: '¡Platillo agregado!',
+              message: 'Su nuevo platillo ha sido agregado a la lista'
+            }).subscribe( ok => this.router.navigate(['/mi-cuenta/mis-restaurantes']));
           } else {
             console.log( res );
           }
