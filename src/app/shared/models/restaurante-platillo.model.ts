@@ -4,4 +4,5 @@ export interface RestaurantePlatilloInterface {
     descripcion: string;
     precio: number;
     tiempopreparacion: any;
+    tiempoPreparacionForView?: Date;
 }

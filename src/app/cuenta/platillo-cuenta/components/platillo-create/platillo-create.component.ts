@@ -34,6 +34,7 @@ export class PlatilloCreateComponent implements OnInit {
   public newRestaurantePlatillo: RestaurantePlatilloInterface =  {
     descripcion: '',
     precio: 0,
+    tiempoPreparacionForView: new Date(),
     tiempopreparacion: new Date()
   };
   // Tipos de comidass
@@ -55,8 +56,8 @@ export class PlatilloCreateComponent implements OnInit {
     activatedRoute.params
       .subscribe( parameters => this.restauranteId = parameters['restauranteId'] );
     // Set hours to zero
-    this.newRestaurantePlatillo.tiempopreparacion.setHours(0);
-    this.newRestaurantePlatillo.tiempopreparacion.setMinutes(0);
+    this.newRestaurantePlatillo.tiempoPreparacionForView.setHours(0);
+    this.newRestaurantePlatillo.tiempoPreparacionForView.setMinutes(0);
     this.horarioInicial.setHours(0);
     this.horarioInicial.setMinutes(0);
     this.horarioFinal.setHours(0);
