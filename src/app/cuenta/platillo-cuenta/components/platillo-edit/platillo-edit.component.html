@@ -9,23 +9,23 @@
             <div class="col-md-12 form-group">
               <h4> Datos generales </h4>
               <label> Título del platillo </label>
-              <input [(ngModel)]="platillo.titulo" name="titulo" class="form-control" type="text" placeholder="Nombre del platillo">
+              <input [(ngModel)]="platillo.nombre" name="titulo" class="form-control" type="text" placeholder="Nombre del platillo" disabled>
             </div>
             <div class="col-md-12 form-group">
               <label> Descripción </label>
-              <input [(ngModel)]="platillo.descripcion" name="descripcion" class="form-control" type="text" placeholder="Descripción">
+              <input [(ngModel)]="restaurantePlatillo.descripcion" name="descripcion" class="form-control" type="text" placeholder="Descripción">
             </div>
             <div class="col-md-12 form-group">
               <label> Precio </label>
               <div class="input-group">
                   <span class="input-group-addon">$</span>
-                  <input [(ngModel)]="platillo.precio" type="number" name="precio" class="form-control" placeholder="0.00">
+                  <input [(ngModel)]="restaurantePlatillo.precio" type="number" name="precio" class="form-control" placeholder="0.00">
               </div>
             </div>
             <div class="col-md-12 form-group">
               <label> Tiempo de preparación </label>
-              <timepicker name="timpoPreparacionPicker" [(ngModel)]="tiempoPreparacionPicker" [showMeridian]="isMeridian"></timepicker>
-              <pre class="alert alert-info">Tiempo: {{ tiempoPreparacionPicker.getHours() }} hora(s) y {{ tiempoPreparacionPicker.getMinutes() }} minuto(s)</pre>
+              <timepicker name="timpoPreparacionPicker" [(ngModel)]="restaurantePlatillo.tiempoPreparacionForView" [showMeridian]="isMeridian"></timepicker>
+              <pre class="alert alert-info">Tiempo: {{ restaurantePlatillo.tiempoPreparacionForView.getHours() }} hora(s) y {{ restaurantePlatillo.tiempoPreparacionForView.getMinutes() }} minuto(s)</pre>
             </div>
           </div>
           <div class="col-md-6">
@@ -86,7 +86,7 @@
               </div>
               <div class="col-md-12">
                 <select class="form-control" name="ingredientes_seleccionados" multiple>
-                  <option *ngFor="let ingrediente of platillo.ingredientes" [value]="ingrediente"> {{ ingrediente }} </option>
+                  <!-- <option *ngFor="let ingrediente of platillo.ingredientes" [value]="ingrediente"> {{ ingrediente }} </option> -->
                 </select>
               </div>
             </div>

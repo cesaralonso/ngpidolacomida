@@ -3,6 +3,6 @@ export interface RestaurantePlatilloInterface {
     platillo_idplatillo?: string;
     descripcion: string;
     precio: number;
-    tiempopreparacion: any;
+    tiempopreparacion?: any;
     tiempoPreparacionForView?: Date;
 }
