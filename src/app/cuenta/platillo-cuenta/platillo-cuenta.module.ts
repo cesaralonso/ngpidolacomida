@@ -12,6 +12,7 @@ import { PlatilloEditComponent } from './components/platillo-edit/platillo-edit.
 import { PlatilloCreateComponent } from './components/platillo-create/platillo-create.component';
 import { PlatilloAllComponent } from './components/platillo-all/platillo-all.component';
 import { PlatilloHorarioComponent } from './components/platillo-horario/platillo-horario.component';
+import { PlatilloIngredienteComponent } from './components/platillo-ingrediente/platillo-ingrediente.component';
 
 @NgModule({
     imports: [
@@ -28,7 +29,8 @@ import { PlatilloHorarioComponent } from './components/platillo-horario/platillo
         PlatilloAllComponent,
         PlatilloCreateComponent,
         PlatilloEditComponent,
-        PlatilloHorarioComponent
+        PlatilloHorarioComponent,
+        PlatilloIngredienteComponent
     ],
     providers: [],
 })
