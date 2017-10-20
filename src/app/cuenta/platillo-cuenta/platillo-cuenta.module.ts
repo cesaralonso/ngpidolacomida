@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { SelectModule } from 'ng2-select';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 import { PlatilloCuentaComponent } from './platillo-cuenta.component';
 
@@ -21,7 +22,8 @@ import { PlatilloIngredienteComponent } from './components/platillo-ingrediente/
         PlatilloCuentaRoutingModule,
         TituloPrincipalModule,
         TimepickerModule.forRoot(),
-        SelectModule
+        SelectModule,
+        TooltipModule.forRoot()
     ],
     exports: [],
     declarations: [

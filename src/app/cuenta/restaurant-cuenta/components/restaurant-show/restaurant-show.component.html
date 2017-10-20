@@ -23,11 +23,11 @@
                       </a>
                     </td>
                     <td>
-                      <a tooltip="Agregar un horario de preparación." class="pidolacomida-icon"><i class="fa fa-2x fa-calendar-plus-o" aria-hidden="true"></i>
+                      <a [routerLink]="['/mi-cuenta/platillo/horarios', platillo.platillo_idplatillo]" tooltip="Agregar un horario de preparación." class="pidolacomida-icon"><i class="fa fa-2x fa-calendar-plus-o" aria-hidden="true"></i>
                       </a>
                     </td>
                     <td>
-                      <a tooltip="Agregar ingredientes al platillo." class="pidolacomida-icon"><i class="fa fa-2x fa-lemon-o" aria-hidden="true"></i>
+                      <a [routerLink]="['/mi-cuenta/platillo/ingredientes', platillo.platillo_idplatillo]" tooltip="Agregar ingredientes al platillo." class="pidolacomida-icon"><i class="fa fa-2x fa-lemon-o" aria-hidden="true"></i>
                       </a>
                     </td>
                   </tr>

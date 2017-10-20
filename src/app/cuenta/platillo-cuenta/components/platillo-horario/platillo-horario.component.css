@@ -1,0 +1,12 @@
+.padding-pidolacomida {
+    padding-bottom: 3em;
+}
+:host >>> .tooltip-inner {
+    background-color: #e74c3c;
+    /* background-color: #853e04; */
+    color: white;
+    font-size: 1.4em;
+}
+:host >>> .tooltip .tooltip-arrow {
+    border-bottom-color: #e74c3c;
+}
