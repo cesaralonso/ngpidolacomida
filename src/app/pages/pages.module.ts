@@ -1,3 +1,5 @@
+import { ServiciosComponent } from './servicios/servicios.component';
+import { ContactanosComponent } from './contactanos/contactanos.component';
 import { TituloPrincipalModule } from './../shared/titulo-principal/titulo-principal.module';
 import { QuienesSomosComponent } from './quienessomos/quienes-somos.component';
 import { OfertasModule } from './ofertas/ofertas.module';
@@ -10,10 +12,9 @@ import { RestaurantModule } from './restaurant/restaurant.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-
 import { PagesRoutingModule } from './pages.routing';
-
 import { PagesComponent } from './pages.component';
+import { FaqsComponent } from './faqs/faqs.component';
 
 @NgModule({
     imports: [
@@ -31,7 +32,10 @@ import { PagesComponent } from './pages.component';
     exports: [],
     declarations: [
         PagesComponent,
-        QuienesSomosComponent
+        QuienesSomosComponent,
+        ContactanosComponent,
+        ServiciosComponent,
+        FaqsComponent,
     ],
     providers: [],
 })

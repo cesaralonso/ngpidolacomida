@@ -1,3 +1,4 @@
+import { ListadosComponent } from './components/listados/listados.component';
 import { CardComidaModule } from './../shared/card-comida/card-comida.module';
 import { AgmCoreModule } from '@agm/core';
 import { ListcocAddModalComponent } from './components/listcocinandose/components/listcocinandose-add-modal/listcocinandose-add-modal.component';
@@ -8,8 +9,6 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { MaincarruselComponent } from './components/maincarrusel/maincarrusel.component';
 import { MaprestaurantesComponent } from './components/maprestaurantes/maprestaurantes.component';
-import { FaqsComponent } from './components/faqs/faqs.component';
-import { ContactComponent } from './components/contact/contact.component';
 
 
 @NgModule({
@@ -24,9 +23,8 @@ import { ContactComponent } from './components/contact/contact.component';
     HomeComponent,
     MaincarruselComponent,
     MaprestaurantesComponent,
-    FaqsComponent,
-    ContactComponent,
     ListcocinandoseComponent,
+    ListadosComponent,
     ListcocAddModalComponent,
   ],
   entryComponents: [
