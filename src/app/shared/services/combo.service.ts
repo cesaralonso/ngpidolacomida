@@ -20,7 +20,7 @@ export class ComboService extends BasicRequestsService {
     }
   ];
   constructor ( protected http: Http ) {
-    super(http, '/combo');
+    super(http, '/combo', true);
   }
   public getCombos() {
     return this.dataExample;

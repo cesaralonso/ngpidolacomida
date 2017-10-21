@@ -1,3 +1,5 @@
+import { AlertModalComponent } from './shared/alert-modal/alert-modal.component';
+import { RestaurantePlatilloService } from './shared/services/restaurante-platillo.service';
 import { TipoComidaService } from './shared/services/tipo-comida.service';
 import { IngredientesCuentaComponent } from './cuenta/ingredientes-cuenta/ingredientes-cuenta.component';
 import { RolService } from './shared/services/rol.service';
@@ -43,7 +45,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     FooterComponent,
     PedirModalComponent,
     ConfirmModalComponent,
-    IngredientesCuentaComponent
+    IngredientesCuentaComponent,
+    AlertModalComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ngpidolacomida'}),
@@ -53,7 +56,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     PagesModule,
     HttpModule,
     LocalStorageModule.withConfig({
-        prefix: 'architectools',
+        prefix: 'pidelacomida',
         storageType: 'localStorage'
     }),
     BrowserAnimationsModule, // required animations module
@@ -72,11 +75,13 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     TelefonoService,
     UserService,
     RolService,
-    TipoComidaService
+    TipoComidaService,
+    RestaurantePlatilloService
   ],
   entryComponents: [
     PedirModalComponent,
-    ConfirmModalComponent
+    ConfirmModalComponent,
+    AlertModalComponent
   ],
   exports: [],
   bootstrap: [AppComponent]

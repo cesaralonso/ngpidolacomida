@@ -1,3 +1,8 @@
+import { AlertModalComponent } from './../../../../shared/alert-modal/alert-modal.component';
+import { DialogService } from 'ng2-bootstrap-modal';
+import { RestaurantePlatilloService } from './../../../../shared/services/restaurante-platillo.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RestaurantePlatilloInterface } from './../../../../shared/models/restaurante-platillo.model';
 import { PlatilloService } from './../../../../shared/services/platillo.service';
 import { PlatilloInterface } from './../../../../shared/models/platillo.model';
 import { TipoComidaInterface } from './../../../../shared/models/tipo-comida.model';
@@ -13,7 +18,6 @@ export class PlatilloCreateComponent implements OnInit {
   public titulo = 'Registrar platillo';
   public textColor = '#444';
   public isMeridian = false;
-  public tiempoPreparacionPicker: Date = new Date(); // Tiempo de preparacion
   public horarioInicial: Date = new Date(); // Hora de abrir
   public horarioFinal: Date = new Date(); // Hora de cerrar
 
@@ -21,28 +25,43 @@ export class PlatilloCreateComponent implements OnInit {
   public ingredientes = [];
   // Nuevo platillo
   public newPlatillo: PlatilloInterface = {
+    idplatillo: null,
     nombre: '',
     descripcion: '',
     precio: 0,
     img: '',
-    idplatillo: 0,
     tipoComida_idtipoComida: ''
   };
-
+  // Nuevo restaurante_has_platillo
+  public newRestaurantePlatillo: RestaurantePlatilloInterface =  {
+    descripcion: '',
+    precio: 0,
+    tiempoPreparacionForView: new Date(),
+    tiempopreparacion: new Date()
+  };
   // Tipos de comidass
   public tipoComidas: TipoComidaInterface;
   // Platillos existentes
   public platillosExistentes: PlatilloInterface[];
   // Verificar si seleccionó un platillo existente
   public platilloSeleccionado = false;
+  // Contiene el idrestaruante de la URI
+  public restauranteId: string;
 
   constructor(
     private tipoComidaService: TipoComidaService,
-    private platilloService: PlatilloService
+    private platilloService: PlatilloService,
+    activatedRoute: ActivatedRoute,
+    private restaurantePlatilloService: RestaurantePlatilloService,
+    private dialogService: DialogService,
+    private router: Router
   ) {
+    // Get idrestaurant from URI param
+    activatedRoute.params
+      .subscribe( parameters => this.restauranteId = parameters['restauranteId'] );
     // Set hours to zero
-    this.tiempoPreparacionPicker.setHours(0);
-    this.tiempoPreparacionPicker.setMinutes(0);
+    this.newRestaurantePlatillo.tiempoPreparacionForView.setHours(0);
+    this.newRestaurantePlatillo.tiempoPreparacionForView.setMinutes(0);
     this.horarioInicial.setHours(0);
     this.horarioInicial.setMinutes(0);
     this.horarioFinal.setHours(0);
@@ -53,7 +72,53 @@ export class PlatilloCreateComponent implements OnInit {
     this.getTipoComida();
     this.getPlatillos();
   }
+  onSubmitPlatillo( values ) {
+    this.newRestaurantePlatillo.restaurante_idrestaurante = this.restauranteId;
+    this.newRestaurantePlatillo.descripcion = this.newPlatillo.descripcion;
+    // Seleccionó un platillo existente
+    if ( this.platilloSeleccionado && this.newPlatillo.idplatillo ) {
+      this.newRestaurantePlatillo.platillo_idplatillo = this.newPlatillo.idplatillo;
+      this.platilloService.update(this.newPlatillo)
+        .flatMap( res => {
+          if ( res.success ) {
+            console.log(res.result);
+            return this.restaurantePlatilloService.create( this.newRestaurantePlatillo );
+          } else {
+            console.log( 'Error: ', res );
+          }
+        })
+        .subscribe( res => {
+          if ( res.success ) {
+            this.dialogService.addDialog( AlertModalComponent, {
+              title: '¡Platillo agregado!',
+              message: 'Su nuevo platillo ha sido agregado a la lista'
+            });
+          }
+        });
 
+    } else { // Es un nuevo platillo creado por el restaurante
+      this.platilloService.create( this.newPlatillo )
+        .flatMap( res => {
+          if ( res.success ) {
+            console.log(res.result);
+            this.newRestaurantePlatillo.platillo_idplatillo = res.result.insertId;
+            return this.restaurantePlatilloService.create( this.newRestaurantePlatillo );
+          } else {
+            console.log('Error: ', res);
+          }
+        })
+        .subscribe( res => {
+          if ( res.success ) {
+            this.dialogService.addDialog( AlertModalComponent, {
+              title: '¡Platillo agregado!',
+              message: 'Su nuevo platillo ha sido agregado a la lista'
+            }).subscribe( ok => this.router.navigate(['/mi-cuenta/mis-restaurantes']));
+          } else {
+            console.log( res );
+          }
+        });
+    }
+  }
   onChangeIngrediente( ingrediente ) {
     this.selectedIngrediente = ingrediente;
 
@@ -63,12 +128,37 @@ export class PlatilloCreateComponent implements OnInit {
       this.ingredientes.push(this.selectedIngrediente);
     }
   }
-
+  crear() {
+    this.newPlatillo = {
+      idplatillo: null,
+      nombre: '',
+      descripcion: '',
+      precio: 0,
+      img: '',
+      tipoComida_idtipoComida: ''
+    };
+    this.setPlatilloSeleccionado(false);
+  }
   removeFromIngredientes( ingrediente ) {
     const index = this.ingredientes.indexOf(ingrediente);
     this.ingredientes.splice(index, 1);
   }
 
+  seleccionarPlatillo( platilloId ) {
+    this.platilloService.findById( platilloId )
+    .subscribe( res => {
+      if ( res.success ) {
+        this.newPlatillo.idplatillo = res.result.idplatillo;
+        this.newPlatillo.nombre = res.result.nombre;
+        this.newPlatillo.descripcion = res.result.descripcion;
+        this.newPlatillo.tipoComida_idtipoComida = res.result.tipoComida_idtipoComida;
+      }
+    });
+    this.setPlatilloSeleccionado(true);
+  }
+  setPlatilloSeleccionado( isSelected ) {
+    this.platilloSeleccionado = isSelected;
+  }
   getTipoComida() {
     this.tipoComidaService.all()
       .subscribe( res => res.success ? this.tipoComidas = res.result : null );
@@ -77,12 +167,5 @@ export class PlatilloCreateComponent implements OnInit {
     this.platilloService.all()
       .subscribe( res => res.success ? this.platillosExistentes = res.result : null);
   }
-  seleccionarPlatillo() {
-    this.setPlatilloSeleccionado(true);
-  }
-  setPlatilloSeleccionado( isSelected ) {
-    this.platilloSeleccionado = isSelected;
-  }
-
 
 }

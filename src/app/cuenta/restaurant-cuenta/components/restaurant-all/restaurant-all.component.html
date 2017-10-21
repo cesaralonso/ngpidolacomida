@@ -7,24 +7,23 @@
           <table class="table table-responsive">
             <thead>
               <th> Nombre </th>
-              <th> Razon Social </th>
-              <th> RFC </th>
               <th> Dirección </th>
               <th> Descripcion </th>
+              <th></th>
               <th></th>
             </thead>
             <tbody>
               <tr *ngFor="let restaurant of restaurantes">
                 <td> {{ restaurant.nombre }} </td>
-                <td> {{ restaurant.razonSocial }} </td>
-                <td> {{ restaurant.rfc }} </td>
                 <td> {{ restaurant.direccion }} </td>
                 <td> {{ restaurant.descripcion }} </td>
                 <th>
-                  <button [routerLink]="['/mi-cuenta/restaurante/editar', restaurant.id ]" class="btn btn-primary" type="button"> Editar </button>
+                  <button [routerLink]="['/mi-cuenta/restaurante/ver', restaurant.idrestaurante ]" class="btn btn-primary">Ir a mi restaurante</button>
+                </th>
+                <th>
+                  <button [routerLink]="['/mi-cuenta/restaurante/editar', restaurant.idrestaurante ]" class="btn btn-primary" type="button"> Editar </button>
                 </th>
               </tr>
-
             </tbody>
           </table>
       </div>

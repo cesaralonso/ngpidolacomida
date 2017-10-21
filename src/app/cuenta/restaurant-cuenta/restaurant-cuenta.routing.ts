@@ -5,6 +5,7 @@ import { RestaurantAllComponent } from './components/restaurant-all/restaurant-a
 import { RestaurantEditComponent } from './components/restaurant-edit/restaurant-edit.component';
 import { RestaurantCreateComponent } from './components/restaurant-create/restaurant-create.component';
 import { RestaurantCuentaComponent } from './restaurant-cuenta.component';
+import { RestaurantShowComponent } from './components/restaurant-show/restaurant-show.component';
 
 const routes: Routes = [
     {
@@ -14,6 +15,7 @@ const routes: Routes = [
             { path: 'mis-restaurantes', component: RestaurantAllComponent },
             { path: 'crear', component: RestaurantCreateComponent },
             { path: 'editar/:id', component: RestaurantEditComponent },
+            { path: 'ver/:id', component: RestaurantShowComponent },
         ]
     },
 ];
