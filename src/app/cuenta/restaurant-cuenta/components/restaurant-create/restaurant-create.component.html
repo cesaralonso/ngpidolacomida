@@ -72,10 +72,10 @@
                 &nbsp;Dirección principal 
               </label>
           </div>
-          <div class="col-md-6 form-group" [ngClass]="{'has-error': (!ciudad.valid && ciudad.touched), 'has-success': (ciudad.valid && ciudad.touched)}">
+          <div class="col-md-6 form-group" [ngClass]="{'has-error': (!ciudad_idciudad.valid && ciudad_idciudad.touched), 'has-success': (ciudad_idciudad.valid && ciudad_idciudad.touched)}">
             <label> Ciudad </label>
-            <select [formControl]="ciudad" name="ciudad" type="text" class="form-control">
-              <option *ngFor="let ciudad of ciudades" [value]="ciudad">{{ciudad}}</option>
+            <select [formControl]="ciudad_idciudad" name="ciudad_idciudad" type="text" class="form-control">
+              <option *ngFor="let ciudad of ciudades" [value]="ciudad.idciudad">{{ ciudad.nombre }}</option>
             </select>
           </div>
         </div>

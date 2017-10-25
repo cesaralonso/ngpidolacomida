@@ -1,10 +1,18 @@
+import { RestaurantService } from './../../../../shared/services/restaurant.service';
+import { CiudadService } from './../../../../shared/services/ciudad.service';
+import { DireccionService } from './../../../../shared/services/direccion.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, AbstractControl, FormBuilder, Validators, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-restaurant-create',
   templateUrl: './restaurant-create.component.html',
-  styleUrls: ['./restaurant-create.component.css']
+  styleUrls: ['./restaurant-create.component.css'],
+  providers: [
+    CiudadService,
+    DireccionService,
+    RestaurantService
+  ]
 })
 export class RestaurantCreateComponent implements OnInit {
   public titulo = 'Registrar restaurante';
@@ -24,14 +32,16 @@ export class RestaurantCreateComponent implements OnInit {
   public colonia: AbstractControl;
   public cp: AbstractControl;
   public principal: AbstractControl;
-  public ciudad: AbstractControl;
+  public ciudad_idciudad: AbstractControl;
 
-  public ciudades = [
-    'uno',
-    'dos'
-  ];
+  public ciudades = [];
 
-  constructor( formBuilder: FormBuilder ) {
+  constructor(
+    formBuilder: FormBuilder,
+    private ciudadService: CiudadService,
+    private direccionService: DireccionService,
+    private restaurantService: RestaurantService
+  ) {
     this.formGroup = formBuilder.group({
       'nombre': ['', Validators.compose([Validators.required, Validators.minLength(2)])],
       'razonSocial': ['', Validators.compose([Validators.required, Validators.minLength(2)])],
@@ -46,7 +56,7 @@ export class RestaurantCreateComponent implements OnInit {
       'colonia': ['', Validators.compose([Validators.required, Validators.minLength(2)])],
       'cp': ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(5)])],
       'principal': '',
-      'ciudad': ['', Validators.required]
+      'ciudad_idciudad': ['', Validators.required]
     });
     this.nombre = this.formGroup.controls['nombre'];
     this.razonSocial = this.formGroup.controls['razonSocial'];
@@ -61,16 +71,49 @@ export class RestaurantCreateComponent implements OnInit {
     this.colonia = this.formGroup.controls['colonia'];
     this.cp = this.formGroup.controls['cp'];
     this.principal = this.formGroup.controls['principal'];
-    this.ciudad = this.formGroup.controls['ciudad'];
+    this.ciudad_idciudad = this.formGroup.controls['ciudad_idciudad'];
 
   }
 
   ngOnInit() {
+    this.getCiudades();
   }
-
+  getCiudades() {
+    this.ciudadService.all()
+      .subscribe( res => res.success ? this.ciudades = res.result : null);
+  }
   onSubmitRestaurant( values: any ) {
     if ( this.formGroup.valid ) {
-      console.log(values);
+      this.direccionService.create( {
+        calle: values.calle,
+        entrecalle1: values.entrecalle1,
+        entrecalle2: values.entrecalle2,
+        lat: values.lat,
+        lng: values.lng,
+        numext: values.numext,
+        numint: values.numint,
+        colonia: values.colonia,
+        cp: values.cp,
+        ciudad_idciudad: values.ciudad_idciudad,
+        principal: values.principal
+      })
+      .flatMap( direccionInfo => {
+        if ( direccionInfo.success ) {
+          console.log(direccionInfo);
+          console.log(direccionInfo.result.insertId);
+          return this.restaurantService.create({
+            descripcion: values.descripcion,
+            direccion_iddireccion: direccionInfo.result.insertId,
+            razon: values.razonSocial,
+            nombre: values.nombre
+          });
+        }
+      })
+      .subscribe( restaurantInfo => {
+        console.log(restaurantInfo);
+      },
+      error => console.log('Error: ', error),
+      () => console.log('Completed!'));
     }
   }
 
