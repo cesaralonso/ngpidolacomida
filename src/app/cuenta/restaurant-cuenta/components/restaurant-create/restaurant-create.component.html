@@ -14,16 +14,6 @@
             <input [formControl]="razonSocial" name="razonSocial" type="text" class="form-control" placeholder="Razon social">
           </div>
         </div>
-        <div class="row ">
-          <div class="col-md-6 form-group" [ngClass]="{'has-error': (!rfc.valid && rfc.touched), 'has-success': (rfc.valid && rfc.touched)}">
-            <label> RFC </label>
-            <input [formControl]="rfc" name="rfc" type="text" class="form-control" placeholder="RFC">
-          </div>
-          <div class="col-md-6 form-group" [ngClass]="{'has-error': (!direccion.valid && direccion.touched), 'has-success': (direccion.valid && direccion.touched)}">
-            <label> Dirección </label>
-            <input [formControl]="direccion" name="direccion" type="text" class="form-control" placeholder="Dirección">
-          </div>
-        </div>
         <div class="row">
           <div class="col-md-12 form-group" [ngClass]="{'has-error': (!descripcion.valid && descripcion.touched), 'has-success': (descripcion.valid && descripcion.touched)}">
               <label> Descripción </label>              
@@ -31,11 +21,69 @@
           </div>
         </div>
         <div class="row">
+          <hr>
+          <div class="col-md-12"><h4>Dirección</h4></div>
+          <div class="col-md-6 form-group" [ngClass]="{'has-error': (!calle.valid && calle.touched), 'has-success': (calle.valid && calle.touched)}">
+            <label> Calle </label>
+            <input [formControl]="calle" name="calle" type="text" class="form-control" placeholder="Calle">
+          </div>
+          <div class="col-md-6 form-group" [ngClass]="{'has-error': (!colonia.valid && colonia.touched), 'has-success': (colonia.valid && colonia.touched)}">
+            <label> Colonia </label>
+            <input [formControl]="colonia" name="colonia" type="text" class="form-control" placeholder="Colonia">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 form-group" [ngClass]="{'has-error': (!entrecalle1.valid && entrecalle1.touched), 'has-success': (entrecalle1.valid && entrecalle1.touched)}">
+            <label> Entre que calle </label>
+            <input [formControl]="entrecalle1" name="entrecalle1" type="text" class="form-control" placeholder="Calle 1">
+          </div>
+          <div class="col-md-6 form-group" [ngClass]="{'has-error': (!entrecalle2.valid && entrecalle2.touched), 'has-success': (entrecalle2.valid && entrecalle2.touched)}">
+            <label> Entre que calle </label>
+            <input [formControl]="entrecalle2" name="entrecalle2" type="text" class="form-control" placeholder="Calle 2">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 col-sm-6 form-group" [ngClass]="{'has-error': (!numint.valid && numint.touched), 'has-success': (numint.valid && numint.touched)}">
+            <label> Número Interior </label>
+            <input [formControl]="numint" name="numint" type="text" class="form-control" placeholder="Número int">
+          </div>
+          <div class="col-md-3 col-sm-6 form-group" [ngClass]="{'has-error': (!numext.valid && numext.touched), 'has-success': (numext.valid && numext.touched)}">
+            <label> Número Exterior </label>
+            <input [formControl]="numext" name="numext" type="text" class="form-control" placeholder="Número ext">
+          </div>
+          <div class="col-md-3 col-sm-6 form-group" [ngClass]="{'has-error': (!lat.valid && lat.touched), 'has-success': (lat.valid && lat.touched)}">
+            <label> Latitud </label>
+            <input [formControl]="lat" name="lat" type="text" class="form-control" placeholder="Latitud">
+          </div>
+          <div class="col-md-3 col-sm-6 form-group" [ngClass]="{'has-error': (!lng.valid && lng.touched), 'has-success': (lng.valid && lng.touched)}">
+            <label> Longitud </label>
+            <input [formControl]="lng" name="lng" type="text" class="form-control" placeholder="Longitud">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 col-sm-6 form-group" [ngClass]="{'has-error': (!cp.valid && cp.touched), 'has-success': (cp.valid && cp.touched)}">
+            <label> Código postal </label>
+            <input [formControl]="cp" name="cp" type="text" class="form-control" placeholder="Ej. 58000">
+          </div>
+          <div class="col-md-3 col-sm-6 form-check">
+              <br>
+              <label class="form-check-label" style="font-size: 1.2em;"> 
+                <input [formControl]="principal" name="principal" type="checkbox" class="form-check-input">
+                &nbsp;Dirección principal 
+              </label>
+          </div>
+          <div class="col-md-6 form-group" [ngClass]="{'has-error': (!ciudad.valid && ciudad.touched), 'has-success': (ciudad.valid && ciudad.touched)}">
+            <label> Ciudad </label>
+            <select [formControl]="ciudad" name="ciudad" type="text" class="form-control">
+              <option *ngFor="let ciudad of ciudades" [value]="ciudad">{{ciudad}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
           <div class="col-md-12 form-group text-right">
             <button [disabled]="formGroup.invalid" class="btn btn-primary btn-lg" type="submit" > Registrar </button>
           </div>
         </div>
-
       </form>
     </div>
   </div>
