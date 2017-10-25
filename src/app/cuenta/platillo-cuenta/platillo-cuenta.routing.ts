@@ -20,7 +20,7 @@ const routes: Routes = [
             { path: 'editar/:id', component: PlatilloEditComponent },
             { path: 'horarios/:id', component: PlatilloHorarioComponent },
             { path: 'ingredientes/:id', component: PlatilloIngredienteComponent },
-            { path: 'ofertas/:id', component: PlatilloOfertasComponent },
+            { path: 'ofertas/:platilloId/:restauranteId', component: PlatilloOfertasComponent },
         ]
     },
 ];

@@ -1,3 +1,65 @@
-<p>
-  platillo-ofertas works!
-</p>
+<app-titulo-principal [titulo]="titulo" [textColor]="textColor" ></app-titulo-principal>
+
+<section>
+  <div class="wrapsection-pages">
+    <div class="container">
+        <div class="row oferta">
+          <div class="col-md-6">
+            <form>
+              <div class="col-md-12 form-group">
+                <h4> Crear oferta </h4>
+                <select name="oferta" class="form-control">
+                  <option disabled hidden >Selecciona tipo de oferta</option>
+                  <option value="2x1"> 2x1 </option>
+                  <option value="3x1"> 3x1 </option>
+                  <option value="50%"> 50% </option>
+                </select>
+              </div>
+              <div class="col-md-12 form-group">
+                <label> Nombre </label>
+                <input type="text" name="nombre" class="form-control" placeholder="Nombre/Titulo de la oferta">
+              </div>
+              <div class="col-md-12 form-group">
+                <label> Descripción </label>
+                <textarea placeholder="Agrega una descripción..." type="number" name="descripcion_oferta" class="form-control"></textarea>
+              </div>
+              <div class="col-md-12 form-group">
+                <label> Precio </label>
+                <div class="input-group">
+                    <span class="input-group-addon">$</span>
+                    <input type="number" name="precio_oferta" class="form-control" placeholder="0.00">
+                </div>
+              </div>
+              <div class="col-md-6 form-group">
+                <label> Fecha de inicio </label>
+                <input type="date" class="form-control">
+              </div>
+              <div class="col-md-6 form-group">
+                <label> Fecha final </label>
+                <input type="date" class="form-control">
+              </div>
+              <div class="col-md-12 form-group text-right">
+                <button type="submit" class="btn btn-primary">Agregar oferta</button>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-6">
+            <h4>Visualización de tu oferta</h4>
+            <hr>
+            <blockquote class="blockquote">
+              <h3>2x1 [Nombre de la oferta]</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dolor repudiandae minima iusto, sequi voluptatem corrupti quam nam nihil ullam reprehenderit provident inventore blanditiis. Officiis quaerat sed voluptas adipisci exercitationem.
+              </p>
+              <p>
+                Valido de [fecha inicial] a [fecha final]
+              </p>
+              <p>
+                <strong>Precio: $99.99</strong>
+              </p>
+            </blockquote>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
