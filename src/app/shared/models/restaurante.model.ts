@@ -1,8 +1,9 @@
 export interface RestauranteInterface {
     idrestaurante?: string;
-    nombre: string;
-    razonSocial: string;
-    rfc: string;
-    direccion: string;
     descripcion: string;
+    direccion_iddireccion: string;
+    user_iduser?: string;
+    razon: string;
+    nombre: string;
+    created_by?: string;
 }

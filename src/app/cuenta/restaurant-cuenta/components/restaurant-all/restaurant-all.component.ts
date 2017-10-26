@@ -1,40 +1,39 @@
+import { AuthLocalstorage } from './../../../../shared/auth-localstorage.service';
+import { RestaurantService } from './../../../../shared/services/restaurant.service';
 import { RestauranteInterface } from './../../../../shared/models/restaurante.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-restaurant-all',
   templateUrl: './restaurant-all.component.html',
-  styleUrls: ['./restaurant-all.component.css']
+  styleUrls: ['./restaurant-all.component.css'],
+  providers: [
+    RestaurantService,
+    AuthLocalstorage
+  ]
 })
 export class RestaurantAllComponent implements OnInit {
   public titulo = 'Mis restaurantes';
   public textColor = '#444';
   public restaurantes: RestauranteInterface[] = [];
-  constructor() { }
+  constructor(
+    private restaurantService: RestaurantService,
+    private authLocalStorage: AuthLocalstorage
+  ) { }
 
   ngOnInit() {
-    this.getAllRestaurantes();
+    this.getRestaurantes();
   }
 
-  getAllRestaurantes() {
-    this.restaurantes = [
-      {
-        idrestaurante: '1',
-        nombre: 'LA PARRILLA',
-        razonSocial: 'RAZÓN',
-        rfc: 'JDAJKN282',
-        direccion: 'RAMON CORONA #928',
-        descripcion: 'EL MEJOR RESTAURANTE DE COMIDA RAPIDA'
-      },
-      {
-        idrestaurante: '2',
-        nombre: 'LA GOURMET',
-        razonSocial: 'RAZÓN 2',
-        rfc: 'GFVBHG072',
-        direccion: '1RO DE MAYO #138',
-        descripcion: 'EL MEJOR RESTAURANTE DE COMIDA ITALIANA'
-      }
-    ];
+  getRestaurantes() {
+    const userId = this.authLocalStorage.getIdUsuario();
+    this.restaurantService.getByParam( 'user_iduser', userId)
+      .subscribe( res => {
+        if ( res.success ) {
+          console.log(res);
+          this.restaurantes = res.result;
+        }
+      });
   }
 
 }

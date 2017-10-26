@@ -25,6 +25,7 @@ export class AuthLocalstorage {
       this.localStorageService.set('isLoggedIn', true);
       this.localStorageService.set('email', credentials.email);
       this.localStorageService.set('token', loginResponseInterface.token);
+      this.localStorageService.set('iduser', loginResponseInterface.iduser);
 
   }
 
@@ -36,7 +37,7 @@ export class AuthLocalstorage {
   }
 
   getIdUsuario(): string {
-      return this.localStorageService.get('idUser').toString();
+      return this.localStorageService.get('iduser').toString();
   }
 
   clearAll(): void {

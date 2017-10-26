@@ -6,4 +6,5 @@ export interface LoginResponseInterface {
     success?: string;
     message?: string;
     token?: string;
+    iduser?: string;
 }
