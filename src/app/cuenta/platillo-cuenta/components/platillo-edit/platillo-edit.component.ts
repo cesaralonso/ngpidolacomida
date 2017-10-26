@@ -52,8 +52,8 @@ export class PlatilloEditComponent implements OnInit {
         if ( platilloInfo.success ) {
           this.restaurantePlatillo = platilloInfo.result[0];
           // Asigna las horas y minutos
-          const hours: number = this.restaurantePlatillo.tiempopreparacion.substring(3, 5);
-          const minutes: number = this.restaurantePlatillo.tiempopreparacion.substring(6, 8);
+          const hours: number = this.restaurantePlatillo.tiempopreparacion.substring(0, 2);
+          const minutes: number = this.restaurantePlatillo.tiempopreparacion.substring(3, 5);
           this.restaurantePlatillo.tiempoPreparacionForView = new Date();
           this.restaurantePlatillo.tiempoPreparacionForView.setHours(hours || 0);
           this.restaurantePlatillo.tiempoPreparacionForView.setMinutes(minutes || 0);
