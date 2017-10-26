@@ -1,0 +1,53 @@
+<app-titulo-principal [titulo]="titulo" [background]="background"></app-titulo-principal>
+<section id="contactarea" class="parallax section" style="background-image: url(assets/img/comida4.jpg);">
+    <div class="wrapsection">
+	    <div class="parallax-overlay" style="background-color: #f58220;opacity:0.95;"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="maintitle">
+                        <h3 class="section-title">Contactanos</h3>
+                        <p class="lead">
+                            Envianos un email y te responderemos lo más pronto posible, queremos poner en tu rostro una gran sonrisa.
+                        </p>
+                    </div>
+                    <form id="contact" name="contact" method="post" class="text-left">
+                        <fieldset>
+                            <div class="row">
+                                <div class="col-md-4 wow fadeIn animated animated" data-wow-delay="0.1s" data-wow-duration="2s">
+                                    <label for="name">Nombre<span class="required">*</span></label>
+                                    <input type="text" name="name" id="name" size="30" value="" required/>
+                                </div>
+                                <div class="col-md-4 wow fadeIn animated" data-wow-delay="0.3s" data-wow-duration="2s">
+                                    <label for="email">Email<span class="required">*</span></label>
+                                    <input type="text" name="email" id="email" size="30" value="" required/>
+                                </div>
+                                <div class="col-md-4 wow fadeIn animated" data-wow-delay="0.3s" data-wow-duration="2s">
+                                    <label for="phone">Teléfono</label>
+                                    <input type="text" name="phone" id="phone" size="30" value=""/>
+                                </div>
+                            </div>
+                            <div class="wow fadeIn animated" data-wow-delay="0.3s" data-wow-duration="1.5" style="margin-top:15px;">
+                                <label for="message">Mensaje<span class="required">*</span></label>
+                                <textarea name="message" id="message" required></textarea>
+                            </div>
+                            <div class="wow fadeIn animated" data-wow-delay="0.3" data-wow-duration="1.5s">
+                                <input id="submit" type="submit" name="submit" value="Send"/>
+                            </div>
+                        </fieldset>
+                    </form>
+                    <div id="success">
+                        <p class="contactalert">
+                            ¡Tu mensaje ha sido enviado exitósamente!, pronto entrarémos en contacto contigo.
+                        </p>
+                    </div>
+                    <div id="error">
+                        <p class="contactalert">
+                            Algo malo a ocurrido, por favor intenta de nuevo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,3 +1,6 @@
+import { FaqsComponent } from './faqs/faqs.component';
+import { ServiciosComponent } from './servicios/servicios.component';
+import { ContactanosComponent } from './contactanos/contactanos.component';
 import { QuienesSomosComponent } from './quienessomos/quienes-somos.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -18,8 +21,10 @@ const routes: Routes = [
             { path: 'confirmacion', loadChildren: './confirmacion/confirmacion.module#ConfirmacionModule' },
             { path: 'status', loadChildren: './status-pedido/status-pedido.module#StatusPedidoModule' },
             { path: 'ofertas', loadChildren: './ofertas/ofertas.module#OfertasModule' },
-            { path: 'ofertas', loadChildren: './ofertas/ofertas.module#OfertasModule' },
             { path: 'quienes-somos', component: QuienesSomosComponent },
+            { path: 'contactanos', component: ContactanosComponent },
+            { path: 'servicios', component: ServiciosComponent },
+            { path: 'faqs', component: FaqsComponent },
         ]
     },
 ];
