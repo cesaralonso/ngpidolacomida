@@ -28,9 +28,11 @@
       <hr>
       <form #formPlatillo="ngForm" (ngSubmit)="onSubmitPlatillo(formPlatillo.value)">
         <div class="row">
+          <div class="col-md-12">
+              <h4> Datos generales </h4>              
+          </div>
           <div class="col-md-6">
             <div class="col-md-12 form-group">
-              <h4> Datos generales </h4>
               <label> Título del platillo </label>
               <input  #nombre="ngModel" [(ngModel)]="newPlatillo.nombre" name="nombre" class="form-control" type="text" placeholder="Nombre del platillo" [disabled]="platilloSeleccionado" required>
             </div>
@@ -45,131 +47,21 @@
                 <option *ngFor="let tipo of tipoComidas" [value]="tipo.idtipoComida"> {{ tipo.nombre }} </option>
               </select>
             </div>
-            <div class="col-md-12 form-group">
-              <label> Precio </label>
-              <div class="input-group">
-                  <span class="input-group-addon">$</span>
-                  <input [(ngModel)]="newRestaurantePlatillo.precio" type="number" name="precio" class="form-control" placeholder="0.00">
-              </div>
-            </div>
-            <div class="col-md-12 form-group">
-              <label> Tiempo de preparación </label>
-              <timepicker name="tiempopreparacion" [(ngModel)]="newRestaurantePlatillo.tiempoPreparacionForView" [showMeridian]="isMeridian"></timepicker>
-              <p class="alert alert-info">Tiempo: {{ newRestaurantePlatillo.tiempoPreparacionForView.getHours() }} hora(s) y {{ newRestaurantePlatillo.tiempoPreparacionForView.getMinutes() }} minuto(s) de preparación</p>
-            </div>
+
           </div>
           <div class="col-md-6">
-            <h4> Horario </h4>
-            <div class="row horario">
-              <div class="col-md-12">
-                <select name="dia" class="form-control">
-                  <option value="Lunes">Lunes</option>
-                  <option value="Martes">Martes</option>
-                  <option value="Miercoles">Miércoles</option>
-                  <option value="Jueves">Jueves</option>
-                  <option value="Viernes">Viernes</option>
-                  <option value="Sábado">Sábado</option>
-                  <option value="Domingo">Domingo</option>
-                </select>
-              </div>
-              <div class="col-md-4" style="padding-top: .5em;">
-                <span> Hora de Inicio </span>
-                <timepicker name="timpoPreparacionPicker" [(ngModel)]="horarioInicial" [showMeridian]="isMeridian"></timepicker>
-              </div>
-              <div class="col-md-4" style="padding-top: .5em;">
-                <span> Hora de cierre </span>
-                <timepicker name="timpoPreparacionPicker" [(ngModel)]="horarioFinal" [showMeridian]="isMeridian"></timepicker>
-              </div>
-              <div class="col-md-12 text-right">
-                <button type="button" class="btn btn-primary"> Agregar </button>
-              </div>
-              <div class="col-md-12">
-                <table class="table">
-                  <thead>
-                    <th> Dia </th>
-                    <th> Hora de inicio </th>
-                    <th> Hora de cierre </th>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td> Lunes </td>
-                      <td> Lunes </td>
-                      <td> Lunes </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div class="row ingredientes">
-              <hr>
-              <div class="col-md-12">
-                <h4> Ingredientes </h4>
-                <select (change)="onChangeIngrediente($event.target.value)" name="ingredientes" class="form-control">
-                  <option selected disabled hidden value="">Elegir ingrediente</option>
-                  <option value="Cebolla">Cebolla</option>
-                  <option value="Jitomate">Jitomate</option>
-                  <option value="Picante">Picante</option>
-                  <option value="Habanero">Habanero</option>
-                </select>
-              </div>
-              <div class="col-md-12 text-right" style="padding: 1em;">
-                <button type="button" class="btn btn-primary" (click)="addIngrediente()"> Agregar </button>
-              </div>
-              <div class="col-md-12">
-                <h4>Ingredientes seleecionados</h4>
-                <table  class="table table-stripped">
-                  <thead>
-                    <th></th>
-                    <th></th>
-                    <th>Ingrediente defualt</th>
-                    <th class="text-center">Precio</th>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let ingrediente of ingredientes">
-                      <td>
-                        <a (click)="removeFromIngredientes(ingrediente)" style="cursor:pointer;"><i class="fa fa-times" aria-hidden="true"></i></a>
-                      </td>
-                      <td>
-                        {{ ingrediente }}
-                      </td>
-                      <td>
-                        <div style="margin:auto;width:50%;">
-                          <input class="text-center" type="checkbox" class="form-control">
-                        </div>
-                      </td>
-                      <td>
-                        <div class="input-group">
-                          <span class="input-group-addon">$</span>                            
-                          <input type="number" class="form-control" value="0" min="0">
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div class="row oferta">
-              <hr>
-              <div class="col-md-12 form-group">
-                <h4> Oferta </h4>
-                <select name="oferta" class="form-control">
-                  <option value="2x1"> 2x1 </option>
-                  <option value="3x1"> 3x1 </option>
-                  <option value="50%"> 50% </option>
-                </select>
-              </div>
-              <div class="col-md-12 form-group">
+            <div class="col-md-12 form-group">
                 <label> Precio </label>
                 <div class="input-group">
                     <span class="input-group-addon">$</span>
-                    <input type="number" name="precio_oferta" class="form-control">
+                    <input [(ngModel)]="newRestaurantePlatillo.precio" type="number" name="precio" class="form-control" placeholder="0.00">
                 </div>
               </div>
               <div class="col-md-12 form-group">
-                <label> Descripción </label>
-                <textarea type="number" name="descripcion_oferta" class="form-control"></textarea>
+                <label> Tiempo de preparación </label>
+                <timepicker name="tiempopreparacion" [(ngModel)]="newRestaurantePlatillo.tiempoPreparacionForView" [showMeridian]="isMeridian"></timepicker>
+                <p class="alert alert-info">Tiempo: {{ newRestaurantePlatillo.tiempoPreparacionForView.getHours() }} hora(s) y {{ newRestaurantePlatillo.tiempoPreparacionForView.getMinutes() }} minuto(s) de preparación</p>
               </div>
-            </div>
           </div>
         </div>
         <div class="row">
