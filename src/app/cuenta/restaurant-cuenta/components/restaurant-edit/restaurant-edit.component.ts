@@ -57,13 +57,13 @@ export class RestaurantEditComponent implements OnInit {
 
   getRestaurant( id: string) {
     // While service not working
-    this.restaurante = {
-      nombre: 'La parrilla',
-      razonSocial: 'Razon',
-      rfc: 'LPABV3416A',
-      direccion: 'Ramón Corona #107',
-      descripcion: 'Restaurante de comida rapida, rica y deliciosa.'
-    };
+    // this.restaurante = {
+    //   nombre: 'La parrilla',
+    //   razonSocial: 'Razon',
+    //   rfc: 'LPABV3416A',
+    //   direccion: 'Ramón Corona #107',
+    //   descripcion: 'Restaurante de comida rapida, rica y deliciosa.'
+    // };
   }
 
 }

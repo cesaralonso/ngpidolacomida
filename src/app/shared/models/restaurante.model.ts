@@ -6,4 +6,5 @@ export interface RestauranteInterface {
     razon: string;
     nombre: string;
     created_by?: string;
+    direccion?: any;
 }

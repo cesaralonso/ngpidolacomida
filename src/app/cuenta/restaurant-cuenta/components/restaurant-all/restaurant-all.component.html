@@ -15,7 +15,7 @@
             <tbody>
               <tr *ngFor="let restaurant of restaurantes">
                 <td> {{ restaurant.nombre }} </td>
-                <td> {{ restaurant.direccion }} </td>
+                <td> {{ restaurant.direccion.calle }} </td>
                 <td> {{ restaurant.descripcion }} </td>
                 <th>
                   <button [routerLink]="['/mi-cuenta/restaurante/ver', restaurant.idrestaurante ]" class="btn btn-primary">Ir a mi restaurante</button>
