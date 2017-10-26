@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class RestauranteHorarioService extends BasicRequestsService {
 
   constructor ( protected http: Http ) {
-    super(http, '/platillo', true);
+    super(http, '/restauranteHorario', true);
   }
 
 }
