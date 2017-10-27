@@ -39,7 +39,7 @@ export class BasicRequestsService {
   }
 
   public create( model ): Observable<any> {
-    const headers = new Headers({ 'Content-Type': 'application/json'})
+    const headers = new Headers({ 'Content-Type': 'application/json'});
     if ( this.requireAuthentication ) {
       headers.append('Authorization', JSON.parse(localStorage.getItem('pidelacomida.token')));
     }

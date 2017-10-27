@@ -6,6 +6,7 @@ import { TituloPrincipalModule } from './../../shared/titulo-principal/titulo-pr
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 import { RestaurantCuentaRoutingModule } from './restaurant-cuenta.routing';
+
 import { RestaurantShowComponent } from './components/restaurant-show/restaurant-show.component';
 import { RestaurantAllComponent } from './components/restaurant-all/restaurant-all.component';
 import { RestaurantEditComponent } from './components/restaurant-edit/restaurant-edit.component';

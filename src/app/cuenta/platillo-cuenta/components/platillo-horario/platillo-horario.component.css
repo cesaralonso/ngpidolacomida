@@ -10,3 +10,6 @@
 :host >>> .tooltip .tooltip-arrow {
     border-bottom-color: #e74c3c;
 }
+tr {
+    font-family: Arial, Helvetica, sans-serif;
+}

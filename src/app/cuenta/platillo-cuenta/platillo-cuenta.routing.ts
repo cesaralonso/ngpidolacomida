@@ -18,7 +18,7 @@ const routes: Routes = [
             { path: 'mis-platillos', component: PlatilloAllComponent },
             { path: 'crear/:restauranteId', component: PlatilloCreateComponent },
             { path: 'editar/:id', component: PlatilloEditComponent },
-            { path: 'horarios/:id', component: PlatilloHorarioComponent },
+            { path: 'horarios/:platilloId/:restauranteId', component: PlatilloHorarioComponent },
             { path: 'ingredientes/:id', component: PlatilloIngredienteComponent },
             { path: 'ofertas/:platilloId/:restauranteId', component: PlatilloOfertasComponent },
         ]

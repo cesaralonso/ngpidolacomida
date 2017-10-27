@@ -1,3 +1,4 @@
+import { RestaurantePlatilloHorarioService } from './shared/services/restaurante-platillo-horario.service';
 import { AlertModalComponent } from './shared/alert-modal/alert-modal.component';
 import { RestaurantePlatilloService } from './shared/services/restaurante-platillo.service';
 import { TipoComidaService } from './shared/services/tipo-comida.service';
@@ -46,7 +47,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     PedirModalComponent,
     ConfirmModalComponent,
     IngredientesCuentaComponent,
-    AlertModalComponent
+    AlertModalComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ngpidolacomida'}),
@@ -76,7 +77,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     UserService,
     RolService,
     TipoComidaService,
-    RestaurantePlatilloService
+    RestaurantePlatilloService,
+    RestaurantePlatilloHorarioService
   ],
   entryComponents: [
     PedirModalComponent,

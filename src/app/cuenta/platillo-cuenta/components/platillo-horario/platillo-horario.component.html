@@ -8,14 +8,9 @@
           <h4> Día de la semana </h4>
           <div class="row horario">
             <div class="col-md-12">
-              <select name="dia" class="form-control">
-                <option value="Lunes">Lunes</option>
-                <option value="Martes">Martes</option>
-                <option value="Miercoles">Miércoles</option>
-                <option value="Jueves">Jueves</option>
-                <option value="Viernes">Viernes</option>
-                <option value="Sábado">Sábado</option>
-                <option value="Domingo">Domingo</option>
+              <select (change)="setDiaSelectet($event.target.value)" name="dia" class="form-control">
+                <option disabled hidden selected>Selecciona un día</option>
+                <option *ngFor="let dia of semana" [value]="dia.value">{{ dia.option }}</option>
               </select>
             </div>
             <div class="col-md-4" style="padding-top: .5em;">
@@ -27,7 +22,7 @@
               <timepicker name="timpoPreparacionPicker" [(ngModel)]="horarioFinal" [showMeridian]="isMeridian"></timepicker>
             </div>
             <div class="col-md-12 text-right">
-              <button type="button" class="btn btn-primary"> Agregar </button>
+              <button [disabled]="!diaSelected" (click)="addHorario()" type="button" class="btn btn-primary"> Agregar </button>
             </div>
           </div>
         </div>
@@ -41,12 +36,12 @@
                 <th></th>
               </thead>
               <tbody>
-                <tr>
-                  <td> Lunes </td>
-                  <td> 08:00 </td>
-                  <td> 14:00 </td>
+                <tr *ngFor="let item of horarios">
+                  <td> {{ item.horario.semana_idsemana }} </td>
+                  <td> {{ item.horario.hora_ini | slice:0:5 }} </td>
+                  <td> {{ item.horario.hora_fin | slice:0:5 }} </td>
                   <td> 
-                    <a tooltip="Elminar horario" style="color: #e74c3c" href=""><i class="fa fa-2x fa-trash-o" aria-hidden="true"></i></a>
+                    <a (click)="removeHorario(item)" tooltip="Elminar horario" style="color: #e74c3c"><i class="fa fa-2x fa-trash-o" aria-hidden="true"></i></a>
                   </td>
                 </tr>
               </tbody>

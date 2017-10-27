@@ -10,14 +10,23 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { PlatilloCuentaComponent } from './platillo-cuenta.component';
 
+import { PlatilloOfertasComponent } from './components/platillo-ofertas/platillo-ofertas.component';
+import { PlatilloIngredienteComponent } from './components/platillo-ingrediente/platillo-ingrediente.component';
+import { PlatilloHorarioComponent } from './components/platillo-horario/platillo-horario.component';
 import { PlatilloEditComponent } from './components/platillo-edit/platillo-edit.component';
 import { PlatilloCreateComponent } from './components/platillo-create/platillo-create.component';
 import { PlatilloAllComponent } from './components/platillo-all/platillo-all.component';
-import { PlatilloHorarioComponent } from './components/platillo-horario/platillo-horario.component';
-import { PlatilloIngredienteComponent } from './components/platillo-ingrediente/platillo-ingrediente.component';
-import { PlatilloOfertasComponent } from './components/platillo-ofertas/platillo-ofertas.component';
 
 @NgModule({
+    declarations: [
+        PlatilloCuentaComponent,
+        PlatilloAllComponent,
+        PlatilloCreateComponent,
+        PlatilloEditComponent,
+        PlatilloHorarioComponent,
+        PlatilloIngredienteComponent,
+        PlatilloOfertasComponent
+    ],
     imports: [
         CommonModule,
         FormsModule,
@@ -29,15 +38,6 @@ import { PlatilloOfertasComponent } from './components/platillo-ofertas/platillo
         BsDatepickerModule.forRoot()
     ],
     exports: [],
-    declarations: [
-        PlatilloCuentaComponent,
-        PlatilloAllComponent,
-        PlatilloCreateComponent,
-        PlatilloEditComponent,
-        PlatilloHorarioComponent,
-        PlatilloIngredienteComponent,
-        PlatilloOfertasComponent
-    ],
-    providers: [],
+    providers: []
 })
 export class PlatilloCuentaModule { }
