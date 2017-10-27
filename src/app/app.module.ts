@@ -1,3 +1,4 @@
+import { OfertaService } from './shared/services/oferta.service';
 import { PlatilloHorarioService } from './shared/services/platillo-horario.service';
 import { AlertModalComponent } from './shared/alert-modal/alert-modal.component';
 import { RestaurantePlatilloService } from './shared/services/restaurante-platillo.service';
@@ -21,6 +22,7 @@ import { HomeModule } from './home/home.module';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { LOCALE_ID } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -78,7 +80,9 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     RolService,
     TipoComidaService,
     RestaurantePlatilloService,
-    PlatilloHorarioService
+    PlatilloHorarioService,
+    OfertaService,
+    { provide: LOCALE_ID, useValue: 'es-MEX' }
   ],
   entryComponents: [
     PedirModalComponent,
