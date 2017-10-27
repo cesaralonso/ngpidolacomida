@@ -32,16 +32,16 @@
               <thead>
                 <th> Dia </th>
                 <th> Hora de inicio </th>
-                <th> Hora de cierre </th>
+                <th> Hora de cierre</th>
                 <th></th>
               </thead>
               <tbody>
-                <tr *ngFor="let item of horarios">
-                  <td> {{ item.horario.semana_idsemana }} </td>
-                  <td> {{ item.horario.hora_ini | slice:0:5 }} </td>
-                  <td> {{ item.horario.hora_fin | slice:0:5 }} </td>
+                <tr *ngFor="let horario of horarios">
+                  <td> {{ horario.semana_idsemana }} </td>
+                  <td> {{ horario.hora_ini | slice:0:5 }} </td>
+                  <td> {{ horario.hora_fin | slice:0:5 }} </td>
                   <td> 
-                    <a (click)="removeHorario(item)" tooltip="Elminar horario" style="color: #e74c3c"><i class="fa fa-2x fa-trash-o" aria-hidden="true"></i></a>
+                    <a (click)="removeHorario(horario)" tooltip="Elminar horario" style="color: #e74c3c"><i class="fa fa-2x fa-trash-o" aria-hidden="true"></i></a>
                   </td>
                 </tr>
               </tbody>

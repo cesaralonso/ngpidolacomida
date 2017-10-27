@@ -1,4 +1,4 @@
-import { RestaurantePlatilloHorarioService } from './shared/services/restaurante-platillo-horario.service';
+import { PlatilloHorarioService } from './shared/services/platillo-horario.service';
 import { AlertModalComponent } from './shared/alert-modal/alert-modal.component';
 import { RestaurantePlatilloService } from './shared/services/restaurante-platillo.service';
 import { TipoComidaService } from './shared/services/tipo-comida.service';
@@ -78,7 +78,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     RolService,
     TipoComidaService,
     RestaurantePlatilloService,
-    RestaurantePlatilloHorarioService
+    PlatilloHorarioService
   ],
   entryComponents: [
     PedirModalComponent,

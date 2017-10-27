@@ -1,6 +1,6 @@
 import { HorarioService } from './../../../../shared/services/horario.service';
-import { RestaurantePlatilloHorarioService } from './../../../../shared/services/restaurante-platillo-horario.service';
-import { RestaurantePlatilloHorarioInterface } from './../../../../shared/models/restaurante-platillo-horario.model';
+import { PlatilloHorarioService } from './../../../../shared/services/platillo-horario.service';
+import { PlatilloHorarioInterface } from './../../../../shared/models/platillo-horario.model';
 import { ActivatedRoute } from '@angular/router';
 import { RestaurantePlatilloService } from './../../../../shared/services/restaurante-platillo.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./platillo-horario.component.css'],
   providers: [
     RestaurantePlatilloService,
-    RestaurantePlatilloHorarioService,
+    PlatilloHorarioService,
     HorarioService
   ]
 })
@@ -30,17 +30,16 @@ export class PlatilloHorarioComponent implements OnInit {
   // ID del platillo
   public platilloId: string;
   // Contiene todos los horarios del platillo
-  public horarios: RestaurantePlatilloHorarioInterface[] = [];
+  public horarios: PlatilloHorarioInterface[] = [];
 
   constructor(
     private restaurantePlatilloService: RestaurantePlatilloService,
-    private restaurantePlatilloHorarioService: RestaurantePlatilloHorarioService,
+    private platilloHorarioService: PlatilloHorarioService,
     private horarioService: HorarioService,
     activatedRoute: ActivatedRoute
   ) {
     activatedRoute.params.subscribe( parameters => {
       this.platilloId = parameters['platilloId'];
-      this.restauranteId = parameters['restauranteId'];
     });
 
     this.horarioInicial.setHours(0);
@@ -62,10 +61,12 @@ export class PlatilloHorarioComponent implements OnInit {
     this.getHorarios();
   }
   removeHorario( value ) {
-    this.restaurantePlatilloHorarioService
-    .removeHorario( value.res_has_pla_restaurante_idrestaurante,
-                    value.res_has_pla_platillo_idplatillo,
-                    value.horario_idhorario)
+    console.log(value);
+    this.platilloHorarioService
+    .removeHorario( value.platillo_idplatillo,
+                    value.hora_fin,
+                    value.hora_fin,
+                    value.semana_idsemana)
     .subscribe( res => {
       if ( res.success ) {
         const index = this.horarios.indexOf(value);
@@ -74,7 +75,7 @@ export class PlatilloHorarioComponent implements OnInit {
     });
   }
   getHorarios() {
-    this.restaurantePlatilloHorarioService.findByIdRestAndPlat( this.restauranteId, this.platilloId)
+    this.platilloHorarioService.getByParam( 'platillo_idplatillo', this.platilloId)
       .subscribe( res => {
         if ( res.success ) {
           this.horarios = res.result;
@@ -85,27 +86,15 @@ export class PlatilloHorarioComponent implements OnInit {
     this.diaSelected = dia;
   }
   addHorario() {
-    this.horarioService.create({
+    this.platilloHorarioService.create({
+      platillo_idplatillo: this.platilloId,
       hora_ini: `${this.horarioInicial.getHours()}:${this.horarioInicial.getMinutes()}:00`,
       hora_fin: `${this.horarioFinal.getHours()}:${this.horarioFinal.getMinutes()}:00`,
       semana_idsemana: this.diaSelected
-    })
-    .flatMap( res => {
-      if ( res.success ) {
-        return this.restaurantePlatilloHorarioService.create({
-          res_has_pla_restaurante_idrestaurante: this.restauranteId,
-          res_has_pla_platillo_idplatillo: this.platilloId,
-          horario_idhorario: res.result.insertId
-        });
-      }
-      throw new Error();
-    })
-    .subscribe( res => {
+    }).subscribe( res => {
       if ( res.success ) {
         this.getHorarios();
       }
-    },
-    error => console.log(error),
-    () => console.log('Completed!'));
+    });
   }
 }
