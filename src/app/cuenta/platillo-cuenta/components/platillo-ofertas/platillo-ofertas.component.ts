@@ -4,6 +4,7 @@ import { OfertaService } from './../../../../shared/services/oferta.service';
 import { OfertaInterface } from './../../../../shared/models/oferta.model';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-platillo-ofertas',
@@ -14,6 +15,8 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class PlatilloOfertasComponent implements OnInit {
+  @ViewChild('fileInput') fileInput;
+
   public titulo = 'Agrega una oferta para tu platillo';
   public textColor = '#444';
   // Restaurante id
@@ -98,9 +101,19 @@ export class PlatilloOfertasComponent implements OnInit {
         }
       })
   }
-
   setTipo( tipo ) {
     this.oferta.tipo = tipo;
+  }
+
+
+  upload() {
+    const fileBrowser = this.fileInput.nativeElement;
+    if ( fileBrowser.files && fileBrowser.files[0]) {
+      const formData = new FormData();
+      formData.append('image', fileBrowser.files[0])
+      this.ofertaService.sendImage( formData )
+        .subscribe( res => console.log(res));
+    }
   }
 
 }
