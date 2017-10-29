@@ -1,9 +1,12 @@
+import { AlertModalComponent } from './../../../../shared/alert-modal/alert-modal.component';
+import { DialogService } from 'ng2-bootstrap-modal';
 import { PlatilloService } from './../../../../shared/services/platillo.service';
 import { PlatilloInterface } from './../../../../shared/models/platillo.model';
 import { RestaurantePlatilloService } from './../../../../shared/services/restaurante-platillo.service';
 import { RestaurantePlatilloInterface } from './../../../../shared/models/restaurante-platillo.model';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-platillo-edit',
@@ -29,7 +32,9 @@ export class PlatilloEditComponent implements OnInit {
   constructor(
     activatedRoute: ActivatedRoute,
     private restaurantePlatilloService: RestaurantePlatilloService,
-    private platilloService: PlatilloService
+    private platilloService: PlatilloService,
+    private dialogService: DialogService,
+    private location: Location
   ) {
     // Set hours to zero
     this.horarioInicial.setHours(0);
@@ -64,4 +69,17 @@ export class PlatilloEditComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmitPlatillo( values ) {
+    // Asigna el tiempo de preparación
+    // tslint:disable-next-line:max-line-length
+    this.restaurantePlatilloService.update( this.restaurantePlatillo )
+      .subscribe( res => {
+        if ( res.success && res.result.affectedRows > 0) {
+          this.dialogService.addDialog(AlertModalComponent, {
+            title: 'Platillo actualizado',
+            message: 'Su platillo ha sido actualizado'
+          }).subscribe( ok => this.location.back() )
+        }
+      })
+  }
 }

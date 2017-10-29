@@ -3,17 +3,20 @@
 <section>
   <div class="wrapsection-pages">
     <div class="container">
-      <form>
+      <form #formPlatillo="ngForm" (ngSubmit)="onSubmitPlatillo(formPlatillo.value)">
         <div class="row">
+          <div class="col-md-12">
+              <h4> Datos generales </h4>              
+          </div>
+          <input type="hidden" [(ngModel)]="platillo.idplatillo" name="idplatillo" #idplatillo="ngModel">
           <div class="col-md-6">
             <div class="col-md-12 form-group">
-              <h4> Datos generales </h4>
               <label> Título del platillo </label>
-              <input [(ngModel)]="platillo.nombre" name="titulo" class="form-control" type="text" placeholder="Nombre del platillo" disabled>
+              <input #nombre="ngModel" [(ngModel)]="platillo.nombre" name="nombre" class="form-control" type="text" placeholder="Nombre del platillo" disabled>
             </div>
             <div class="col-md-12 form-group">
               <label> Descripción </label>
-              <input [(ngModel)]="restaurantePlatillo.descripcion" name="descripcion" class="form-control" type="text" placeholder="Descripción">
+              <input #descripcion="ngModel" [(ngModel)]="restaurantePlatillo.descripcion" name="descripcion" class="form-control" type="text" placeholder="Descripción" required>
             </div>
           </div>
           <div class="col-md-6">
@@ -21,7 +24,7 @@
                 <label> Precio </label>
                 <div class="input-group">
                   <span class="input-group-addon">$</span>
-                  <input [(ngModel)]="restaurantePlatillo.precio" type="number" name="precio" class="form-control" placeholder="0.00">
+                  <input #precio="ngModel" [(ngModel)]="restaurantePlatillo.precio" name="precio" type="number" class="form-control" placeholder="0.00" required>
                 </div>
             </div>
             <div class="col-md-12 form-group">
@@ -32,9 +35,8 @@
           </div>
         </div>
         <div class="row">
-          <hr>
           <div class="col-md-12 text-right">
-            <button class="btn btn-primary btn-lg" type="submit"> Guardar cambios </button>
+            <button [disabled]="formPlatillo.invalid" class="btn btn-primary btn-lg" type="submit"> Guardar cambios </button>
           </div>
         </div>
       </form>

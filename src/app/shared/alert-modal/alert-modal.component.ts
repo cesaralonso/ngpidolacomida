@@ -17,7 +17,6 @@ export class AlertModalComponent extends DialogComponent<AlertModel, null> imple
 
     constructor( dialogService: DialogService) {
         super(dialogService);
-        console.log('ON MODAL');
     }
 
 
