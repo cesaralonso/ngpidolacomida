@@ -68,7 +68,7 @@ export class PlatilloHorarioComponent implements OnInit {
                     value.hora_fin,
                     value.semana_idsemana)
     .subscribe( res => {
-      if ( res.success ) {
+      if ( res.success && res.result.affectedRows > 0 ) {
         const index = this.horarios.indexOf(value);
         this.horarios.splice(index, 1);
       }
