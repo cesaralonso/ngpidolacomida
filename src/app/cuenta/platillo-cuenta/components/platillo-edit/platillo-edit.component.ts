@@ -16,9 +16,6 @@ import { Location } from '@angular/common';
 export class PlatilloEditComponent implements OnInit {
   public titulo = 'Editar datos del platillo';
   public textColor = '#444';
-  public isMeridian = false;
-  public horarioInicial: Date = new Date(); // Hora de abrir
-  public horarioFinal: Date = new Date(); // Hora de cerrar
 
   public restaurantePlatillo: RestaurantePlatilloInterface = {
     descripcion: '',
@@ -36,12 +33,6 @@ export class PlatilloEditComponent implements OnInit {
     private dialogService: DialogService,
     private location: Location
   ) {
-    // Set hours to zero
-    this.horarioInicial.setHours(0);
-    this.horarioInicial.setMinutes(0);
-    this.horarioFinal.setHours(0);
-    this.horarioFinal.setMinutes(0);
-
     activatedRoute.params
       .flatMap( parameters => {
         const id = parameters['id'];

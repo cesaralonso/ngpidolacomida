@@ -9,19 +9,9 @@
             <label> Nombre </label>
             <input [formControl]="nombre" name="nombre" [(ngModel)]="restaurante.nombre" type="text" class="form-control" placeholder="Nombre">
           </div>
-          <div class="col-md-6 form-group" [ngClass]="{'has-error': (!razonSocial.valid && razonSocial.touched), 'has-success': (razonSocial.valid && razonSocial.touched)}">
+          <div class="col-md-6 form-group" [ngClass]="{'has-error': (!razon.valid && razon.touched), 'has-success': (razon.valid && razon.touched)}">
             <label> Razón Social </label>
-            <input [formControl]="razonSocial" name="razonSocial" [(ngModel)]="restaurante.razonSocial" type="text" class="form-control" placeholder="Razon social">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 form-group" [ngClass]="{'has-error': (!rfc.valid && rfc.touched), 'has-success': (rfc.valid && rfc.touched)}">
-            <label> RFC </label>
-            <input [formControl]="rfc" name="rfc" [(ngModel)]="restaurante.rfc" type="text" class="form-control" placeholder="RFC">
-          </div>
-          <div class="col-md-6 form-group" [ngClass]="{'has-error': (!direccion.valid && direccion.touched), 'has-success': (direccion.valid && direccion.touched)}">
-            <label> Dirección </label>
-            <input [formControl]="direccion" name="direccion" [(ngModel)]="restaurante.direccion" type="text" class="form-control" placeholder="Dirección">
+            <input [formControl]="razon" name="razon" [(ngModel)]="restaurante.razon" type="text" class="form-control" placeholder="Razon social">
           </div>
         </div>
         <div class="row">
