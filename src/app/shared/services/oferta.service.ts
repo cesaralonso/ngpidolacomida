@@ -17,7 +17,7 @@ export class OfertaService extends BasicRequestsService {
   }
 
   public removeByRestAndPlatId( restauranteId, platilloId ): Observable<any> {
-    return this.http.get(`${this.endPoint}/${restauranteId}/${platilloId}`)
+    return this.http.delete(`${this.endPoint}/${restauranteId}/${platilloId}`)
       .map( res => res.json() || {} )
       .catch( error => JSON.stringify(error) );
   }

@@ -46,7 +46,7 @@ export class PlatilloOfertasComponent implements OnInit {
       tipo: ''
     }
     this.currentOferta = {
-      nombre: 'lel',
+      nombre: '',
       descripcion: '',
       fecha_iniForView: new Date(),
       fecha_finForView: new Date(),
@@ -105,15 +105,15 @@ export class PlatilloOfertasComponent implements OnInit {
     this.oferta.tipo = tipo;
   }
 
-
-  upload() {
-    const fileBrowser = this.fileInput.nativeElement;
-    if ( fileBrowser.files && fileBrowser.files[0]) {
-      const formData = new FormData();
-      formData.append('image', fileBrowser.files[0])
-      this.ofertaService.sendImage( formData )
-        .subscribe( res => console.log(res));
-    }
-  }
+  // Method for photo
+  // upload() {
+  //   const fileBrowser = this.fileInput.nativeElement;
+  //   if ( fileBrowser.files && fileBrowser.files[0]) {
+  //     const formData = new FormData();
+  //     formData.append('image', fileBrowser.files[0])
+  //     this.ofertaService.sendImage( formData )
+  //       .subscribe( res => console.log(res));
+  //   }
+  // }
 
 }
