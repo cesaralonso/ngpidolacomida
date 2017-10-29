@@ -30,9 +30,8 @@
                 <div class="col-md-6 col-sm-6 col-xs-6 form-group">
                   <select (change)="onChangePlatillo($event.target.value)" class="form-control" name="platillos">
                     <option selected disabled hidden value="">Seleccionar platillo</option>
-                    <option value="Platillo 1">Platillo 1</option>
-                    <option value="Platillo 2">Platillo 2</option>
-                    <option value="Platillo 3">Platillo 3</option>
+                    <option *ngFor="let platillo of platillosFromAPI" [value]="platillo.platillo_idplatillo">{{ platillo.platilloInfo.nombre }}</option>
+                    
                   </select>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-6">
