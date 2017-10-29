@@ -50,7 +50,7 @@ export class LoginComponent {
     if (response.success) {
       this.toastrService.success(response.message);
       this.authLocalstorage.setCredentials(credentials, response);
-      this.router.navigate(['/mi-cuenta/mis-platillos']);
+      this.router.navigate(['/mi-cuenta/mis-restaurantes']);
     } else {
       this.toastrService.error('Hubo algún error al tratar de accesar');
       this.authLocalstorage.clearAll();
