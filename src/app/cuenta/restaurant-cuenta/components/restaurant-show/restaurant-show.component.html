@@ -45,15 +45,16 @@
               <button [routerLink]="['/mi-cuenta/combo/crear', restauranteId]" class="btn btn-primary pidolacomida-restaurante-button" style="float: right">Nuevo combo</button>              
               <table class="table pidolacomida-restaurante-table">
                 <thead>
-                  <th>Platillo</th>
-                  <th></th>
+                  <th>Combo</th>
                   <th></th>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Pozole</td>
-                    <td>Button</td>
-                    <td>Button</td>
+                  <tr *ngFor="let combo of misCombos">
+                    <td>{{ combo.nombre }} </td>
+                    <td>
+                      <a [routerLink]="['/mi-cuenta/combo/editar', combo.idcombo]" tooltip="Editar información del platillo." class="pidolacomida-icon"><i class="fa fa-2x fa-pencil" aria-hidden="true"></i>
+                      </a>
+                    </td>
                   </tr>
                 </tbody>
               </table>
