@@ -5,10 +5,10 @@
         <form [formGroup]="formGroup" (ngSubmit)="onSubmitCombo( formGroup.value )">
           <div class="row">
             <div class="col-md-6 datos-combo">
-              <div class="col-md-12 form-group" [ngClass]="{'has-error': (!titulo.valid && titulo.touched), 'has-success': (titulo.valid && titulo.touched)}">
+              <div class="col-md-12 form-group" [ngClass]="{'has-error': (!nombre.valid && nombre.touched), 'has-success': (nombre.valid && nombre.touched)}">
                 <h4> Información sobre el combo </h4>
-                <label> Título del combo </label>
-                <input [formControl]="titulo" name="titulo" type="text" class="form-control" placeholder="Titulo del combo...">
+                <label> Nombre del combo </label>
+                <input [formControl]="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre del combo...">
               </div>
               <div class="col-md-12 form-group" [ngClass]="{'has-error': (!precio.valid && precio.touched), 'has-success': (precio.valid && precio.touched)}">
                 <label> Precio </label>
@@ -17,9 +17,17 @@
                   <input [formControl]="precio" name="precio" type="number" class="form-control" placeholder="0.00">
                 </div>
               </div>
-              <div class="col-md-12 form-group">
+              <div class="col-md-12 form-group" [ngClass]="{'has-error': (!descripcion.valid && descripcion.touched), 'has-success': (descripcion.valid && descripcion.touched)}">
                 <label> Descripción </label>
                 <textarea [formControl]="descripcion" name="descripcion" class="form-control" placeholder="Descripción..."></textarea>
+              </div>
+              <div class="col-md-6 form-group" [ngClass]="{'has-error': (!fechaIni.valid && fechaIni.touched), 'has-success': (fechaIni.valid && fechaIni.touched)}">
+                <label> Fecha de inicio </label>
+                <input [formControl]="fechaIni" name="fechaIni" type="date" class="form-control">
+              </div>
+              <div class="col-md-6 form-group" [ngClass]="{'has-error': (!fechaFin.valid && fechaFin.touched), 'has-success': (fechaFin.valid && fechaFin.touched)}">
+                <label> Fecha final </label>
+                <input [formControl]="fechaFin" name="fechaFin" type="date" class="form-control">
               </div>
             </div>
             <div class="col-md-6 agregar-combo">
@@ -31,11 +39,10 @@
                   <select (change)="onChangePlatillo($event.target.value)" class="form-control" name="platillos">
                     <option selected disabled hidden value="">Seleccionar platillo</option>
                     <option *ngFor="let platillo of platillosFromAPI" [value]="platillo.platillo_idplatillo">{{ platillo.platilloInfo.nombre }}</option>
-                    
                   </select>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-6">
-                  <button class="btn btn-primary btn-block" (click)="addPlatillo()">Agregar</button>
+                  <button class="btn btn-primary btn-block" (click)="addPlatillo()" type="button">Agregar</button>
                 </div>
               </div>
               <div class="col-md-12 col-xs-12" style="padding-top: 1em;">
@@ -44,14 +51,29 @@
                   <table class="table table-stripped">
                     <thead>
                       <th></th>
-                      <th></th>
+                      <th>Platillo</th>
+                      <th>Cantidad</th>
                     </thead>
                     <tbody>
                       <tr *ngFor="let platillo of platillos">
                         <td>
                           <a (click)="removeFromPlatillos(platillo)" style="cursor:pointer;"><i class="fa fa-times" aria-hidden="true"></i></a>
                         </td>
-                        <td>{{platillo}}</td>
+                        <td>{{ platillo.platilloInfo.nombre }}</td>
+                        <td>
+                          <select (change)="setCantidad($event.target.value, platillo)" name="platillo_cantidad">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                          </select>
+                        </td>
                       </tr>
                     </tbody>
                   </table>

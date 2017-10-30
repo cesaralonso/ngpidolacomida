@@ -16,7 +16,7 @@ export class ComboAllComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.combos = this.comboService.getCombos();
+    // this.combos = this.comboService.getCombos();
   }
 
 }
