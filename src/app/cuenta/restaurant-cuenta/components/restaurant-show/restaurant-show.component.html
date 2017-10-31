@@ -52,7 +52,7 @@
                   <tr *ngFor="let combo of misCombos">
                     <td>{{ combo.nombre }} </td>
                     <td>
-                      <a [routerLink]="['/mi-cuenta/combo/editar', combo.idcombo]" tooltip="Editar información del platillo." class="pidolacomida-icon"><i class="fa fa-2x fa-pencil" aria-hidden="true"></i>
+                      <a [routerLink]="['/mi-cuenta/combo/editar', restauranteId, combo.idcombo]" tooltip="Editar información del platillo." class="pidolacomida-icon"><i class="fa fa-2x fa-pencil" aria-hidden="true"></i>
                       </a>
                     </td>
                   </tr>

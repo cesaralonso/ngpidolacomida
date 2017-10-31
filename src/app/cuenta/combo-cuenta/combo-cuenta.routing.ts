@@ -14,7 +14,7 @@ const routes: Routes = [
         children: [
             { path: 'mis-combos', component: ComboAllComponent },
             { path: 'crear/:restauranteId', component: ComboCreateComponent },
-            { path: 'editar/:comboId', component: ComboEditComponent },
+            { path: 'editar/:restauranteId/:comboId', component: ComboEditComponent },
         ]
     },
 ];
