@@ -92,6 +92,7 @@ export class ComboCreateComponent implements OnInit {
   onSubmitCombo( values: any ) {
     values.platillos = this.platillos;
     values.restaurante_idrestaurante = this.restauranteId;
+    console.log(values)
     this.comboService.create( values )
       .subscribe( res => {
         if ( res.success && res.result.insertId > 0 ) {

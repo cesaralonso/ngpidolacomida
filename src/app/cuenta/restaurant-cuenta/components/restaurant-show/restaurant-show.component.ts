@@ -69,4 +69,7 @@ export class RestaurantShowComponent implements OnInit {
         }
       })
   }
+  deleteCombo( comboId ) {
+    // Delete combo
+  }
 }
