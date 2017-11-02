@@ -30,12 +30,12 @@ export class ComboEditComponent implements OnInit {
   }
   // Form validation
   public formGroup: FormGroup;
-  public nombreAC: AbstractControl;
-  public descripcionAC: AbstractControl;
-  public precioAC: AbstractControl;
-  public platilloAC: AbstractControl;
-  public fechaIniAC: AbstractControl;
-  public fechaFinAC: AbstractControl;
+  public nombre: AbstractControl;
+  public descripcion: AbstractControl;
+  public precio: AbstractControl;
+  public platillo: AbstractControl;
+  public fechaIni: AbstractControl;
+  public fechaFin: AbstractControl;
 
   constructor(
     formBuilder: FormBuilder,
@@ -46,17 +46,17 @@ export class ComboEditComponent implements OnInit {
     private location: Location
   ) {
     this.formGroup = formBuilder.group({
-      'nombreAC': ['', Validators.compose([Validators.required, Validators.minLength(2)])],
-      'descripcionAC': ['', Validators.compose([Validators.required, Validators.minLength(2)])],
-      'precioAC': ['', Validators.compose([Validators.required])],
-      'fechaIniAC': ['', Validators.compose([Validators.required])],
-      'fechaFinAC': ['', Validators.compose([Validators.required])]
+      'nombre': ['', Validators.compose([Validators.required, Validators.minLength(2)])],
+      'descripcion': ['', Validators.compose([Validators.required, Validators.minLength(2)])],
+      'precio': ['', Validators.compose([Validators.required])],
+      'fechaIni': ['', Validators.compose([Validators.required])],
+      'fechaFin': ['', Validators.compose([Validators.required])]
     });
-    this.nombreAC = this.formGroup.controls['nombreAC'];
-    this.descripcionAC = this.formGroup.controls['descripcionAC'];
-    this.precioAC = this.formGroup.controls['precioAC'];
-    this.fechaIniAC = this.formGroup.controls['fechaIniAC'];
-    this.fechaFinAC = this.formGroup.controls['fechaFinAC'];
+    this.nombre = this.formGroup.controls['nombre'];
+    this.descripcion = this.formGroup.controls['descripcion'];
+    this.precio = this.formGroup.controls['precio'];
+    this.fechaIni = this.formGroup.controls['fechaIni'];
+    this.fechaFin = this.formGroup.controls['fechaFin'];
 
     activatedRoute.params.flatMap( parameters => { // Obtiene comboId por URI
       this.comboId = parameters['comboId'];
@@ -116,17 +116,19 @@ export class ComboEditComponent implements OnInit {
     this.platillos.splice(index, 1);
   }
   onSubmitCombo( values: any ) {
-    // values.platillos = this.platillos;
-    // values.restaurante_idrestaurante = this.restauranteId;
-    // this.comboService.create( values )
-    //   .subscribe( res => {
-    //     if ( res.success && res.result.insertId > 0 ) {
-    //       this.dialogService.addDialog( AlertModalComponent, {
-    //         title: 'Combo agregado a la lista',
-    //         message: '¡Su combo ha sido agregado satisfactoriamente!'
-    //       }).subscribe( ok => this.location.back())
-    //     }
-    //   })
+    values.platillos = this.platillos;
+    values.restaurante_idrestaurante = this.restauranteId;
+    values.idcombo = this.comboId;
+    this.comboService.update( values )
+      .subscribe( res => {
+        console.log(res)
+        if ( res.success && res.result.affectedRows > 0 ) {
+          this.dialogService.addDialog( AlertModalComponent, {
+            title: 'Combo modificado a la lista',
+            message: '¡Su combo ha sido modificado satisfactoriamente!'
+          }).subscribe( ok => this.location.back())
+        }
+      })
   }
 
   getPlatilloFromList( platillo_idplatillo ) {

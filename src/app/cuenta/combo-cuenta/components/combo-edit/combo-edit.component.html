@@ -5,29 +5,29 @@
         <form [formGroup]="formGroup" (ngSubmit)="onSubmitCombo( formGroup.value )">
           <div class="row">
             <div class="col-md-6 datos-combo">
-              <div class="col-md-12 form-group" [ngClass]="{'has-error': (!nombreAC.valid && nombreAC.touched), 'has-success': (nombreAC.valid && nombreAC.touched)}">
+              <div class="col-md-12 form-group" [ngClass]="{'has-error': (!nombre.valid && nombre.touched), 'has-success': (nombre.valid && nombre.touched)}">
                 <h4> Información sobre el combo </h4>
                 <label> Nombre del combo </label>
-                <input [(ngModel)]="combo.nombre" [formControl]="nombreAC" name="nombreAC" type="text" class="form-control" placeholder="Nombre del combo...">
+                <input [(ngModel)]="combo.nombre" [formControl]="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre del combo...">
               </div>
-              <div class="col-md-12 form-group" [ngClass]="{'has-error': (!precioAC.valid && precioAC.touched), 'has-success': (precioAC.valid && precioAC.touched)}">
+              <div class="col-md-12 form-group" [ngClass]="{'has-error': (!precio.valid && precio.touched), 'has-success': (precio.valid && precio.touched)}">
                 <label> Precio </label>
                 <div class="input-group">
                   <span class="input-group-addon">$</span>
-                  <input [(ngModel)]="combo.precio" [formControl]="precioAC" name="precioAC" type="number" class="form-control" placeholder="0.00">
+                  <input [(ngModel)]="combo.precio" [formControl]="precio" name="precio" type="number" class="form-control" placeholder="0.00">
                 </div>
               </div>
-              <div class="col-md-12 form-group" [ngClass]="{'has-error': (!descripcionAC.valid && descripcionAC.touched), 'has-success': (descripcionAC.valid && descripcionAC.touched)}">
+              <div class="col-md-12 form-group" [ngClass]="{'has-error': (!descripcion.valid && descripcion.touched), 'has-success': (descripcion.valid && descripcion.touched)}">
                 <label> Descripción </label>
-                <textarea [(ngModel)]="combo.descripcion" [formControl]="descripcionAC" name="descripcionAC" class="form-control" placeholder="Descripción..."></textarea>
+                <textarea [(ngModel)]="combo.descripcion" [formControl]="descripcion" name="descripcion" class="form-control" placeholder="Descripción..."></textarea>
               </div>
-              <div class="col-md-6 form-group" [ngClass]="{'has-error': (!fechaIniAC.valid && fechaIniAC.touched), 'has-success': (fechaIniAC.valid && fechaIniAC.touched)}">
+              <div class="col-md-6 form-group" [ngClass]="{'has-error': (!fechaIni.valid && fechaIni.touched), 'has-success': (fechaIni.valid && fechaIni.touched)}">
                 <label> Fecha de inicio </label>
-                <input [(ngModel)]="combo.fecha_ini" [formControl]="fechaIniAC" name="fechaIniAC" type="date" class="form-control">
+                <input [(ngModel)]="combo.fecha_ini" [formControl]="fechaIni" name="fechaIni" type="date" class="form-control">
               </div>
-              <div class="col-md-6 form-group" [ngClass]="{'has-error': (!fechaFinAC.valid && fechaFinAC.touched), 'has-success': (fechaFinAC.valid && fechaFinAC.touched)}">
+              <div class="col-md-6 form-group" [ngClass]="{'has-error': (!fechaFin.valid && fechaFin.touched), 'has-success': (fechaFin.valid && fechaFin.touched)}">
                 <label> Fecha final </label>
-                <input [(ngModel)]="combo.fechaIni" [formControl]="fechaFinAC" name="fechaFinAC" type="date" class="form-control">
+                <input [(ngModel)]="combo.fechaIni" [formControl]="fechaFin" name="fechaFin" type="date" class="form-control">
               </div>
             </div>
             <div class="col-md-6 agregar-combo">
@@ -84,7 +84,7 @@
           <div class="row">
             <hr>
             <div class="col-md-12 text-right">
-              <button [disabled]="formGroup.invalid" class="btn btn-lg btn-primary" type="submit"> Crear nuevo combo </button>
+              <button [disabled]="formGroup.invalid" class="btn btn-lg btn-primary" type="submit"> Guardar cambios del combo </button>
             </div>
           </div>
         </form>
