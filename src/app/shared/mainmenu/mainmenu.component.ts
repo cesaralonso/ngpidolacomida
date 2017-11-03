@@ -12,9 +12,7 @@ export class MainmenuComponent implements OnInit {
     private authLocalStorage: AuthLocalstorage
   ) {
     this.items = [
-      { titulo: 'Mis combos', link: '/mi-cuenta/mis-combos' },
       { titulo: 'Mis restaurantes', link: '/mi-cuenta/mis-restaurantes' },
-      { titulo: 'Agregar ingredientes', link: '/mi-cuenta/mis-ingredientes' }
     ];
   }
 
