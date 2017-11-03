@@ -1762,3 +1762,7 @@ hr.fancy-line {
 color: #c46c24;
 	cursor: pointer;
 }
+
+.table-font {
+    font-family: 'Segoe UI', Verdana, sans-serif;
+}

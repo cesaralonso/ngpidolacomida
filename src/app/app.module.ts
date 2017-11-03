@@ -1,3 +1,5 @@
+import { PlatilloIngredienteService } from './shared/services/platillo-ingrediente.service';
+import { IngredienteService } from './shared/services/ingrediente.service';
 import { OfertaService } from './shared/services/oferta.service';
 import { PlatilloHorarioService } from './shared/services/platillo-horario.service';
 import { AlertModalComponent } from './shared/alert-modal/alert-modal.component';
@@ -82,6 +84,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     RestaurantePlatilloService,
     PlatilloHorarioService,
     OfertaService,
+    IngredienteService,
+    PlatilloIngredienteService,
     { provide: LOCALE_ID, useValue: 'es-MEX' }
   ],
   entryComponents: [

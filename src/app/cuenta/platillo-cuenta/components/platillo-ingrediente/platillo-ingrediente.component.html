@@ -5,45 +5,66 @@
     <div class="container">
         <div class="row ingredientes">
             <div class="col-md-6">
-              <h4> Ingredientes </h4>
-              <select (change)="onChangeIngrediente($event.target.value)" name="ingredientes" class="form-control">
-                <option selected disabled hidden value="">Elegir ingrediente</option>
-                <option value="Cebolla">Cebolla</option>
-                <option value="Jitomate">Jitomate</option>
-                <option value="Picante">Picante</option>
-                <option value="Habanero">Habanero</option>
-              </select>
-              <div class="text-right" style="margin: 1em 0;">
-                <button type="button" class="btn btn-primary" (click)="addIngrediente()"> Agregar </button>
-              </div>
+              <form #formIngrediente="ngForm" (ngSubmit)="onSubmitIngrediente(formIngrediente.value)">
+                <h4> Ingredientes </h4>
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <select #platilloId="ngModel" [(ngModel)]="platilloIngrediente.id" (change)="setUnidadMedida($event.target.value)" name="ingredienteId" class="form-control" required>
+                      <option selected disabled hidden value="">Elegir ingrediente</option>
+                      <option *ngFor="let ingrediente of ingredientes" [value]="ingrediente.idingrediente">{{ ingrediente.nombre }} </option>
+                    </select>
+                  </div>
+                  <div class="col-md-6 form-group">
+                      <label class="form-check-label" style="font-size: 1.2em;"> 
+                        <input #default="ngModel" [(ngModel)]="platilloIngrediente.default" name="default" type="checkbox" class="form-check-input">
+                        &nbsp;Ingrediente default
+                      </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <label>Medida (Porción en {{ unidadMedida }})</label>
+                    <input #medida="ngModel" [(ngModel)]="platilloIngrediente.medida" name="medida" type="number"  class="form-control" placeholder="0.00" min="0"required>
+                  </div>
+                  <div *ngIf="!platilloIngrediente.default" class="col-md-6 form-group">
+                    <label>Precio</label>
+                    <div class="input-group">
+                      <span class="input-group-addon">$</span>
+                      <input #precio="ngModel" [(ngModel)]="platilloIngrediente.precio" name="precio" type="number" class="form-control" placeholder="0.00" min="0" required>
+                    </div>
+                  </div>              
+                </div>
+                <div class="col-md-12 text-right form-group">
+                  <button [disabled]="formIngrediente.invalid" type="submit" class="btn btn-primary"> Agregar </button>
+                </div>
+            </form>
             </div>
             <div class="col-md-6">
-              <h4>Ingredientes seleecionados</h4>
-              <table  class="table table-stripped">
+              <h4>Ingredientes selecionados</h4>
+              <table  class="table table-stripped table-font">
                 <thead>
-                  <th>Ingrediente </th>
-                  <th>Defualt</th>
-                  <th class="text-center">Precio</th>
                   <th></th>
+                  <th>Ingrediente </th>
+                  <th>Precio</th>
+                  <th>Medida</th>
+                  <th>Defualt</th>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let ingrediente of ingredientes">
+                  <tr *ngFor="let ingrediente of ingredientesSeleccionados">
                     <td>
                       <a (click)="removeFromIngredientes(ingrediente)" style="cursor:pointer;"><i class="fa fa-times" aria-hidden="true"></i></a>
                     </td>
                     <td>
-                      {{ ingrediente }}
+                      {{ ingrediente.info.nombre }}
                     </td>
                     <td>
-                      <div style="margin:auto;width:50%;">
-                        <input class="text-center" type="checkbox" class="form-control">
-                      </div>
+                        $ {{ ingrediente.precio }}
                     </td>
                     <td>
-                      <div class="input-group">
-                        <span class="input-group-addon">$</span>                            
-                        <input type="number" class="form-control" value="0" min="0">
-                      </div>
+                      {{ ingrediente.medida }} {{ ingrediente.info.unidad_medida }}
+                    </td>
+                    <td>
+                      {{ ingrediente.default === 0 ? 'NO' : 'SI' }}
                     </td>
                   </tr>
                 </tbody>
