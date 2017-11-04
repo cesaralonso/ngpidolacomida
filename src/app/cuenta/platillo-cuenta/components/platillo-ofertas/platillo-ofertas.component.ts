@@ -1,10 +1,11 @@
+import { Configuration } from './../../../../app.constants';
 import { ConfirmModalComponent } from './../../../../shared/confim-modal/confirm-modal.component';
 import { DialogService } from 'ng2-bootstrap-modal';
 import { OfertaService } from './../../../../shared/services/oferta.service';
 import { OfertaInterface } from './../../../../shared/models/oferta.model';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { ViewChild } from '@angular/core';
+import { FileUploader } from 'ng2-file-upload';
 
 @Component({
   selector: 'app-platillo-ofertas',
@@ -15,7 +16,6 @@ import { ViewChild } from '@angular/core';
   ]
 })
 export class PlatilloOfertasComponent implements OnInit {
-  @ViewChild('fileInput') fileInput;
 
   public titulo = 'Agrega una oferta para tu platillo';
   public textColor = '#444';
@@ -27,10 +27,13 @@ export class PlatilloOfertasComponent implements OnInit {
   public oferta: OfertaInterface;
   // Oferta actual
   public currentOferta: OfertaInterface;
+  // For upload the file
+  public uploader: FileUploader = new FileUploader({url: `${Configuration.HOST}/oferta/image`});
+
   constructor(
     activatedRoute: ActivatedRoute,
     private ofertaService: OfertaService,
-    private dialogService: DialogService
+    private dialogService: DialogService,
   ) {
     activatedRoute.params.subscribe( parameters => {
         this.restauranteId = parameters['restauranteId'];
@@ -91,7 +94,13 @@ export class PlatilloOfertasComponent implements OnInit {
                 // Ha eliminado la oferta anterior y crea la nuea oferta
                 if ( isRemove ) {
                   return this.ofertaService.create( form.value )
-                    .subscribe( res2 => res2.success ? this.getOferta() : 0);
+                    .subscribe( res2 => {
+                      if ( res2.success ) {
+                        this.uploadPhoto()
+                        this.getOferta()
+                        console.log('D:')
+                      }
+                    });
                 } else { // Crea una oferta por primera vez para este platillo
                   this.getOferta();
                 }
@@ -105,15 +114,7 @@ export class PlatilloOfertasComponent implements OnInit {
     this.oferta.tipo = tipo;
   }
 
-  // Method for photo
-  // upload() {
-  //   const fileBrowser = this.fileInput.nativeElement;
-  //   if ( fileBrowser.files && fileBrowser.files[0]) {
-  //     const formData = new FormData();
-  //     formData.append('image', fileBrowser.files[0])
-  //     this.ofertaService.sendImage( formData )
-  //       .subscribe( res => console.log(res));
-  //   }
-  // }
-
+  uploadPhoto() {
+    this.uploader.uploadAll()
+  }
 }

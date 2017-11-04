@@ -1,3 +1,7 @@
+import { Observable } from 'rxjs/Observable';
+import { ConfirmModalComponent } from './../../../../shared/confim-modal/confirm-modal.component';
+import { DialogService } from 'ng2-bootstrap-modal';
+import { BasicRequestsService } from './../../../../shared/services/basic-requests.service';
 import { PlatilloIngredienteService } from './../../../../shared/services/platillo-ingrediente.service';
 import { ActivatedRoute } from '@angular/router';
 import { PlatilloIngredienteInterface } from './../../../../shared/models/platillo-ingrediente.model';
@@ -37,6 +41,7 @@ export class PlatilloIngredienteComponent implements OnInit {
   constructor(
     private ingredienteService: IngredienteService,
     private platilloIngredienteService: PlatilloIngredienteService,
+    private dialogService: DialogService,
     activatedRoute: ActivatedRoute
   ) {
     activatedRoute.params
@@ -61,19 +66,25 @@ export class PlatilloIngredienteComponent implements OnInit {
   }
 
   getIngredientesSeleccionados() {
-    this.platilloIngredienteService.all()
+    this.platilloIngredienteService.allIngredientes( this.restauranteId, this.platilloId)
       .subscribe( res =>
         res.success
           ? this.ingredientesSeleccionados = res.result
           : null )
   }
   removeFromIngredientes( ingrediente ) {
-    this.platilloIngredienteService.remove( ingrediente.idrest_plat_ing )
-      .subscribe( res => {
-        if ( res.success && res.result.affectedRows > 0) {
-          this.removeFromArray( ingrediente )
-        }
-      })
+    this.dialogService.addDialog( ConfirmModalComponent, {
+      titulo: 'Eliminar ingrediente',
+      descripcion: '¿Estás seguro que desear eliminar este ingrediente?'
+    })
+    .flatMap( confimed => // Confirm remove
+      confimed
+        ? this.platilloIngredienteService.remove( ingrediente.idrest_plat_ing )
+        : Observable.empty<Response>() )
+    .subscribe( res => // Remove ingrediente from API delete
+        res.success && res.result.affectedRows > 0
+          ? this.removeFromArray( ingrediente )
+          : null )
   }
   setUnidadMedida( ingredienteId ) {
     const ingredienteSelecionado = this.ingredientes.filter(

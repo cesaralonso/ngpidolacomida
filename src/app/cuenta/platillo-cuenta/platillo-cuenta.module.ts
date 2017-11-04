@@ -7,6 +7,7 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { SelectModule } from 'ng2-select';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { FileSelectDirective } from 'ng2-file-upload';
 
 import { PlatilloCuentaComponent } from './platillo-cuenta.component';
 
@@ -25,7 +26,9 @@ import { PlatilloAllComponent } from './components/platillo-all/platillo-all.com
         PlatilloEditComponent,
         PlatilloHorarioComponent,
         PlatilloIngredienteComponent,
-        PlatilloOfertasComponent
+        PlatilloOfertasComponent,
+        FileSelectDirective
+        
     ],
     imports: [
         CommonModule,
@@ -35,7 +38,7 @@ import { PlatilloAllComponent } from './components/platillo-all/platillo-all.com
         TimepickerModule.forRoot(),
         SelectModule,
         TooltipModule.forRoot(),
-        BsDatepickerModule.forRoot()
+        BsDatepickerModule.forRoot(),
     ],
     exports: [],
     providers: []

@@ -22,13 +22,5 @@ export class OfertaService extends BasicRequestsService {
       .catch( error => JSON.stringify(error) );
   }
 
-  public sendImage( formData ): Observable<any> {
-    const headers = new Headers({ 'Content-Type': undefined})
-    const data = {
-      formData: formData
-    }
-    return this.http.post(`${this.endPoint}/image`, data, { headers: headers })
-      .map( res => res.json() || {} )
-      .catch( error => JSON.stringify(error) );
-  }
+
 }
