@@ -117,4 +117,13 @@ export class PlatilloOfertasComponent implements OnInit {
   uploadPhoto() {
     this.uploader.uploadAll()
   }
+
+  // :::::::::::: MOUSE EVENTS :::::::::::: //
+  mouseEnter( msg ) {
+    console.log(msg)
+  }
+
+  mouseLeave( msg ) {
+    console.log(msg)
+  }
 }

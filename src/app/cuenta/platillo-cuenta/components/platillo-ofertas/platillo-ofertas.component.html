@@ -51,18 +51,24 @@
           <div class="col-md-6">
             <h4>Visualización de tu oferta</h4>
             <hr>
-            <blockquote *ngIf="currentOferta" class="blockquote">
-              <h3>{{ currentOferta.nombre }}</h3>
-              <p>
-                {{ currentOferta.descripcion }}
-              </p>
-              <p>
-                <strong>Precio: ${{ currentOferta.precio }} </strong>
-              </p>
-              <p>
-                <small>Valido del <strong>{{ currentOferta.fecha_ini | date }}</strong> al <strong>{{ currentOferta.fecha_fin |date }}</strong></small>
-              </p>
-            </blockquote>
+            <div (mouseenter)="mouseEnter('is enter')" (mouseleave)="mouseLeave('is leave')" class="col-md-12 oferta-image" style="">
+              <img src="http://localhost:3000/uploads/sobremontananevada-1510013289112.jpg" alt="">
+              <button class="btn btn-primary content-image"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+            </div>
+            <div> 
+              <blockquote *ngIf="currentOferta" class="blockquote">
+                <h3>{{ currentOferta.nombre }}</h3>
+                <p>
+                  {{ currentOferta.descripcion }}
+                </p>
+                <p>
+                  <strong>Precio: ${{ currentOferta.precio }} </strong>
+                </p>
+                <p>
+                  <small>Valido del <strong>{{ currentOferta.fecha_ini | date }}</strong> al <strong>{{ currentOferta.fecha_fin |date }}</strong></small>
+                </p>
+              </blockquote>
+            </div>
           </div>
         </div>
     </div>

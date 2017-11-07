@@ -1,3 +1,4 @@
+import { CardComidaModule } from './../../shared/card-comida/card-comida.module';
 import { FormsModule } from '@angular/forms';
 import { TituloPrincipalModule } from './../../shared/titulo-principal/titulo-principal.module';
 import { PlatilloCuentaRoutingModule } from './platillo-cuenta.routing';
@@ -28,7 +29,6 @@ import { PlatilloAllComponent } from './components/platillo-all/platillo-all.com
         PlatilloIngredienteComponent,
         PlatilloOfertasComponent,
         FileSelectDirective
-        
     ],
     imports: [
         CommonModule,
@@ -39,6 +39,7 @@ import { PlatilloAllComponent } from './components/platillo-all/platillo-all.com
         SelectModule,
         TooltipModule.forRoot(),
         BsDatepickerModule.forRoot(),
+        CardComidaModule
     ],
     exports: [],
     providers: []
