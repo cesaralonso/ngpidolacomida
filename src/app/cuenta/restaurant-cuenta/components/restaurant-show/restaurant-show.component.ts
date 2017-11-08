@@ -44,6 +44,7 @@ export class RestaurantShowComponent implements OnInit {
     .flatMap( platillosInfo => {// Obtiene los platillos del restaurante
       if ( platillosInfo.success ) {
         this.misPlatillos = platillosInfo.result;
+        console.log(this.misPlatillos)
         return this.comboService.getByParam( 'restaurante_idrestaurante', this.restauranteId);
       }
     })
