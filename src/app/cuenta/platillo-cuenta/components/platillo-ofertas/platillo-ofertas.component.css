@@ -1,17 +1,5 @@
 .oferta-image {
     margin: 1rem;
-    cursor: pointer;
-    position: relative;
     margin: 0 !important;
     padding: 0 !important;
-}
-
-.oferta-image:hover {
-    opacity: 0.8;
-}
-
-.content-image {
-    position: absolute; 
-    top: 0;
-    right: 0;
 }

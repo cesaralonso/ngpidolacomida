@@ -1,22 +1,24 @@
+import { ImageService } from './../../../../shared/services/image.service';
 import { Configuration } from './../../../../app.constants';
 import { ConfirmModalComponent } from './../../../../shared/confim-modal/confirm-modal.component';
 import { DialogService } from 'ng2-bootstrap-modal';
 import { OfertaService } from './../../../../shared/services/oferta.service';
 import { OfertaInterface } from './../../../../shared/models/oferta.model';
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
-import { FileUploader } from 'ng2-file-upload';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FileUploader, FileItem, ParsedResponseHeaders } from 'ng2-file-upload';
 
 @Component({
   selector: 'app-platillo-ofertas',
   templateUrl: './platillo-ofertas.component.html',
   styleUrls: ['./platillo-ofertas.component.css'],
   providers: [
-    OfertaService
+    OfertaService,
+    ImageService
   ]
 })
 export class PlatilloOfertasComponent implements OnInit {
-
+  @ViewChild('pbar') elProgressBar: ElementRef
   public titulo = 'Agrega una oferta para tu platillo';
   public textColor = '#444';
   // Restaurante id
@@ -28,11 +30,16 @@ export class PlatilloOfertasComponent implements OnInit {
   // Oferta actual
   public currentOferta: OfertaInterface;
   // For upload the file
-  public uploader: FileUploader = new FileUploader({url: `${Configuration.HOST}/oferta/image`});
+  public uploader: FileUploader = new FileUploader({
+    url: `${Configuration.HOST}/oferta/image`
+  });
+  // Url of image
+  public imgSrc;
 
   constructor(
     activatedRoute: ActivatedRoute,
     private ofertaService: OfertaService,
+    private imageService: ImageService,
     private dialogService: DialogService,
   ) {
     activatedRoute.params.subscribe( parameters => {
@@ -56,14 +63,55 @@ export class PlatilloOfertasComponent implements OnInit {
       precio: '',
       tipo: ''
     }
+
+    this.uploader.onCompleteAll = () => this.onCompleteAll()
+    this.uploader.onErrorItem = (item, response, status, headers) => this.onErrorItem(item, response, status, headers);
+    this.uploader.onSuccessItem = (item, response, status, headers) => this.onSuccessItem(item, response, status, headers);
   }
 
   ngOnInit() {
     this.getOferta()
   }
+  onCompleteAll() {
+    // Espera 2 segundos para despues esconder la barra de progreso
+    setTimeout( () => {
+      this.elProgressBar.nativeElement.style.display = 'none'
+    }, 500);
+  }
+  onSuccessItem(item: FileItem, response: string, status: number, headers: ParsedResponseHeaders): any {
+    const data = JSON.parse(response);
+    if ( data.insertId > 0 ) {
+
+      const dataToSend = {
+        image_idimage: data.insertId
+      }
+      // Actualiza el id de la nueva imagen a la oferta
+      this.ofertaService.updateOferta( this.currentOferta.idoferta, dataToSend )
+        .flatMap( resOferta =>
+          resOferta.success
+            ? this.imageService.findById( dataToSend.image_idimage )
+            : null
+        )
+        .subscribe( resImage =>
+          resImage.success
+            ? this.imgSrc = `${Configuration.SERVER_IMAGES}/${resImage.result.src}`
+            : null
+        )
+    }
+  }
+  onErrorItem(item: FileItem, response: string, status: number, headers: ParsedResponseHeaders): any {
+    const error = JSON.parse(response);
+    console.log(error)
+  }
   getOferta() {
     this.ofertaService.findByIdRestAndPlat( this.restauranteId, this.platilloId )
-      .subscribe( res => res.success ? this.currentOferta = res.result : 0 )
+      .subscribe( res => {
+        if ( res.success && res.result ) {
+          this.currentOferta = res.result
+          // Asigna la ruta de la imagen
+          this.imgSrc = `${Configuration.SERVER_IMAGES}/${this.currentOferta.image.src}`
+        }
+      })
   }
 
   onSubmitOferta( form ) {
@@ -74,39 +122,26 @@ export class PlatilloOfertasComponent implements OnInit {
       En caso de que tengas una relacionada con este platillo, se perderá la anterior.
       `
     }).subscribe( confirm => {
-        let isRemove = false;
         if ( confirm ) {
           // Verify if there's an oferta created for this platillo
-          form.value.res_has_pla_restaurante_idrestaurante = this.restauranteId
-          form.value.res_has_pla_platillo_idplatillo = this.platilloId
           this.ofertaService.findByIdRestAndPlat( this.restauranteId, this.platilloId )
             .flatMap( res => {
               if ( res.success && res.result ) {
-                isRemove = true;
-                return this.ofertaService.removeByRestAndPlatId( this.restauranteId, this.platilloId )
+                // If  there's an oferta, it will update the oferta
+                return this.ofertaService.updateOferta( res.result.idoferta, form.value)
               } else if ( res.success ) {
-                console.log('else if')
+                // If not, it will create the oferta
+                form.value.res_has_pla_restaurante_idrestaurante = this.restauranteId;
+                form.value.res_has_pla_platillo_idplatillo = this.platilloId;
                 return this.ofertaService.create( form.value );
               }
             })
-            .subscribe( res => {
-              if ( res.success ) {
-                // Ha eliminado la oferta anterior y crea la nuea oferta
-                if ( isRemove ) {
-                  return this.ofertaService.create( form.value )
-                    .subscribe( res2 => {
-                      if ( res2.success ) {
-                        this.uploadPhoto()
-                        this.getOferta()
-                        console.log('D:')
-                      }
-                    });
-                } else { // Crea una oferta por primera vez para este platillo
-                  this.getOferta();
-                }
-              }
-            })
-
+            // Get the oferta from server
+            .subscribe( res =>
+              res.success
+                ? this.getOferta()
+                : null
+            )
         }
       })
   }
@@ -115,15 +150,8 @@ export class PlatilloOfertasComponent implements OnInit {
   }
 
   uploadPhoto() {
+    this.elProgressBar.nativeElement.style.display = 'block'
     this.uploader.uploadAll()
   }
 
-  // :::::::::::: MOUSE EVENTS :::::::::::: //
-  mouseEnter( msg ) {
-    console.log(msg)
-  }
-
-  mouseLeave( msg ) {
-    console.log(msg)
-  }
 }

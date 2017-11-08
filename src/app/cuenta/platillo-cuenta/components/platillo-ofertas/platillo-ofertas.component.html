@@ -4,7 +4,7 @@
   <div class="wrapsection-pages">
     <div class="container">
         <div class="row oferta">
-          <div class="col-md-6">
+          <div class="col-md-5">
             <form #formOferta="ngForm" (ngSubmit)="onSubmitOferta(formOferta)">
               <div class="col-md-12 form-group">
                 <h4> Crear oferta </h4>
@@ -39,36 +39,41 @@
                 <label> Fecha final </label>
                 <input  #fechaFinal="ngModel" [(ngModel)]="oferta.fecha_finForView" name="fecha_fin" type="date" class="form-control" required>
               </div>
-              <!-- Template for photo -->
-              <div class="col-md-12 form-group">
-                <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />                
-              </div>
               <div class="col-md-12 form-group text-right">
-                <button [disabled]="formOferta.invalid && !uploader.getNotUploadedItems().length" type="submit" class="btn btn-primary">Agregar oferta</button>
+                <button [disabled]="formOferta.invalid" type="submit" class="btn btn-primary">Agregar oferta</button>
               </div>
             </form>
           </div>
-          <div class="col-md-6">
-            <h4>Visualización de tu oferta</h4>
-            <hr>
-            <div (mouseenter)="mouseEnter('is enter')" (mouseleave)="mouseLeave('is leave')" class="col-md-12 oferta-image" style="">
-              <img src="http://localhost:3000/uploads/sobremontananevada-1510013289112.jpg" alt="">
-              <button class="btn btn-primary content-image"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-            </div>
-            <div> 
-              <blockquote *ngIf="currentOferta" class="blockquote">
-                <h3>{{ currentOferta.nombre }}</h3>
-                <p>
-                  {{ currentOferta.descripcion }}
-                </p>
-                <p>
-                  <strong>Precio: ${{ currentOferta.precio }} </strong>
-                </p>
-                <p>
-                  <small>Valido del <strong>{{ currentOferta.fecha_ini | date }}</strong> al <strong>{{ currentOferta.fecha_fin |date }}</strong></small>
-                </p>
-              </blockquote>
-            </div>
+          <div *ngIf="currentOferta.idoferta" class="col-md-7">
+            <h4>Visualización de tu oferta</h4>            
+            <blockquote>
+              <div class="row blockquote">
+                <div class="col-md-5">
+                    <img [src]="imgSrc" alt="">
+                    <form>
+                      <input type="file" name="photo" ng2FileSelect [uploader]="uploader" class="form-control"/>
+                      <button (click)="uploadPhoto()" [disabled]="!uploader.getNotUploadedItems().length" class="btn btn-primary btn-block">Guardar foto</button>
+                    </form>
+                    <div #pbar class="progress" style="margin: 1em 0; display:none">
+                        <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                  <div class="">
+                      <h3>{{ currentOferta.nombre }}</h3>
+                      <p>
+                        {{ currentOferta.descripcion }}
+                      </p>
+                      <p>
+                        <strong>Precio: ${{ currentOferta.precio }} </strong>
+                      </p>
+                      <p>
+                        <small>Valido del <strong>{{ currentOferta.fecha_ini | date }}</strong> al <strong>{{ currentOferta.fecha_fin |date }}</strong></small>
+                      </p>
+                    </div>
+                </div>
+              </div>
+            </blockquote>
           </div>
         </div>
     </div>

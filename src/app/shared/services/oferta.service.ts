@@ -21,6 +21,15 @@ export class OfertaService extends BasicRequestsService {
       .map( res => res.json() || {} )
       .catch( error => JSON.stringify(error) );
   }
+  public updateOferta( ofertaId, data ): Observable<any> {
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    if ( this.requireAuthentication ) {
+      headers.append('Authorization', JSON.parse(localStorage.getItem('pidelacomida.token')));
+    }
+    return this.http.patch(`${this.endPoint}/${ofertaId}`, data, { headers: headers })
+      .map( res => res.json() || {})
+      .catch( error => JSON.stringify(error));
+  }
 
 
 }

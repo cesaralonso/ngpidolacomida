@@ -11,4 +11,5 @@ export interface OfertaInterface {
     res_has_pla_restaurante_idrestaurante?: string;
     res_has_pla_platillo_idplatillo?: string;
     baja?: boolean;
+    image?: any;
 }
