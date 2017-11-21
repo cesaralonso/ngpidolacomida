@@ -1,3 +1,5 @@
+import { ConfirmModalComponent } from './../../../../shared/confim-modal/confirm-modal.component';
+import { DialogService } from 'ng2-bootstrap-modal';
 import { ComboInterface } from './../../../../shared/models/combo.model';
 import { ComboService } from './../../../../shared/services/combo.service';
 import { RestaurantePlatilloInterface } from './../../../../shared/models/restaurante-platillo.model';
@@ -28,6 +30,7 @@ export class RestaurantShowComponent implements OnInit {
     private restaurantService: RestaurantService,
     private restaurantePlatilloService: RestaurantePlatilloService,
     private comboService: ComboService,
+    private dialogService: DialogService,
     activatedRoute: ActivatedRoute
   ) {
     activatedRoute.params
@@ -70,7 +73,30 @@ export class RestaurantShowComponent implements OnInit {
         }
       })
   }
-  deleteCombo( comboId ) {
-    // Delete combo
+  deleteCombo( combo ) {
+    this.confirmDelete()
+      .then( ok => {
+        if ( ok )
+          this.comboService.simpleUpdate( combo.idcombo, { baja: true })
+            .subscribe( res =>
+              res.success
+                ? this.removeComboFromArray(combo)
+                : null
+            )
+      })
+  }
+  removeComboFromArray( combo ) {
+    const index = this.misCombos.indexOf( combo )
+    if ( index >= 0 )
+      this.misCombos.splice(index, 1)
+  }
+  confirmDelete(): Promise<Boolean> {
+    return new Promise( resolve => {
+      this.dialogService.addDialog( ConfirmModalComponent, {
+        titulo: 'Eliminar combo de mi restaurante',
+        descripcion: '¿Estás seguro que deseas borrar este combo? Una vez eliminado, ya no podrás recuperarlo.'
+      }).subscribe( ok => ok ? resolve(true) : resolve(false))
+
+    })
   }
 }
